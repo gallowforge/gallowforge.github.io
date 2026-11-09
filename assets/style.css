@@ -646,7 +646,11 @@ ul, ol { list-style: none; }
   --r-card: 20px;
   --card-gap: 14px;
 }
-body { position: relative; isolation: isolate; }
+/* Nothing may widen the page. html keeps its own overflow so body's clip
+   applies to body itself (not the viewport) and cuts every wide glow layer;
+   without this, phones lay the page out wider than the screen and shrink it. */
+html { overflow-x: hidden; }
+body { position: relative; isolation: isolate; overflow-x: hidden; overflow-x: clip; max-width: 100%; }
 h1, h2, h3, h4 { font-weight: 600; }
 
 /* ---------- type ---------- */
@@ -722,7 +726,7 @@ h1, h2, h3, h4 { font-weight: 600; }
 .hero::before {
   content: ""; position: absolute; z-index: -1; pointer-events: none;
   left: 50%; top: -140px; transform: translateX(-50%);
-  width: min(1500px, 160vw); height: 900px;
+  width: min(1500px, 100%); height: 900px;
   background: radial-gradient(closest-side, rgba(110, 140, 230, .14), transparent 75%);
 }
 .hero-scene {
@@ -743,7 +747,7 @@ h1, h2, h3, h4 { font-weight: 600; }
 .section-band, #infra, #web, #media { position: relative; }
 .section-band::before, #infra::before, #web::before, #media::before {
   content: ""; position: absolute; z-index: -1; pointer-events: none;
-  top: -260px; bottom: -260px; left: 50%; width: 100vw; transform: translateX(-50%);
+  top: -260px; bottom: -260px; left: 50%; width: 100vw; max-width: 100vw; transform: translateX(-50%);
 }
 .section-band::before { background: radial-gradient(1100px 620px at 22% 620px, var(--g-ai), transparent 70%); }
 #infra::before { background: radial-gradient(1100px 620px at 16% 620px, var(--g-infra), transparent 70%), radial-gradient(900px 560px at 86% calc(100% - 640px), rgba(52, 196, 140, .05), transparent 70%); }
