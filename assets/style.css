@@ -37,30 +37,6 @@
   color-scheme: dark;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    --bg: #f3eee6;
-    --bg-band: #ece5da;
-    --surface: #fbf8f3;
-    --ink: #1a1612;
-    --body: #3b342c;
-    --muted: #6b6157;
-    --line: #ddd3c5;
-    --line-strong: #c2b4a2;
-    --edge: #988a7a;
-    --accent: #a64a1c;
-    --accent-soft: #a64a1c;
-    --accent-wash: rgba(166, 74, 28, .07);
-    --on-accent: #fff8f1;
-    --frame-fill: rgba(120, 80, 40, .025);
-    --glow: rgba(214, 120, 60, .16);
-    --grain-opacity: .07;
-    --shadow: 0 30px 60px -34px rgba(60, 35, 15, .35);
-    --sail: #b3261e;
-    --ok: #33652b;
-    color-scheme: light;
-  }
-}
 
 /* ---------- Base ---------- */
 *, *::before, *::after { box-sizing: border-box; }
@@ -181,7 +157,6 @@ ul, ol { list-style: none; }
 .btn:hover .i { transform: translateX(2px); }
 .btn-primary { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
 .btn-primary:hover { background: var(--accent-soft); border-color: var(--accent-soft); }
-@media (prefers-color-scheme: light) { .btn-primary:hover { background: #8f3e15; border-color: #8f3e15; } }
 
 .link {
   display: inline-flex; align-items: center; gap: 6px;
