@@ -1,35 +1,41 @@
-/* Ali Husain — portfolio. Hand-written, no build step. */
+/* Ali Husain · portfolio. Hand-written, no build step. Glass theme, matching github.com/gallowforge. */
 
-@font-face { font-family: "Newsreader"; src: url("fonts/newsreader.woff2") format("woff2"); font-style: normal; font-weight: 300 600; font-display: swap; }
-@font-face { font-family: "Newsreader"; src: url("fonts/newsreader-italic.woff2") format("woff2"); font-style: italic; font-weight: 300 500; font-display: swap; }
-@font-face { font-family: "Inter"; src: url("fonts/inter.woff2") format("woff2"); font-style: normal; font-weight: 400 650; font-display: swap; }
+@font-face { font-family: "Geist"; src: url("fonts/geist.woff2") format("woff2"); font-style: normal; font-weight: 100 900; font-display: swap; }
 @font-face { font-family: "JetBrains Mono"; src: url("fonts/jetbrains-mono.woff2") format("woff2"); font-style: normal; font-weight: 400 500; font-display: swap; }
 
 /* ---------- Tokens ---------- */
 :root {
-  --serif: "Newsreader", "Iowan Old Style", Georgia, serif;
-  --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --serif: "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --sans: "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
   --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
 
-  --bg: #15120e;
-  --bg-band: #1a1611;
-  --surface: #1f1a15;
-  --ink: #f2ebe1;
-  --body: #cbc1b4;
-  --muted: #988d80;
-  --line: #2d2720;
-  --line-strong: #4a4036;
-  --edge: #7f7468;
-  --accent: #d4733a;
-  --accent-soft: #e6955f;
-  --accent-wash: rgba(212, 115, 58, .10);
-  --on-accent: #1b120b;
-  --frame-fill: rgba(255, 236, 214, .018);
-  --glow: rgba(212, 115, 58, .12);
-  --grain-opacity: .05;
-  --shadow: 0 30px 60px -30px rgba(0, 0, 0, .6);
-  --sail: #f0675a;
-  --ok: #9cc58a;
+  --bg: #07090d;
+  --bg-band: rgba(14, 18, 26, .55);
+  --surface: rgba(22, 28, 38, .72);
+  --ink: #f4f6fa;
+  --body: #b7c0ce;
+  --muted: #7c8696;
+  --line: rgba(190, 206, 232, .09);
+  --line-strong: rgba(190, 206, 232, .18);
+  --edge: #5e6b82;
+  --accent: #9fb9ff;
+  --accent-soft: #b9cbff;
+  --accent-wash: rgba(150, 180, 255, .08);
+  --on-accent: #07090d;
+  --frame-fill: rgba(200, 220, 255, .02);
+  --glow: rgba(98, 128, 210, .16);
+  --grain-opacity: .55;
+  --shadow: 0 40px 90px -40px rgba(0, 0, 0, .85);
+  --sail: #ff6a5c;
+  --ok: #7fd6a6;
+
+  --glass: linear-gradient(180deg, rgba(255, 255, 255, .058), rgba(255, 255, 255, .018));
+  --glass-edge: rgba(255, 255, 255, .095);
+  --glass-hi: inset 0 1px 0 rgba(255, 255, 255, .09);
+  --g-ai: rgba(92, 132, 255, .13);
+  --g-infra: rgba(52, 196, 140, .11);
+  --g-web: rgba(150, 110, 255, .11);
+  --g-media: rgba(255, 170, 70, .10);
 
   --wrap: 1240px;
   --gutter: clamp(16px, 4vw, 48px);
@@ -43,7 +49,7 @@
 html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-behavior: smooth; }
 body {
   margin: 0;
-  background: radial-gradient(min(980px, 120vw) 820px at 82% -60px, var(--glow), transparent 70%) no-repeat, var(--bg);
+  background: radial-gradient(min(1300px, 140vw) 900px at 50% -120px, var(--glow), transparent 70%) no-repeat, var(--bg);
   color: var(--body);
   font: 400 1.0625rem/1.65 var(--sans);
   font-feature-settings: "ss01", "cv11";
@@ -52,14 +58,25 @@ body {
   text-rendering: optimizeLegibility;
   overflow-x: clip;
 }
-/* paper grain */
+/* deep-space field: soft beams and faint stars, behind everything */
 body::before {
   content: "";
   position: fixed; inset: 0;
   pointer-events: none;
-  z-index: 100;
+  z-index: -1;
   opacity: var(--grain-opacity);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .4 0 0 0 0 .3 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background:
+    radial-gradient(1px 1px at 12% 18%, rgba(255,255,255,.55), transparent 60%),
+    radial-gradient(1px 1px at 72% 9%, rgba(255,255,255,.45), transparent 60%),
+    radial-gradient(1.5px 1.5px at 41% 63%, rgba(200,215,255,.5), transparent 60%),
+    radial-gradient(1px 1px at 88% 47%, rgba(255,255,255,.4), transparent 60%),
+    radial-gradient(1px 1px at 23% 81%, rgba(255,255,255,.35), transparent 60%),
+    radial-gradient(1.5px 1.5px at 63% 88%, rgba(190,210,255,.4), transparent 60%),
+    radial-gradient(1px 1px at 5% 52%, rgba(255,255,255,.3), transparent 60%),
+    radial-gradient(1px 1px at 94% 76%, rgba(255,255,255,.35), transparent 60%),
+    linear-gradient(100deg, transparent 38%, rgba(130,160,230,.045) 46%, transparent 54%),
+    linear-gradient(80deg, transparent 58%, rgba(130,160,230,.03) 64%, transparent 70%);
+  background-size: 640px 640px, 520px 520px, 760px 760px, 580px 580px, 700px 700px, 820px 820px, 900px 900px, 680px 680px, 100% 100%, 100% 100%;
 }
 
 img, svg { display: block; max-width: 100%; }
@@ -608,4 +625,122 @@ ul, ol { list-style: none; }
   .af-step { padding: 4px 8px; font-size: .66rem; letter-spacing: .04em; }
   .skills > div { grid-template-columns: 1fr; gap: 4px; }
   .colophon { flex-direction: column; }
+}
+
+
+/* =====================================================================
+   Glass layer: the same language as github.com/gallowforge
+   (Geist, deep space, frosted panels, one colour of light per discipline)
+   ===================================================================== */
+body { position: relative; isolation: isolate; font-feature-settings: "ss01"; }
+h1, h2, h3, h4 { font-weight: 600; }
+
+/* type: Geist, tight and bold where the serif used to be light */
+.hero-name { font-weight: 700; letter-spacing: -.055em; line-height: .88; font-variation-settings: normal; margin-left: -.04em;
+  background: linear-gradient(180deg, #ffffff 30%, #c9d3e6 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hero-role em { font-style: normal; font-weight: 500; letter-spacing: -.025em; color: var(--ink); }
+.sec-head h2, .title-lg, .contact-h { font-weight: 650; letter-spacing: -.04em; font-variation-settings: normal; }
+.work-sum, .next, .spec-note, .loop-n, .agent-n span, .fig-unit, .contact-mail, .slots dd { font-style: normal; }
+.work-sum { font-weight: 500; letter-spacing: -.025em; }
+.w-name, .areas h3, .role-t, .loop h3, .agent-h, .idx-main h3, .facts b { font-weight: 600; letter-spacing: -.025em; }
+.w-num, .fig-n, .agent-n, .idx-stat span, .work-total .w-num { font-weight: 300; letter-spacing: -.04em; font-variation-settings: normal; }
+.loop-n { font-weight: 300; color: var(--accent); }
+.slots dd { font-weight: 400; font-size: 1rem; letter-spacing: -.005em; line-height: 1.6; }
+.contact-mail { font-weight: 500; letter-spacing: -.035em; color: var(--ink); border-bottom-color: var(--line-strong); }
+.contact-mail:hover { color: var(--accent-soft); }
+.foundations li { font-weight: 500; font-size: clamp(1rem, 1.2vw, 1.12rem); letter-spacing: -.015em; }
+.spec-note { font-weight: 450; }
+
+/* hero: the floating-glass scene from the profile, melting into the page */
+.hero { overflow: visible; }
+.hero::before {
+  content: ""; position: absolute; z-index: -1; pointer-events: none;
+  left: 50%; top: -140px; transform: translateX(-50%);
+  width: min(1500px, 160vw); height: 900px;
+  background: radial-gradient(closest-side, rgba(110, 140, 230, .14), transparent 75%);
+}
+.hero-scene {
+  margin: clamp(48px, 6vw, 88px) calc(-1 * var(--gutter)) 0;
+  -webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 55%, transparent 100%);
+  mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 55%, transparent 100%);
+}
+.hero-scene img { width: 100%; }
+.hero-facts { border-left: 0; padding: 22px 26px; }
+
+/* frosted panels */
+.hero-facts, .diagram, .specimen, .agent-grid, .term, .areas li, .roles, .facts, .work-table, .ledger > div, .skills, .index > li {
+  -webkit-backdrop-filter: blur(18px) saturate(140%); backdrop-filter: blur(18px) saturate(140%);
+}
+.hero-facts, .diagram, .specimen, .agent-grid, .work-table {
+  background: var(--glass); border: 1px solid var(--glass-edge); border-radius: 22px; box-shadow: var(--glass-hi), var(--shadow);
+}
+.term { background: rgba(6, 9, 14, .72); border-color: var(--glass-edge); box-shadow: var(--glass-hi); border-radius: 14px; }
+.agent-grid { background: var(--glass-edge); gap: 1px; }
+.agent-case { background: rgba(11, 15, 22, .86); }
+.agent-case-lg { background: rgba(16, 21, 31, .9); }
+
+/* selected work: one glass table */
+.work-table { padding: 10px clamp(18px, 2.4vw, 30px) 18px; }
+.work-cols { border-bottom-color: var(--line-strong); padding-top: 14px; }
+.work-list li { transition: background-color .25s ease; }
+.work-list li:hover { background: rgba(255, 255, 255, .025); }
+.work-total { border-top: 1px solid var(--line-strong); }
+
+/* areas: a grid of glass cards */
+.areas { gap: 14px; border-top: 0; }
+.areas li:nth-child(n) {
+  padding: 28px 26px 26px; border: 1px solid var(--glass-edge); border-radius: 20px;
+  background: var(--glass); box-shadow: var(--glass-hi);
+  transition: border-color .3s ease, transform .3s ease, background-color .3s ease;
+}
+.areas li:nth-child(n)::before { left: 26px; top: -1px; }
+.areas li:hover { border-color: rgba(185, 203, 255, .25); transform: translateY(-2px); }
+
+/* roles index: a glass bar */
+.roles { border: 1px solid var(--glass-edge); border-radius: 20px; background: var(--glass); box-shadow: var(--glass-hi); overflow: hidden; }
+.roles li:first-child a, .roles a { padding-left: 24px; }
+.roles li:first-child a:hover, .roles a:hover { background: var(--accent-wash); }
+
+/* images float like the profile's windows */
+.project-shot img { border-radius: 22px; box-shadow: 0 0 0 1px var(--glass-edge), 0 50px 100px -40px rgba(0, 0, 0, .9), 0 0 120px -30px var(--glow); }
+
+/* one colour of light per discipline, like the profile panels */
+.section-band, #infra, #web, #media { position: relative; }
+.section-band { background: rgba(8, 11, 17, .45); border-color: var(--line); }
+.section-band::before, #infra::before, #web::before, #media::before {
+  content: ""; position: absolute; z-index: -1; pointer-events: none; top: 0; bottom: 0; left: 50%; width: 100vw; transform: translateX(-50%);
+}
+.section-band::before { background: radial-gradient(1100px 700px at 22% 14%, var(--g-ai), transparent 70%); }
+#infra::before { background: radial-gradient(1100px 800px at 18% 12%, var(--g-infra), transparent 70%), radial-gradient(900px 700px at 85% 72%, rgba(52, 196, 140, .05), transparent 70%); }
+#web::before { background: radial-gradient(1100px 800px at 80% 10%, var(--g-web), transparent 70%), radial-gradient(900px 700px at 14% 76%, rgba(150, 110, 255, .05), transparent 70%); }
+#media::before { background: radial-gradient(1100px 800px at 20% 8%, var(--g-media), transparent 70%), radial-gradient(900px 700px at 84% 72%, rgba(255, 170, 70, .045), transparent 70%); }
+#infra .sec-no, #infra .role-meta span, #infra .ledger dt, #infra .diagram figcaption span { color: #7fe0b4; }
+#web .sec-no, #web .role-meta span, #web .idx { color: #c4b2ff; }
+#media .sec-no, #media .role-meta span, #media .slots dt, #media .order-list li::before, #media .specimen figcaption span { color: #ffc387; }
+#media .spec-note { border-left-color: #ffb066; }
+
+/* buttons: white primary, frosted secondary (visionOS) */
+.btn { background: rgba(255, 255, 255, .05); border-color: var(--glass-edge); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); box-shadow: var(--glass-hi); }
+.btn:hover { border-color: rgba(255, 255, 255, .3); background: rgba(255, 255, 255, .08); }
+.btn-primary { background: #f4f6fa; border-color: #f4f6fa; color: #07090d; box-shadow: 0 10px 40px -12px rgba(160, 190, 255, .55); }
+.btn-primary:hover { background: #ffffff; border-color: #ffffff; }
+.link { color: var(--accent-soft); }
+.af-done { color: #07090d; background: #f4f6fa; border-color: #f4f6fa; }
+.af-dots i { background: var(--accent); }
+
+/* masthead and contact */
+.brand-mark rect { fill: rgba(255, 255, 255, .06); stroke: var(--glass-edge); }
+.contact { border-top: 0; }
+.contact::before { top: auto; bottom: 0; height: 640px; background: radial-gradient(ellipse 50% 100% at 50% 100%, rgba(110, 140, 230, .17), transparent 72%); }
+.colophon { border-top-color: var(--line); }
+::selection { background: rgba(160, 185, 255, .35); color: #fff; }
+
+@media (max-width: 1080px) {
+  .areas li:nth-child(n) { padding: 24px 22px 22px; }
+}
+@media (max-width: 560px) {
+  .areas li:nth-child(n) { padding: 22px 20px 20px; }
+  .hero-facts { padding: 16px 18px; }
+  .work-table { padding: 4px 14px 14px; border-radius: 18px; }
+  .hero-scene { margin-inline: calc(-1 * var(--gutter)); -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 14%, #000 82%, transparent 100%); mask-image: linear-gradient(180deg, transparent 0, #000 14%, #000 82%, transparent 100%); }
 }
