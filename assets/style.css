@@ -344,7 +344,7 @@ ul, ol { list-style: none; }
 .project-flip { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); }
 .project-flip .project-shot { order: 2; margin-left: 0; }
 #cockpit { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); }
-#evalbench { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+#evalbench, #ethereal { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
 #ledger { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); }
 .project-body > p:not(.eyebrow):not(.byline):not(.stack):not(.links) { margin-top: 22px; font-size: 1.04rem; }
 .facts { display: grid; grid-template-columns: 1fr 1fr; gap: 0 28px; margin: 28px 0; border-top: 1px solid var(--line); }
@@ -568,7 +568,7 @@ ul, ol { list-style: none; }
   .work-total { align-items: flex-end; padding-left: calc(2.4rem + 14px); padding-right: calc(1.25rem + 14px); }
   .work-total .t-label { max-width: 15em; }
   .project-flip .project-shot { order: 0; }
-  #cockpit, #evalbench, #ledger { grid-template-columns: 1fr; }
+  #cockpit, #evalbench, #ledger, #ethereal { grid-template-columns: 1fr; }
   .spec-grid { grid-template-columns: 1fr; }
   .ledger { grid-template-columns: 1fr 1fr; }
   .project { grid-template-columns: 1fr; }
