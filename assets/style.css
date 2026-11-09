@@ -629,30 +629,96 @@ ul, ol { list-style: none; }
 
 
 /* =====================================================================
-   Glass layer: the same language as github.com/gallowforge
-   (Geist, deep space, frosted panels, one colour of light per discipline)
+   Glass layer: the same language as github.com/gallowforge.
+   One system, applied everywhere:
+   - .panel look: every grouped block (tables, diagrams, toolbox, facts, contact)
+   - .card look: every item in a grid of items (expertise, steps, facts, stages)
+   Glass is drawn with gradients and edges only (no backdrop blur), so it
+   stays smooth on phones.
    ===================================================================== */
-body { position: relative; isolation: isolate; font-feature-settings: "ss01"; }
+:root {
+  --glass-fill: linear-gradient(180deg, rgba(255, 255, 255, .055), rgba(255, 255, 255, .018)), rgba(11, 15, 22, .62);
+  --glass-edge: rgba(255, 255, 255, .085);
+  --glass-edge-hi: rgba(196, 212, 255, .24);
+  --glass-shine: inset 0 1px 0 rgba(255, 255, 255, .085);
+  --glass-drop: 0 30px 70px -40px rgba(0, 0, 0, .9);
+  --r-panel: 24px;
+  --r-card: 20px;
+  --card-gap: 14px;
+}
+body { position: relative; isolation: isolate; }
 h1, h2, h3, h4 { font-weight: 600; }
 
-/* type: Geist, tight and bold where the serif used to be light */
-.hero-name { font-weight: 700; letter-spacing: -.055em; line-height: .88; font-variation-settings: normal; margin-left: -.04em;
-  background: linear-gradient(180deg, #ffffff 30%, #c9d3e6 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+/* ---------- type ---------- */
+.hero-name { font-weight: 700; letter-spacing: -.055em; line-height: .9; font-variation-settings: normal; margin-left: -.04em;
+  background: linear-gradient(180deg, #ffffff 30%, #c9d3e6 100%); -webkit-background-clip: text; background-clip: text; color: transparent; padding-bottom: .04em; }
 .hero-role em { font-style: normal; font-weight: 500; letter-spacing: -.025em; color: var(--ink); }
 .sec-head h2, .title-lg, .contact-h { font-weight: 650; letter-spacing: -.04em; font-variation-settings: normal; }
 .work-sum, .next, .spec-note, .loop-n, .agent-n span, .fig-unit, .contact-mail, .slots dd { font-style: normal; }
 .work-sum { font-weight: 500; letter-spacing: -.025em; }
-.w-name, .areas h3, .role-t, .loop h3, .agent-h, .idx-main h3, .facts b { font-weight: 600; letter-spacing: -.025em; }
+.w-name, .areas h3, .role-t, .loop h3, .agent-h, .idx-main h3, .facts b, .also h3 { font-weight: 600; letter-spacing: -.025em; }
 .w-num, .fig-n, .agent-n, .idx-stat span, .work-total .w-num { font-weight: 300; letter-spacing: -.04em; font-variation-settings: normal; }
 .loop-n { font-weight: 300; color: var(--accent); }
 .slots dd { font-weight: 400; font-size: 1rem; letter-spacing: -.005em; line-height: 1.6; }
 .contact-mail { font-weight: 500; letter-spacing: -.035em; color: var(--ink); border-bottom-color: var(--line-strong); }
 .contact-mail:hover { color: var(--accent-soft); }
-.foundations li { font-weight: 500; font-size: clamp(1rem, 1.2vw, 1.12rem); letter-spacing: -.015em; }
+.foundations li { font-weight: 500; font-size: clamp(1rem, 1.2vw, 1.1rem); letter-spacing: -.015em; }
 .spec-note { font-weight: 450; }
 
-/* hero: the floating-glass scene from the profile, melting into the page */
-.hero { overflow: visible; }
+/* ---------- the two glass looks ---------- */
+.hero-facts, .work-table, .diagram, .specimen, .agent-grid, .roles, .skills, .foundations, .facts, .edu, .contact-card,
+.areas > li, .loop > li, .ledger > div, .index > li, .also-4 > div {
+  background: var(--glass-fill);
+  border: 1px solid var(--glass-edge);
+  box-shadow: var(--glass-shine), var(--glass-drop);
+}
+.hero-facts, .work-table, .diagram, .specimen, .agent-grid, .roles, .skills, .foundations, .facts, .edu, .contact-card { border-radius: var(--r-panel); }
+.areas > li, .loop > li, .ledger > div, .index > li, .also-4 > div { border-radius: var(--r-card); transition: border-color .3s ease, transform .3s ease; }
+.areas > li:hover, .loop > li:hover, .ledger > div:hover, .index > li:hover, .also-4 > div:hover { border-color: var(--glass-edge-hi); transform: translateY(-2px); }
+.term { background: rgba(5, 8, 12, .78); border: 1px solid var(--glass-edge); box-shadow: var(--glass-shine); border-radius: 14px; }
+
+/* ---------- panels: padding and inner dividers ---------- */
+.hero-facts { border-left: 1px solid var(--glass-edge); padding: 8px 26px; align-self: start; }
+.hero-facts > div:first-child { padding-top: 14px; }
+.work-table { padding: 8px clamp(18px, 2.4vw, 30px) 18px; }
+.work-cols { padding-top: 14px; border-bottom-color: var(--line-strong); }
+.work-list li:hover { background: rgba(255, 255, 255, .02); }
+.work-total { border-top: 1px solid var(--line-strong); }
+.agent-grid { background: var(--glass-edge); gap: 1px; overflow: hidden; }
+.agent-case { background: rgba(10, 14, 21, .92); }
+.agent-case-lg { background: rgba(15, 20, 30, .94); }
+.roles { overflow: hidden; border-bottom: 1px solid var(--glass-edge); }
+.roles li:first-child a, .roles a { padding-left: 24px; padding-right: 22px; }
+.roles li:first-child a:hover, .roles a:hover { background: var(--accent-wash); }
+.skills { padding: 6px clamp(20px, 2.6vw, 32px); }
+.skills > div:first-child { border-top: 0; }
+.skills > div:last-child { border-bottom: 0; }
+.edu { padding: 26px 28px; }
+.foundations { padding: clamp(24px, 3vw, 36px); border-top: 1px solid var(--glass-edge); }
+.foundations li:last-child { border-bottom: 0; }
+.facts { padding: 0 22px; margin: 28px 0; border-top: 1px solid var(--glass-edge); gap: 0 24px; }
+.facts li { border-bottom: 1px solid var(--line); }
+.facts li:nth-last-child(-n+2) { border-bottom: 0; }
+
+/* ---------- card grids ---------- */
+.areas { gap: var(--card-gap); border-top: 0; }
+.areas > li, .areas > li:nth-child(n) { padding: 28px 26px 26px; border-left: 1px solid var(--glass-edge); }
+.areas > li::before, .areas > li:nth-child(n)::before { display: none; }
+
+.loop { gap: var(--card-gap); }
+.loop > li { padding: 28px 28px 30px; border-top: 1px solid var(--glass-edge); }
+.loop > li::before { top: 28px; left: auto; right: 28px; width: 8px; height: 8px; background: var(--accent); box-shadow: 0 0 14px 2px rgba(159, 185, 255, .55); }
+
+.ledger { gap: var(--card-gap); }
+.ledger > div { padding: 24px 24px 26px; border-top: 1px solid var(--glass-edge); }
+
+.index { display: grid; gap: var(--card-gap); border-top: 0; }
+.index > li { padding: clamp(24px, 3vw, 36px); border-bottom: 1px solid var(--glass-edge); }
+
+.also-4 { border-top: 0; gap: var(--card-gap); align-items: stretch; }
+.also-4 > div { padding: 24px 24px 26px; }
+
+/* ---------- hero scene ---------- */
 .hero::before {
   content: ""; position: absolute; z-index: -1; pointer-events: none;
   left: 50%; top: -140px; transform: translateX(-50%);
@@ -664,83 +730,95 @@ h1, h2, h3, h4 { font-weight: 600; }
   -webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 55%, transparent 100%);
   mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 55%, transparent 100%);
 }
+.hero-scene picture { display: block; }
 .hero-scene img { width: 100%; }
-.hero-facts { border-left: 0; padding: 22px 26px; }
 
-/* frosted panels */
-.hero-facts, .diagram, .specimen, .agent-grid, .term, .areas li, .roles, .facts, .work-table, .ledger > div, .skills, .index > li {
-  -webkit-backdrop-filter: blur(18px) saturate(140%); backdrop-filter: blur(18px) saturate(140%);
-}
-.hero-facts, .diagram, .specimen, .agent-grid, .work-table {
-  background: var(--glass); border: 1px solid var(--glass-edge); border-radius: 22px; box-shadow: var(--glass-hi), var(--shadow);
-}
-.term { background: rgba(6, 9, 14, .72); border-color: var(--glass-edge); box-shadow: var(--glass-hi); border-radius: 14px; }
-.agent-grid { background: var(--glass-edge); gap: 1px; }
-.agent-case { background: rgba(11, 15, 22, .86); }
-.agent-case-lg { background: rgba(16, 21, 31, .9); }
-
-/* selected work: one glass table */
-.work-table { padding: 10px clamp(18px, 2.4vw, 30px) 18px; }
-.work-cols { border-bottom-color: var(--line-strong); padding-top: 14px; }
-.work-list li { transition: background-color .25s ease; }
-.work-list li:hover { background: rgba(255, 255, 255, .025); }
-.work-total { border-top: 1px solid var(--line-strong); }
-
-/* areas: a grid of glass cards */
-.areas { gap: 14px; border-top: 0; }
-.areas li:nth-child(n) {
-  padding: 28px 26px 26px; border: 1px solid var(--glass-edge); border-radius: 20px;
-  background: var(--glass); box-shadow: var(--glass-hi);
-  transition: border-color .3s ease, transform .3s ease, background-color .3s ease;
-}
-.areas li:nth-child(n)::before { left: 26px; top: -1px; }
-.areas li:hover { border-color: rgba(185, 203, 255, .25); transform: translateY(-2px); }
-
-/* roles index: a glass bar */
-.roles { border: 1px solid var(--glass-edge); border-radius: 20px; background: var(--glass); box-shadow: var(--glass-hi); overflow: hidden; }
-.roles li:first-child a, .roles a { padding-left: 24px; }
-.roles li:first-child a:hover, .roles a:hover { background: var(--accent-wash); }
-
-/* images float like the profile's windows */
+/* ---------- images float like the profile's windows ---------- */
 .project-shot img { border-radius: 22px; box-shadow: 0 0 0 1px var(--glass-edge), 0 50px 100px -40px rgba(0, 0, 0, .9), 0 0 120px -30px var(--glow); }
 
-/* one colour of light per discipline, like the profile panels */
+/* ---------- one colour of light per discipline ----------
+   The glow layers reach past each section and fade out well before
+   their own edges, so no section ever shows a hard line. */
+.section-band { background: none; border: 0; }
 .section-band, #infra, #web, #media { position: relative; }
-.section-band { background: rgba(8, 11, 17, .45); border-color: var(--line); }
 .section-band::before, #infra::before, #web::before, #media::before {
-  content: ""; position: absolute; z-index: -1; pointer-events: none; top: 0; bottom: 0; left: 50%; width: 100vw; transform: translateX(-50%);
+  content: ""; position: absolute; z-index: -1; pointer-events: none;
+  top: -260px; bottom: -260px; left: 50%; width: 100vw; transform: translateX(-50%);
 }
-.section-band::before { background: radial-gradient(1100px 700px at 22% 14%, var(--g-ai), transparent 70%); }
-#infra::before { background: radial-gradient(1100px 800px at 18% 12%, var(--g-infra), transparent 70%), radial-gradient(900px 700px at 85% 72%, rgba(52, 196, 140, .05), transparent 70%); }
-#web::before { background: radial-gradient(1100px 800px at 80% 10%, var(--g-web), transparent 70%), radial-gradient(900px 700px at 14% 76%, rgba(150, 110, 255, .05), transparent 70%); }
-#media::before { background: radial-gradient(1100px 800px at 20% 8%, var(--g-media), transparent 70%), radial-gradient(900px 700px at 84% 72%, rgba(255, 170, 70, .045), transparent 70%); }
+.section-band::before { background: radial-gradient(1100px 620px at 22% 620px, var(--g-ai), transparent 70%); }
+#infra::before { background: radial-gradient(1100px 620px at 16% 620px, var(--g-infra), transparent 70%), radial-gradient(900px 560px at 86% calc(100% - 640px), rgba(52, 196, 140, .05), transparent 70%); }
+#web::before { background: radial-gradient(1100px 620px at 82% 620px, var(--g-web), transparent 70%), radial-gradient(900px 560px at 14% calc(100% - 640px), rgba(150, 110, 255, .05), transparent 70%); }
+#media::before { background: radial-gradient(1100px 620px at 18% 620px, var(--g-media), transparent 70%), radial-gradient(900px 560px at 84% calc(100% - 640px), rgba(255, 170, 70, .045), transparent 70%); }
 #infra .sec-no, #infra .role-meta span, #infra .ledger dt, #infra .diagram figcaption span { color: #7fe0b4; }
 #web .sec-no, #web .role-meta span, #web .idx { color: #c4b2ff; }
-#media .sec-no, #media .role-meta span, #media .slots dt, #media .order-list li::before, #media .specimen figcaption span { color: #ffc387; }
+#media .sec-no, #media .role-meta span, #media .ledger dt, #media .slots dt, #media .order-list li::before, #media .specimen figcaption span { color: #ffc387; }
 #media .spec-note { border-left-color: #ffb066; }
 
-/* buttons: white primary, frosted secondary (visionOS) */
-.btn { background: rgba(255, 255, 255, .05); border-color: var(--glass-edge); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); box-shadow: var(--glass-hi); }
+/* ---------- buttons and links (visionOS) ---------- */
+.btn { background: rgba(255, 255, 255, .05); border-color: var(--glass-edge); box-shadow: var(--glass-shine); }
 .btn:hover { border-color: rgba(255, 255, 255, .3); background: rgba(255, 255, 255, .08); }
 .btn-primary { background: #f4f6fa; border-color: #f4f6fa; color: #07090d; box-shadow: 0 10px 40px -12px rgba(160, 190, 255, .55); }
 .btn-primary:hover { background: #ffffff; border-color: #ffffff; }
 .link { color: var(--accent-soft); }
 .af-done { color: #07090d; background: #f4f6fa; border-color: #f4f6fa; }
-.af-dots i { background: var(--accent); }
 
-/* masthead and contact */
+/* ---------- masthead and contact ---------- */
 .brand-mark rect { fill: rgba(255, 255, 255, .06); stroke: var(--glass-edge); }
-.contact { border-top: 0; }
-.contact::before { top: auto; bottom: 0; height: 640px; background: radial-gradient(ellipse 50% 100% at 50% 100%, rgba(110, 140, 230, .17), transparent 72%); }
+.contact { border-top: 0; overflow: visible; }
+.contact::before { display: none; }
+.contact-card { position: relative; overflow: hidden; padding: clamp(28px, 5vw, 64px); }
+.contact-card::after {
+  content: ""; position: absolute; z-index: -1; pointer-events: none; inset: auto -10% -60% -10%; height: 120%;
+  background: radial-gradient(ellipse 50% 50% at 50% 100%, rgba(110, 140, 230, .22), transparent 72%);
+}
+.contact-card { isolation: isolate; }
 .colophon { border-top-color: var(--line); }
 ::selection { background: rgba(160, 185, 255, .35); color: #fff; }
 
+/* ---------- one alignment rule ----------
+   Headings and running text sit in the text column; every glass block
+   spans the full content width, so all panels share the same edges. */
+.roles, .loop, .agent-grid, .profile { margin-left: 0; }
+.feature .ledger { margin-left: calc(-1 * (120px + 24px)); }
+.profile { display: block; }
+.skills { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(28px, 4vw, 56px); padding: 6px clamp(22px, 3vw, 36px); }
+.skills > div, .skills > div:last-child { border-top: 1px solid var(--line); border-bottom: 0; }
+.skills > div:nth-child(-n+2) { border-top: 0; }
+.also-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.also-4 > .also-h { grid-column: 1 / -1; padding: 0; margin-bottom: -2px; }
+.foundations .found-note { margin-top: 22px; }
+.found-learn { margin-top: 10px; max-width: 46em; font-size: .9rem; line-height: 1.6; color: var(--body); }
+.found-learn .mono { display: inline-block; margin-right: 10px; font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+
+/* ---------- responsive ---------- */
 @media (max-width: 1080px) {
-  .areas li:nth-child(n) { padding: 24px 22px 22px; }
+  .feature .ledger { margin-left: 0; }
+  .also-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 820px) {
+  .hero-facts { padding: 4px 20px; border-top: 1px solid var(--glass-edge); }
+  .work-total { display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 16px; padding-left: 0; padding-right: 0; }
+  .work-total .t-label { max-width: none; }
+  .loop { gap: var(--card-gap); }
+  .skills { grid-template-columns: 1fr; }
+  .skills > div:nth-child(2) { border-top: 1px solid var(--line); }
+}
+@media (max-width: 700px) {
+  /* bigger, sharper scene on phones: crop to the centre windows */
+  .hero-scene { margin: 36px calc(-1 * var(--gutter)) 0; overflow: hidden;
+    -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 12%, #000 84%, transparent 100%); mask-image: linear-gradient(180deg, transparent 0, #000 12%, #000 84%, transparent 100%); }
+  .hero-scene picture { width: 132%; margin-left: -15%; }
 }
 @media (max-width: 560px) {
-  .areas li:nth-child(n) { padding: 22px 20px 20px; }
-  .hero-facts { padding: 16px 18px; }
-  .work-table { padding: 4px 14px 14px; border-radius: 18px; }
-  .hero-scene { margin-inline: calc(-1 * var(--gutter)); -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 14%, #000 82%, transparent 100%); mask-image: linear-gradient(180deg, transparent 0, #000 14%, #000 82%, transparent 100%); }
+  :root { --card-gap: 12px; --r-panel: 20px; --r-card: 18px; }
+  .areas > li, .areas > li:nth-child(n) { padding: 22px 20px 20px; }
+  .loop > li, .ledger > div, .also-4 > div { padding: 22px 20px 22px; }
+  .loop > li::before { top: 24px; right: 20px; }
+  .index > li { padding: 22px 20px; }
+  .work-table { padding: 2px 14px 14px; }
+  .skills { padding: 2px 18px; }
+  .foundations, .edu { padding: 22px 20px; }
+  .facts { padding: 0 16px; gap: 0 16px; }
+  .contact-card { padding: 28px 20px 26px; }
+  .also-4 { grid-template-columns: 1fr; }
 }
