@@ -82,7 +82,7 @@
   <figure class="hero-scene" data-reveal>
     <picture>
       <source media="(max-width: 700px)" srcset="assets/img/glass-scene-poster.webp">
-      <img src="assets/img/glass-scene.webp" width="1600" height="790" decoding="async" fetchpriority="high" alt="Ali\'s own work as floating glass windows on synthetic demo data: Ethereal, Ledger, Cockpit, Evalbench and the filmforge method in an arc, with a homelab restore test and an agent guardrail warning in front">
+      <img src="assets/img/glass-scene.webp" width="1600" height="790" decoding="async" fetchpriority="high" alt="Ali\'s own work as floating glass windows on synthetic demo data: Ethereal, Ledger, Vesper, Evalbench and the filmforge method in an arc, with a homelab restore test and an agent guardrail warning in front">
     </picture>
   </figure>
 </section>
@@ -123,11 +123,11 @@
       </li>
       <li>
         <span class="w-n mono">04</span>
-        <a class="w-name" href="#cockpit">Cockpit</a>
+        <a class="w-name" href="#vesper">Vesper</a>
         <span class="w-desc">A read-only operations dashboard in one 8&nbsp;MB Go binary</span>
         <span class="w-kind mono">Self-hosted</span>
-        <span class="w-tests"><span class="w-num">113</span><span class="sr-only"> automated tests</span></span>
-        <a class="w-src" href="https://github.com/gallowforge/cockpit" aria-label="Cockpit source on GitHub"><svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
+        <span class="w-tests"><span class="w-num">137</span><span class="sr-only"> automated tests</span></span>
+        <a class="w-src" href="https://github.com/gallowforge/vesper" aria-label="Vesper source on GitHub"><svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
       </li>
       <li>
         <span class="w-n mono">05</span>
@@ -170,7 +170,7 @@
         <a class="w-src" href="https://github.com/gallowforge/bwtidy" aria-label="bwtidy source on GitHub"><svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
       </li>
     </ol>
-    <p class="work-total"><span class="t-label">Automated tests across the nine, run on every change</span><span class="w-num">1,257</span></p>
+    <p class="work-total"><span class="t-label">Automated tests across the nine, run on every change</span><span class="w-num">1,281</span></p>
   </div>
 </section>
 
@@ -564,26 +564,26 @@
     </div>
   </article>
 
-  <article id="cockpit" class="project project-flip" aria-labelledby="ck-h">
+  <article id="vesper" class="project project-flip" aria-labelledby="ck-h">
     <figure class="project-shot" data-reveal>
-      <a href="https://github.com/gallowforge/cockpit" tabindex="-1">
-        <img src="assets/img/cockpit-hero.webp" width="1262" height="780" loading="lazy" decoding="async" alt="Cockpit on synthetic demo data: a calm night-blue horizon reading All systems normal, level flight, nothing needs you; four host gauges, eight status lamps all dark, a while-you-were-away line, and the services and backups lists.">
+      <a href="https://github.com/gallowforge/vesper" tabindex="-1">
+        <img src="assets/img/vesper-hero.webp" width="1600" height="752" loading="lazy" decoding="async" alt="Vesper on synthetic demo data: the Overview saying Nothing needs you, with the checks behind it, the last 24 hours of every service in quarter hours, four key figures and the services table, and the same page on a phone.">
       </a>
     </figure>
     <div class="project-body" data-reveal>
       <p class="eyebrow mono">In production · open source</p>
-      <h3 id="ck-h" class="title-lg">Cockpit</h3>
-      <p class="byline">A read-only flight deck for the platform above</p>
-      <p>One Go binary reads what the platform's scripts already record (service health, verified backups, restore drills, alerts, timers and config drift) and shows it on one calm screen that lights up only when something needs you. A collector that can only read and a web process with no network of its own keep it read-only by construction.</p>
+      <h3 id="ck-h" class="title-lg">Vesper</h3>
+      <p class="byline">A read-only operations dashboard for the platform above</p>
+      <p>One Go binary reads what the platform's scripts already record (service health, verified backups, restore drills, alerts, jobs and config drift) and answers one question on a phone or a desktop: does anything need you? It keeps a real 24-hour history of every service, and when it cannot confirm something it says so instead of showing an all-clear. A collector that can only read and a web process with no network of its own keep it read-only by construction.</p>
       <ul class="facts">
         <li><b>8 MB</b> one binary with the interface inside</li>
         <li><b>27 MB</b> of memory on a Raspberry&nbsp;Pi&nbsp;5</li>
-        <li><b>113</b> tests, with 33 end-to-end checks under real systemd</li>
+        <li><b>137</b> tests, with 34 end-to-end checks under real systemd</li>
         <li><b>0</b> third-party Go dependencies</li>
       </ul>
       <p class="stack mono">Go standard library · TypeScript · Preact · <span class="nw">Server-Sent Events</span> · systemd sandboxing</p>
       <p class="links">
-        <a class="link" href="https://github.com/gallowforge/cockpit">Source and demo image <svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
+        <a class="link" href="https://github.com/gallowforge/vesper">Source and demo image <svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
       </p>
     </div>
   </article>
@@ -828,7 +828,7 @@ credits 70.00, reserve 5% <span class="nw">-&gt; spendable</span> 66.50; spent s
     </div>
     <div>
       <h3>Learn by shipping</h3>
-      <p>Go for Cockpit, rating statistics for Evalbench, PDF table parsing for Ledger: each learned by building something real.</p>
+      <p>Go for Vesper, rating statistics for Evalbench, PDF table parsing for Ledger: each learned by building something real.</p>
     </div>
   </div>
 </section>
