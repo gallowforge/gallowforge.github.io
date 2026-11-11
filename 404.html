@@ -2,22 +2,40 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Not found · Ali Husain</title>
 <meta name="robots" content="noindex">
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#07090c">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <script>
   // Ledger was renamed Ballast: send every old address (/ledger/home/, /ledger/about/, ...) to the same page there.
   if (/^\/ledger(\/|$)/.test(location.pathname))
     location.replace('/ballast/' + location.pathname.replace(/^\/ledger\/?/, '') + location.search + location.hash);
+  // The page keeps the theme chosen on the portfolio.
+  try { if (localStorage.getItem('portfolio:theme') === 'light') { document.documentElement.setAttribute('data-theme', 'light'); document.querySelector('meta[name="color-scheme"]').content = 'light'; document.querySelector('meta[name="theme-color"]').content = '#f6f7f9'; } } catch (e) {}
 </script>
 <style>
-  body{margin:0;min-height:100vh;display:grid;place-items:center;background:#07090c;color:#f3f5f8;font:16px/1.5 system-ui,sans-serif;padding:0 16px;text-align:center}
-  h1{font-size:28px;font-weight:600;margin:0 0 8px}p{margin:0;color:#b3bcc9}a{color:#f3f5f8}
+  @font-face { font-family: "Geist"; src: url("/assets/fonts/geist.woff2") format("woff2"); font-style: normal; font-weight: 100 900; font-display: swap; }
+  :root { color-scheme: dark; --bg: #07090c; --ink: #f3f5f8; --muted: #818a98; --line: rgba(196, 210, 232, .17); --tint: rgba(196, 210, 232, .06); }
+  :root[data-theme="light"] { color-scheme: light; --bg: #f6f7f9; --ink: #0b0e13; --muted: #5a6370; --line: rgba(16, 24, 40, .2); --tint: rgba(16, 24, 40, .05); }
+  * { box-sizing: border-box; }
+  body { margin: 0; min-height: 100vh; min-height: 100dvh; display: grid; place-items: center; padding: 24px max(20px, env(safe-area-inset-right)) 24px max(20px, env(safe-area-inset-left)); background: var(--bg); color: var(--ink); font: 400 16px/1.5 "Geist", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; -webkit-font-smoothing: antialiased; }
+  main { display: grid; justify-items: start; gap: 22px; max-width: 30rem; }
+  .mark { width: 34px; height: 34px; fill: currentColor; stroke: currentColor; stroke-width: 2.4; stroke-linejoin: round; }
+  h1 { margin: 0; font-size: clamp(34px, 8vw, 52px); line-height: 1.02; letter-spacing: -.04em; font-weight: 620; text-wrap: balance; }
+  h1 span { color: var(--muted); }
+  a { display: inline-flex; align-items: center; gap: 8px; padding: 11px 15px; border: 1px solid var(--line); border-radius: 10px; color: var(--ink); font-weight: 520; text-decoration: none; transition: background .2s; }
+  a:hover { background: var(--tint); }
+  a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+  a svg { width: 14px; height: 14px; fill: none; stroke: var(--muted); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
 </style>
 </head>
 <body>
-<main><h1>This page does not exist</h1><p><a href="/">Back to the portfolio</a></p></main>
+<main>
+  <svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M6.6 14.2H59.8V25.8H27.6Z"/><path d="M30.2 33.2H49.8L59 49.8H21Z"/></svg>
+  <h1>This page does not exist. <span>The rest of the work does.</span></h1>
+  <a href="/"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 5 8l5 5"/></svg>Back to the portfolio</a>
+</main>
 </body>
 </html>
