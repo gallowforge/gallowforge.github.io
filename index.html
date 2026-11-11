@@ -90,7 +90,7 @@
   <div class="wrap">
     <dl class="proof">
       <div><dt>11</dt><dd>public repositories, each one specified, tested, documented and released</dd></div>
-      <div><dt>4,255</dt><dd>automated tests across them, run on every change</dd></div>
+      <div><dt>4,503</dt><dd>automated tests across them, run on every change</dd></div>
       <div><dt>15</dt><dd>self-hosted services in production on a platform I designed and operate</dd></div>
     </dl>
   </div>
@@ -284,12 +284,13 @@
       <div class="room-foot" data-rise>
         <p class="room-body">A firewall's list is what was asked for; the rules the kernel runs are what the server got. Docker publishes a port with rules of its own, and a database answers the whole internet while ufw still reads deny. Seaward reads the rules that are really loaded, follows a packet through them the way the kernel does, and says for every port who can reach it and which rule decides. It only reads: it changes no rule and puts no packet on the network.</p>
         <dl class="figs">
-          <div><dt>964</dt><dd>automated tests, run on every change</dd></div>
-          <div><dt>1,950</dt><dd>real packets sent through the Linux kernel to check it, with no disagreement</dd></div>
-          <div><dt>107</dt><dd>rulesets built inside a real kernel: 67 written, 40 random</dd></div>
+          <div><dt>1,212</dt><dd>automated tests, run on every change</dd></div>
+          <div><dt>2,111</dt><dd>real packets sent through the Linux kernel to check it, with no disagreement</dd></div>
+          <div><dt>121</dt><dd>rulesets built inside a real kernel: 81 written, 40 random</dd></div>
           <div><dt>0</dt><dd>Go dependencies: one static 4&nbsp;MB binary</dd></div>
         </dl>
         <ul class="links">
+          <li><a href="work/seaward/">How it was built <svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></a></li>
           <li><a href="https://gallowforge.github.io/seaward/">Open the live demo <svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></a></li>
           <li><a href="https://github.com/gallowforge/seaward">Source and quickstart <svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></a></li>
           <li class="stack-line">Go standard library · netfilter · WebAssembly · TypeScript · Preact</li>

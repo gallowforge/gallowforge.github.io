@@ -70,9 +70,9 @@
       <div class="room-foot" data-rise>
         <p class="room-body">A firewall's list is what was asked for; the rules the kernel runs are what the server got. Docker publishes a port with rules of its own, and a database answers the whole internet while ufw still reads deny. Seaward reads the rules that are really loaded, follows a packet through them the way the kernel does, and says for every port who can reach it and which rule decides. It only reads: it changes no rule and puts no packet on the network.</p>
         <dl class="figs">
-          <div><dt>964</dt><dd>automated tests, run on every change</dd></div>
-          <div><dt>1,950</dt><dd>real packets sent through the Linux kernel to check it, with no disagreement</dd></div>
-          <div><dt>107</dt><dd>rulesets built inside a real kernel: 67 written, 40 random</dd></div>
+          <div><dt>1,212</dt><dd>automated tests, run on every change</dd></div>
+          <div><dt>2,111</dt><dd>real packets sent through the Linux kernel to check it, with no disagreement</dd></div>
+          <div><dt>121</dt><dd>rulesets built inside a real kernel: 81 written, 40 random</dd></div>
           <div><dt>0</dt><dd>Go dependencies: one static 4&nbsp;MB binary</dd></div>
         </dl>
         <ul class="links">
@@ -83,6 +83,15 @@
       </div>
     </div>
   </article>
+  <section class="wrap case" aria-label="Case study">
+    <div class="case-row" data-rise><h2>Why it exists</h2><div class="case-b"><p>A firewall manager such as ufw lists the ports I allowed. The kernel works from the loaded packet rules, and other programs load rules too.</p><p>Docker publishes a container's port with its own rules, which never pass that list. The manager says closed and the database answers the internet.</p></div></div>
+    <div class="case-row" data-rise><h2>What it does</h2><div class="case-b"><p>Seaward reads the loaded rules, the listeners and Docker's published ports, and says who can reach each port: the internet, the local network, VPN peers or nobody. Ports the manager never allowed come first.</p><p><code>seaward why 5432</code> follows one packet and prints the rule that rewrote its destination and the rule that let it in.</p></div></div>
+    <div class="case-row" data-rise><h2>How it is built</h2><ul class="case-list"><li><h3>A packet walked in kernel order</h3><p>A connection's first packet is taken through the kernel's stages in order, so every verdict is a printable path.</p></li><li><h3>Two listings, settled by rule</h3><p>iptables and nft write into the same kernel tables and neither listing is complete, so each rule is taken from the one that can say it.</p></li><li><h3>Undecided is an answer</h3><p>A condition the model cannot read is followed both ways. If the ends differ, the port is undecided.</p></li><li><h3>It only reads</h3><p>The collector is a fixed list of listing commands, and a snapshot is one text file.</p></li></ul></div>
+    <div class="case-row" data-rise><h2>How I know it works</h2><dl class="case-proof"><div><dt>2,111 packets</dt><dd>The lab loads 81 written rulesets and 40 random ones into the real kernel, in network namespaces (private copies of the network stack), sends real packets and compares. 0 disagreements.</dd></div><div><dt>1,212 tests</dt><dd>1,134 Go test cases with the race detector and 78 for the demo page.</dd></div><div><dt>2 machines</dt><dd>CI turns on ufw on one runner and firewalld on another, publishes a container past each, and checks the answers against real connections.</dd></div></dl></div>
+    <div class="case-row" data-rise><h2>What was hard</h2><div class="case-b"><h3>A scan that stopped silently</h3><p>The first release checked only a capped list, 48 rewritten ports and at most twelve groups of senders (sources the rules treat alike), and said nothing when it stopped: of sixteen addresses let in by sixteen rules it found eleven. It also expected a port and its rewrite in one rule, so a port forwarded behind a jump to another chain was never asked about. Independent reviews found both.</p><p>Now the search follows the packet's path, and a report that reaches a ceiling lists what was not asked. The lab holds the scan itself to the kernel: a port the kernel answers on must be one the scan found.</p></div></div>
+    <div class="case-row" data-rise><h2>Limits</h2><ul class="case-limits"><li>A cloud firewall or router in front of the machine is not seen.</li><li>A scan has rows for TCP and UDP ports only.</li><li>Past 1,024 groups of senders or 4,096 ports the scan stops, lists what was not asked, and <code>--check</code> does not exit 0.</li><li>eBPF, IPVS and IPsec are not modelled, and a port whose packets pass an nftables egress or bridge chain is undecided.</li></ul></div>
+  </section>
+
   <div class="wrap more" data-rise>
     <p class="more-h">Also in Infrastructure</p>
     <ul class="plist">
