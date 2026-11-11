@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Ali Husain · Software engineer and product designer</title>
-<meta name="description" content="I build complete systems, from the interface to the infrastructure: offline-first apps, a fifteen-service platform with proven backups, and tools that evaluate language models.">
+<meta name="description" content="I build complete systems, from the interface to the infrastructure: offline-first apps, a memory that keeps coding agents honest, and a tool that shows what a server exposes.">
 <meta name="author" content="Ali Husain">
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#07090c">
@@ -12,16 +12,16 @@
 <link rel="canonical" href="https://gallowforge.github.io/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Ali Husain · Software engineer and product designer">
-<meta property="og:description" content="I build complete systems, from the interface to the infrastructure: offline-first apps, a fifteen-service platform with proven backups, and tools that evaluate language models.">
+<meta property="og:description" content="I build complete systems, from the interface to the infrastructure: offline-first apps, a memory that keeps coding agents honest, and a tool that shows what a server exposes.">
 <meta property="og:url" content="https://gallowforge.github.io/">
-<meta property="og:image" content="https://gallowforge.github.io/assets/og.png?v=bdabc9eacf">
+<meta property="og:image" content="https://gallowforge.github.io/assets/og.png?v=5c2bb5b35b">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Ali Husain. I build complete systems, from the interface to the infrastructure.">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/style.css?v=e3e967cfe3">
+<link rel="stylesheet" href="assets/style.css?v=70b8ab29c9">
 <noscript><style>.theme-toggle { display: none; }</style></noscript>
 </head>
 <body>
@@ -69,17 +69,21 @@
       <a class="live" href="https://github.com/gallowforge/seaward/releases/tag/v0.1.0"><i aria-hidden="true"></i><span>Latest release</span> Seaward 0.1.0</a>
     </div>
 
-    <div class="scene" aria-hidden="true">
+    <nav class="scene" aria-label="The work, layer by layer">
       <div class="stage">
         <div class="stack" id="stack">
-          <div class="plane p4" data-layer="Infrastructure"><img class="amb" src="assets/img/seaward-glow.webp" alt=""><div class="face"><img src="assets/img/seaward-d.webp" width="1920" height="1440" alt="" decoding="async"></div></div>
-          <div class="plane p3" data-layer="Operations"><div class="face"><img src="assets/img/vesper-d.webp" width="1920" height="1200" alt="" decoding="async"></div></div>
-          <div class="plane p2" data-layer="Intelligence"><img class="amb" src="assets/img/holdfast-glow.webp" alt=""><div class="face"><img src="assets/img/holdfast-d.webp" width="1920" height="1260" alt="" decoding="async"></div></div>
-          <div class="plane p1" data-layer="Interface"><img class="amb" src="assets/img/ballast-glow.webp" alt=""><div class="face"><img src="assets/img/ballast-d.webp" width="1920" height="1096" alt="" fetchpriority="high"></div></div>
-          <div class="plane p0"><div class="face face--phone"><img src="assets/img/ethereal-p.webp" width="600" height="1290" alt="" decoding="async"></div></div>
+          <a class="plane p0 s-ethereal" href="#ethereal" aria-label="Ethereal on a phone, in Interface"><div class="face face--phone"><img class="in-dark" loading="lazy" decoding="async" src="assets/img/ethereal-p.webp?v=ce96d5fe" width="600" height="1290" alt=""><img class="in-light" loading="lazy" decoding="async" src="assets/img/ethereal-p-light.webp?v=2dbd8c44" width="600" height="1290" alt=""></div></a>
+          <a class="plane s-ballast" href="#ballast" aria-label="Ballast, in Interface"><img class="amb" src="assets/img/ballast-glow.webp?v=aa9dd01e" alt=""><span class="tag"><span><b>01</b>Interface</span><small><span class="n-ballast">Ballast</span> · <span class="n-ethereal">Ethereal</span></small></span><div class="face"><img class="in-dark" loading="lazy" decoding="async" src="assets/img/ballast-d.webp?v=55f6a4f7" width="1920" height="1096" alt=""><img class="in-light" loading="lazy" decoding="async" src="assets/img/ballast-d-light.webp?v=4181ab19" width="1920" height="1096" alt=""></div></a>
+          <a class="plane s-ethereal co" href="#ethereal" aria-label="Ethereal, in Interface"><div class="face"><img class="in-dark" loading="lazy" decoding="async" src="assets/img/ethereal-d.webp?v=a19b9d08" width="1920" height="1290" alt=""><img class="in-light" loading="lazy" decoding="async" src="assets/img/ethereal-d-light.webp?v=dd83d4b5" width="1920" height="1290" alt=""></div></a>
+          <a class="plane s-holdfast" href="#holdfast" aria-label="Holdfast, in Intelligence"><img class="amb" src="assets/img/holdfast-glow.webp?v=8fce7fa0" alt=""><span class="tag"><span><b>02</b>Intelligence</span><small><span class="n-holdfast">Holdfast</span> · <span class="n-evalbench">Evalbench</span></small></span><div class="face"><img class="in-dark" loading="lazy" decoding="async" src="assets/img/holdfast-d.webp?v=5f197cbc" width="1920" height="1260" alt=""><img class="in-light" loading="lazy" decoding="async" src="assets/img/holdfast-d-light.webp?v=4537b6cd" width="1920" height="1260" alt=""></div></a>
+          <a class="plane s-evalbench co" href="#evalbench" aria-label="Evalbench, in Intelligence"><div class="face"><img class="in-dark" loading="lazy" decoding="async" src="assets/img/evalbench-d.webp?v=db8e568e" width="1920" height="1260" alt=""><img class="in-light" loading="lazy" decoding="async" src="assets/img/evalbench-d-light.webp?v=0d8f7965" width="1920" height="1260" alt=""></div></a>
+          <a class="plane s-seaward" href="#seaward" aria-label="Seaward, in Infrastructure"><img class="amb" src="assets/img/seaward-glow.webp?v=add169b4" alt=""><span class="tag"><span><b>03</b>Infrastructure</span><small><span class="n-seaward">Seaward</span> · <span class="n-vesper">Vesper</span> · <span class="n-homelab">Homelab</span></small></span><div class="face"><img class="in-dark" loading="lazy" decoding="async" src="assets/img/seaward-d.webp?v=13fa78a9" width="1920" height="1440" alt=""><img class="in-light" loading="lazy" decoding="async" src="assets/img/seaward-d-light.webp?v=4c9517a7" width="1920" height="1440" alt=""></div></a>
+          <a class="plane s-vesper co" href="#vesper" aria-label="Vesper, in Infrastructure"><div class="face"><img class="in-dark" loading="lazy" decoding="async" src="assets/img/vesper-d.webp?v=445ee0ba" width="1920" height="1200" alt=""><img class="in-light" loading="lazy" decoding="async" src="assets/img/vesper-d-light.webp?v=033b2195" width="1920" height="1200" alt=""></div></a>
+          <a class="plane s-homelab co" href="#homelab" aria-label="Homelab, in Infrastructure"><div class="face"><img src="assets/img/term-restore.webp?v=c095a8aa" width="1400" height="842" alt="" decoding="async"></div></a>
+          <a class="plane s-guard" href="#tools" aria-label="agent-guardrails, in Tools"><span class="tag"><span><b>04</b>Tools</span><small><span class="n-guard">agent-guardrails</span> · <span class="n-aih">aih</span> · <span class="n-bwtidy">bwtidy</span> · <span class="n-filmforge">filmforge</span></small></span><div class="face"><img src="assets/img/term-guard.webp?v=50d0d3a4" width="1400" height="919" alt="" decoding="async"></div></a>
         </div>
       </div>
-    </div>
+    </nav>
   </div>
 
   <div class="wrap">
@@ -108,18 +112,18 @@
         </div>
         <p class="room-line">Personal finance that turns savings into a salary that lasts.</p>
       </header>
-      <div class="set set--a" data-rise>
-        <img class="amb" src="assets/img/ballast-glow.webp" alt="" decoding="async">
-        <figure class="win"><img src="assets/img/ballast-d.webp" width="1920" height="1096" decoding="async" alt="Ballast on a desktop: 55.83 USD is safe to spend today, and the road ahead shows 22 salaries left."></figure>
-        <figure class="phone"><img src="assets/img/ballast-p.webp" width="600" height="1298" decoding="async" alt="Ballast on a phone, showing what is safe to spend today."></figure>
-        <figure class="phone phone--m phone--b"><img src="assets/img/ballast-p2.webp" width="600" height="1298" decoding="async" alt="Ballast's runway on a phone: the savings drawn as a road that ends in September 2028."></figure>
+      <div class="set" data-rise>
+        <img class="amb" src="assets/img/ballast-glow.webp?v=aa9dd01e" alt="" decoding="async">
+        <figure class="win"><img class="in-dark" loading="lazy" decoding="async" src="assets/img/ballast-d.webp?v=55f6a4f7" width="1920" height="1096" alt="Ballast on a desktop: 55.83 USD is safe to spend today, and the road ahead shows 22 salaries left."><img class="in-light" loading="lazy" decoding="async" src="assets/img/ballast-d-light.webp?v=4181ab19" width="1920" height="1096" alt="Ballast on a desktop: 55.83 USD is safe to spend today, and the road ahead shows 22 salaries left."></figure>
+        <figure class="phone"><img class="in-dark" loading="lazy" decoding="async" src="assets/img/ballast-p.webp?v=d53c22e2" width="600" height="1298" alt="Ballast on a phone, showing what is safe to spend today."><img class="in-light" loading="lazy" decoding="async" src="assets/img/ballast-p-light.webp?v=07adabf4" width="600" height="1298" alt="Ballast on a phone, showing what is safe to spend today."></figure>
+        <figure class="phone phone--b"><img class="in-dark" loading="lazy" decoding="async" src="assets/img/ballast-p2.webp?v=c00759a5" width="600" height="1298" alt="Ballast's runway on a phone: the savings drawn as a road that ends in September 2028."><img class="in-light" loading="lazy" decoding="async" src="assets/img/ballast-p2-light.webp?v=bb084d70" width="600" height="1298" alt="Ballast's runway on a phone: the savings drawn as a road that ends in September 2028."></figure>
       </div>
       <div class="room-foot" data-rise>
         <p class="room-body">Ballast says what is safe to spend today, draws how long the money lasts as a road that ends on a date, and reads bank statements on the device, checking every row against the running balance to the smallest unit.</p>
         <dl class="figs">
           <div><dt>599</dt><dd>automated tests, unit and end-to-end</dd></div>
           <div><dt>40</dt><dd>currencies, in exact whole-number maths</dd></div>
-          <div><dt>100</dt><dd>Lighthouse score on desktop</dd></div>
+          <div><dt>100</dt><dd>Lighthouse score on desktop, in all four categories</dd></div>
           <div><dt>0</dt><dd>accounts, servers or trackers</dd></div>
         </dl>
         <ul class="links">
@@ -141,19 +145,19 @@
         </div>
         <p class="room-line">A calm coach for training, food and the shape of the day.</p>
       </header>
-      <div class="set set--b" data-rise>
-        <img class="amb" src="assets/img/ethereal-glow.webp" alt="" decoding="async">
-        <figure class="win"><img src="assets/img/ethereal-d.webp" width="1920" height="1290" decoding="async" alt="Ethereal on a desktop: the day as a timeline, with the next workout due in 23 minutes."></figure>
-        <figure class="phone phone--2 phone--b"><img src="assets/img/ethereal-p2.webp" width="600" height="1290" decoding="async" alt="Ethereal's guided workout player on a phone."></figure>
-        <figure class="phone"><img src="assets/img/ethereal-p.webp" width="600" height="1290" decoding="async" alt="Ethereal's Today screen on a phone."></figure>
+      <div class="set" data-rise>
+        <img class="amb" src="assets/img/ethereal-glow.webp?v=bee8cf75" alt="" decoding="async">
+        <figure class="win"><img class="in-dark" loading="lazy" decoding="async" src="assets/img/ethereal-d.webp?v=a19b9d08" width="1920" height="1290" alt="Ethereal on a desktop: the day as a timeline, with the next workout due in 23 minutes."><img class="in-light" loading="lazy" decoding="async" src="assets/img/ethereal-d-light.webp?v=dd83d4b5" width="1920" height="1290" alt="Ethereal on a desktop: the day as a timeline, with the next workout due in 23 minutes."></figure>
+        <figure class="phone phone--b"><img class="in-dark" loading="lazy" decoding="async" src="assets/img/ethereal-p2.webp?v=2320d5cd" width="600" height="1290" alt="Ethereal's guided workout player on a phone."><img class="in-light" loading="lazy" decoding="async" src="assets/img/ethereal-p2-light.webp?v=38d48bbc" width="600" height="1290" alt="Ethereal's guided workout player on a phone."></figure>
+        <figure class="phone"><img class="in-dark" loading="lazy" decoding="async" src="assets/img/ethereal-p.webp?v=ce96d5fe" width="600" height="1290" alt="Ethereal's Today screen on a phone."><img class="in-light" loading="lazy" decoding="async" src="assets/img/ethereal-p-light.webp?v=2dbd8c44" width="600" height="1290" alt="Ethereal's Today screen on a phone."></figure>
       </div>
       <div class="room-foot" data-rise>
-        <p class="room-body">An installable coach that plans the day, guides workouts and tracks nutrition, with no account, no ads and no trackers. Product design, front-end and delivery, end to end.</p>
+        <p class="room-body">An installable coach that plans the day, guides workouts and tracks nutrition, with no account, no ads and no trackers. Designed, built and delivered end to end.</p>
         <dl class="figs">
-          <div><dt>397</dt><dd>automated tests on every push</dd></div>
+          <div><dt>397</dt><dd>automated tests, 168 of them end to end</dd></div>
           <div><dt>41</dt><dd>exercises, each one animated</dd></div>
           <div><dt>1,474</dt><dd>foods, searchable offline</dd></div>
-          <div><dt>AA</dt><dd>WCAG 2.1 target, with Lighthouse at 100</dd></div>
+          <div><dt>100</dt><dd>Lighthouse score on key pages, with an accessibility sweep against WCAG 2.1 AA</dd></div>
         </dl>
         <ul class="links">
           <li><a href="https://gallowforge.github.io/Ethereal/">Open the live app <svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></a></li>
@@ -170,7 +174,7 @@
   <div class="wrap layer-head">
     <span class="layer-no">02</span>
     <h2 id="intelligence-h">Intelligence</h2>
-    <p>Tools that measure language models and keep agents honest, and a way of running agents the way a lead runs a team.</p>
+    <p>A memory that keeps coding agents honest, a workbench that names the right language model for a job, and a way of running agents the way a lead runs a team.</p>
   </div>
 
   <article class="room room--holdfast" id="holdfast" aria-labelledby="holdfast-h">
@@ -182,11 +186,11 @@
         </div>
         <p class="room-line">A memory for coding agents in which every fact carries its own proof.</p>
       </header>
-      <div class="set set--a" data-rise>
-        <img class="amb" src="assets/img/holdfast-glow.webp" alt="" decoding="async">
-        <figure class="win"><img src="assets/img/holdfast-d.webp" width="1920" height="1260" decoding="async" alt="Holdfast's ledger after two changes to the machine: three facts are no longer true, each with the proof that failed, and the answer an agent is given beside the stale notes file."></figure>
-        <figure class="phone"><img src="assets/img/holdfast-p.webp" width="600" height="1298" decoding="async" alt="Holdfast's ledger on a phone: three broken facts, each struck through with the reason."></figure>
-        <figure class="phone phone--m phone--b"><img src="assets/img/holdfast-p2.webp" width="600" height="1298" decoding="async" alt="Recall on a phone: a notes file still says Go is pinned to 1.24, and Holdfast answers that the fact is broken."></figure>
+      <div class="set" data-rise>
+        <img class="amb" src="assets/img/holdfast-glow.webp?v=8fce7fa0" alt="" decoding="async">
+        <figure class="win"><img class="in-dark" loading="lazy" decoding="async" src="assets/img/holdfast-d.webp?v=5f197cbc" width="1920" height="1260" alt="Holdfast's ledger after two changes to the machine: three facts are no longer true, each with the proof that failed, and the answer an agent is given beside the stale notes file."><img class="in-light" loading="lazy" decoding="async" src="assets/img/holdfast-d-light.webp?v=4537b6cd" width="1920" height="1260" alt="Holdfast's ledger after two changes to the machine: three facts are no longer true, each with the proof that failed, and the answer an agent is given beside the stale notes file."></figure>
+        <figure class="phone"><img class="in-dark" loading="lazy" decoding="async" src="assets/img/holdfast-p.webp?v=afedbf0b" width="600" height="1298" alt="Holdfast's ledger on a phone: three broken facts, each struck through with the reason."><img class="in-light" loading="lazy" decoding="async" src="assets/img/holdfast-p-light.webp?v=46bda411" width="600" height="1298" alt="Holdfast's ledger on a phone: three broken facts, each struck through with the reason."></figure>
+        <figure class="phone phone--b"><img class="in-dark" loading="lazy" decoding="async" src="assets/img/holdfast-p2.webp?v=468bf28a" width="600" height="1298" alt="Recall on a phone: a notes file still says Go is pinned to 1.24, and Holdfast answers that the fact is broken."><img class="in-light" loading="lazy" decoding="async" src="assets/img/holdfast-p2-light.webp?v=10c350dc" width="600" height="1298" alt="Recall on a phone: a notes file still says Go is pinned to 1.24, and Holdfast answers that the fact is broken."></figure>
       </div>
       <div class="room-foot" data-rise>
         <p class="room-body">An agent's notes go stale without a sound: the port moves, the version is bumped, the service goes away, and the note still reads as true. Holdfast stores each fact with a check that proves it and runs that check again before the agent is told anything. What no longer holds comes back as broken, with the reason. A fact whose check fails cannot be stored at all, and a check only touches what a person allowed.</p>
@@ -210,15 +214,15 @@
       <header class="room-head">
         <div>
           <h3 id="evalbench-h">Evalbench</h3>
-          <p class="room-kind">Self-hosted · open source</p>
+          <p class="room-kind">Self-hosted app · open source</p>
         </div>
         <p class="room-line">Names the language model to use for your own job, and shows the proof.</p>
       </header>
-      <div class="set set--c" data-rise>
-        <img class="amb" src="assets/img/evalbench-glow.webp" alt="" decoding="async">
-        <figure class="win"><img src="assets/img/evalbench-d.webp" width="1920" height="1260" decoding="async" alt="Evalbench's verdict page: Use Orion Mini. It gets 22 of 24 right for $0.12 per 1,000 answers, with five models plotted against the bar."></figure>
-        <figure class="phone phone--b"><img src="assets/img/evalbench-p.webp" width="600" height="1298" decoding="async" alt="Blind judging on a phone: an answer scored on the job's rubric, with nothing that names the model."></figure>
-        <figure class="phone phone--m"><img src="assets/img/evalbench-p2.webp" width="600" height="1298" decoding="async" alt="The verdict on a phone: Use Orion Mini, and the bar it had to clear."></figure>
+      <div class="set" data-rise>
+        <img class="amb" src="assets/img/evalbench-glow.webp?v=0ce3ce37" alt="" decoding="async">
+        <figure class="win"><img class="in-dark" loading="lazy" decoding="async" src="assets/img/evalbench-d.webp?v=db8e568e" width="1920" height="1260" alt="Evalbench's verdict page: Use Orion Mini. It gets 22 of 24 right for $0.12 per 1,000 answers, with five models plotted against the bar."><img class="in-light" loading="lazy" decoding="async" src="assets/img/evalbench-d-light.webp?v=0d8f7965" width="1920" height="1260" alt="Evalbench's verdict page: Use Orion Mini. It gets 22 of 24 right for $0.12 per 1,000 answers, with five models plotted against the bar."></figure>
+        <figure class="phone phone--b"><img class="in-dark" loading="lazy" decoding="async" src="assets/img/evalbench-p.webp?v=57a45363" width="600" height="1298" alt="Blind judging on a phone: an answer scored on the job's rubric, with nothing that names the model."><img class="in-light" loading="lazy" decoding="async" src="assets/img/evalbench-p-light.webp?v=09e768a6" width="600" height="1298" alt="Blind judging on a phone: an answer scored on the job's rubric, with nothing that names the model."></figure>
+        <figure class="phone"><img class="in-dark" loading="lazy" decoding="async" src="assets/img/evalbench-p2.webp?v=2aac1fa6" width="600" height="1298" alt="The verdict on a phone: Use Orion Mini, and the bar it had to clear."><img class="in-light" loading="lazy" decoding="async" src="assets/img/evalbench-p2-light.webp?v=78f115c0" width="600" height="1298" alt="The verdict on a phone: Use Orion Mini, and the bar it had to clear."></figure>
       </div>
       <div class="room-foot" data-rise>
         <p class="room-body">Write down what a good answer is, run the models you are considering, and Evalbench names the one to use: the cheapest model that clears your bar, with every number behind the pick on the page. Answers are graded by automatic checks, up to Python tests in a sandbox with no network, and people can rate pairs of answers blind. Every run is frozen, so a regression shows the day it lands.</p>
@@ -254,7 +258,7 @@
   <div class="wrap layer-head">
     <span class="layer-no">03</span>
     <h2 id="infrastructure-h">Infrastructure</h2>
-    <p>A tool that shows what a server really lets in, a production platform in daily use, designed, secured and operated as code, and one calm screen that shows all of it.</p>
+    <p>A tool that shows what a server really lets in, one calm screen that shows a whole platform at work, and the platform itself: in daily use, designed, secured and operated as code.</p>
   </div>
 
   <article class="room room--seaward" id="seaward" aria-labelledby="seaward-h">
@@ -266,11 +270,11 @@
         </div>
         <p class="room-line">Which ports on a Linux server can really be reached from outside, and the rule that decides each one.</p>
       </header>
-      <div class="set set--b" data-rise>
-        <img class="amb" src="assets/img/seaward-glow.webp" alt="" decoding="async">
-        <figure class="win"><img src="assets/img/seaward-d.webp" width="1920" height="1440" decoding="async" alt="Seaward's chart of a sample shop server: seven ports can be reached from outside and ufw allows only four of them. The three container ports are drawn as lanes that cross the firewall's shoreline."></figure>
-        <figure class="phone"><img src="assets/img/seaward-p.webp" width="600" height="1298" decoding="async" alt="Seaward on a phone: 7 ports can be reached from outside, ufw allows only 4 of them."></figure>
-        <figure class="phone phone--m phone--b"><img src="assets/img/seaward-p2.webp" width="600" height="1298" decoding="async" alt="The passage to port 5432 on a phone: one packet followed rule by rule to the rule that lets it through."></figure>
+      <div class="set" data-rise>
+        <img class="amb" src="assets/img/seaward-glow.webp?v=add169b4" alt="" decoding="async">
+        <figure class="win"><img class="in-dark" loading="lazy" decoding="async" src="assets/img/seaward-d.webp?v=13fa78a9" width="1920" height="1440" alt="Seaward's chart of a sample shop server: seven ports can be reached from outside and ufw allows only four of them. The three container ports are drawn as lanes that cross the firewall's shoreline."><img class="in-light" loading="lazy" decoding="async" src="assets/img/seaward-d-light.webp?v=4c9517a7" width="1920" height="1440" alt="Seaward's chart of a sample shop server: seven ports can be reached from outside and ufw allows only four of them. The three container ports are drawn as lanes that cross the firewall's shoreline."></figure>
+        <figure class="phone"><img class="in-dark" loading="lazy" decoding="async" src="assets/img/seaward-p.webp?v=eaa2717a" width="600" height="1298" alt="Seaward on a phone: 7 ports can be reached from outside, ufw allows only 4 of them."><img class="in-light" loading="lazy" decoding="async" src="assets/img/seaward-p-light.webp?v=5847a8c2" width="600" height="1298" alt="Seaward on a phone: 7 ports can be reached from outside, ufw allows only 4 of them."></figure>
+        <figure class="phone phone--b"><img class="in-dark" loading="lazy" decoding="async" src="assets/img/seaward-p2.webp?v=def54fb3" width="600" height="1298" alt="The passage to port 5432 on a phone: one packet followed rule by rule to the rule that lets it through."><img class="in-light" loading="lazy" decoding="async" src="assets/img/seaward-p2-light.webp?v=f898beab" width="600" height="1298" alt="The passage to port 5432 on a phone: one packet followed rule by rule to the rule that lets it through."></figure>
       </div>
       <div class="room-foot" data-rise>
         <p class="room-body">A firewall's list is what was asked for; the rules the kernel runs are what the server got. Docker publishes a port with rules of its own, and a database answers the whole internet while ufw still reads deny. Seaward reads the rules that are really loaded, follows a packet through them the way the kernel does, and says for every port who can reach it and which rule decides. It only reads: it changes no rule and puts no packet on the network.</p>
@@ -294,28 +298,32 @@
       <header class="room-head">
         <div>
           <h3 id="vesper-h">Vesper</h3>
-          <p class="room-kind">In production · open source</p>
+          <p class="room-kind">Self-hosted console · open source</p>
         </div>
         <p class="room-line">A read-only operations console that answers one question: does anything need you?</p>
       </header>
-      <div class="set set--a set--video" data-rise>
-        <img class="amb" src="assets/img/vesper-glow.webp" alt="" decoding="async">
-        <figure class="win">
-          <video muted loop playsinline preload="none" poster="assets/img/vesper-live-poster.webp" width="1440" height="810" aria-label="Vesper live: the answer turns from “Nothing needs you” to “Home Assistant is down” and one lane of the ribbon turns red.">
-            <source src="assets/img/vesper-live.mp4" type="video/mp4">
-          </video>
-          <figcaption class="vid-bar"><button class="vid" type="button" data-vid aria-label="Play the clip"><svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path class="vid-play" d="M5.5 3.5v9l7-4.500z"/><path class="vid-pause" d="M5.500 3.500v9M10.500 3.500v9"/></svg><span>Play</span></button> 14 seconds of the live console: one service goes down.</figcaption>
-        </figure>
-        <figure class="phone phone--b"><img src="assets/img/vesper-p.webp" width="600" height="1298" decoding="async" alt="Vesper on a phone when something needs attention: one file differs from the repository."></figure>
-        <figure class="phone phone--m"><img src="assets/img/vesper-p2.webp" width="600" height="1298" decoding="async" alt="Vesper on a phone: nothing needs you, 12 of 12 services up."></figure>
+      <div class="set set--video" data-rise>
+        <img class="amb" src="assets/img/vesper-glow.webp?v=f0727fa6" alt="" decoding="async">
+        <div class="win-col">
+          <figure class="win">
+            <video class="in-dark" muted loop playsinline preload="none" poster="assets/img/vesper-live-poster.webp?v=660ac882" width="1440" height="810" aria-label="Vesper live: the answer turns from “Nothing needs you” to “Home Assistant is down” and one lane of the ribbon turns red.">
+              <source src="assets/img/vesper-live.mp4?v=a7a5bdf2" type="video/mp4">
+            </video><video class="in-light" muted loop playsinline preload="none" poster="assets/img/vesper-live-poster-light.webp?v=0dcb8919" width="1440" height="810" aria-label="Vesper live: the answer turns from “Nothing needs you” to “Home Assistant is down” and one lane of the ribbon turns red.">
+              <source src="assets/img/vesper-live-light.mp4?v=01ef4bb5" type="video/mp4">
+            </video>
+          </figure>
+          <p class="vid-bar"><button class="vid" type="button" data-vid aria-label="Play the clip"><svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path class="vid-play" d="M5.5 3.5v9l7-4.500z"/><path class="vid-pause" d="M5.500 3.500v9M10.500 3.500v9"/></svg><span>Play</span></button> 14 seconds of the console on demo data: one service goes down.</p>
+        </div>
+        <figure class="phone phone--b"><img class="in-dark" loading="lazy" decoding="async" src="assets/img/vesper-p.webp?v=6f8bf83b" width="600" height="1298" alt="Vesper on a phone when something needs attention: one file differs from the repository."><img class="in-light" loading="lazy" decoding="async" src="assets/img/vesper-p-light.webp?v=53bbae30" width="600" height="1298" alt="Vesper on a phone when something needs attention: one file differs from the repository."></figure>
+        <figure class="phone"><img class="in-dark" loading="lazy" decoding="async" src="assets/img/vesper-p2.webp?v=528d935a" width="600" height="1298" alt="Vesper on a phone: nothing needs you, 12 of 12 services up."><img class="in-light" loading="lazy" decoding="async" src="assets/img/vesper-p2-light.webp?v=032076f5" width="600" height="1298" alt="Vesper on a phone: nothing needs you, 12 of 12 services up."></figure>
       </div>
       <div class="room-foot" data-rise>
         <p class="room-body">One Go binary reads what the platform's scripts already record and says it in one sentence. The ribbon is the fleet drawn as light, one lane for each service, so an outage can be seen turning. When Vesper cannot confirm something it says so instead of showing an all-clear, and it is read-only by construction.</p>
         <dl class="figs">
           <div><dt>7.4 MB</dt><dd>one binary, with the interface inside</dd></div>
-          <div><dt>27 MB</dt><dd>of memory on a Raspberry Pi 5</dd></div>
-          <div><dt>191</dt><dd>tests, 34 of them end to end under real systemd</dd></div>
-          <div><dt>0</dt><dd>third-party Go dependencies</dd></div>
+          <div><dt>27 MB</dt><dd>of memory on a Raspberry Pi&nbsp;5</dd></div>
+          <div><dt>191</dt><dd>automated tests, 34 of them end to end under real systemd</dd></div>
+          <div><dt>0</dt><dd>Go dependencies beyond the standard library</dd></div>
         </dl>
         <ul class="links">
           <li><a href="https://gallowforge.github.io/vesper/">Open the live demo <svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></a></li>
@@ -330,8 +338,8 @@
     <div class="wrap">
       <header class="room-head">
         <div>
-          <h3 id="homelab-h">homelab</h3>
-          <p class="room-kind">Designer and sole operator</p>
+          <h3 id="homelab-h">Homelab</h3>
+          <p class="room-kind">Production platform · open source</p>
         </div>
         <p class="room-line">Fifteen services on one small machine, run as code, with backups that are proven every week.</p>
       </header>
@@ -340,9 +348,15 @@
         <figure class="term" aria-label="The weekly restore drill, run by hand">
 <pre><span class="l"><span class="t-p">pi@raspberrypi:~/docker$</span> sudo _host/backup-restore-test.sh</span><span class="l"><b>PASS</b> <i>adguard</i>: AdGuardHome.yaml present with http/dns sections</span><span class="l"><b>PASS</b> <i>couchdb</i>: 8 .couch files (live 8), docker.ini present</span><span class="l"><b>PASS</b> <i>kuma</i>: integrity_check ok, monitor=13 (live now 13)</span><span class="l"><b>PASS</b> <i>vaultwarden</i>: integrity_check ok, ciphers=412 (live now 412)</span><span class="l"><b>PASS</b> <i>dockge</i>: integrity_check ok, user=1 (live now 1)</span><span class="l"><b>PASS</b> <i>syncthing</i>: key.pem + parseable cert.pem + config.xml</span><span class="l"><b>PASS</b> <i>homeassistant</i>: tar opens, backup.json, link count 2</span><span class="l"><b>PASS</b> <i>platform</i>: bundle clones (94 files, 0 commits behind)</span><span class="l"><b>PASS</b> <i>secrets</i>: 6 files, all identical to live (contents not shown)</span><span class="l">restore test: <b>9 passed, 0 failed</b></span><span class="l"><span class="t-p">pi@raspberrypi:~/docker$</span> <span class="t-c"></span></span></pre>
         </figure>
+        <dl class="figs figs--row">
+          <div><dt>15</dt><dd>services, on one small machine</dd></div>
+          <div><dt>43</dt><dd>automated tests, run on every change</dd></div>
+          <div><dt>9</dt><dd>backup sets, restored every week to prove them</dd></div>
+          <div><dt>0</dt><dd>ports forwarded from the internet</dd></div>
+        </dl>
       <ul class="links links--under">
         <li><a href="https://github.com/gallowforge/homelab">The infrastructure repository <svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></a></li>
-        <li class="stack-line">Linux · Docker Compose · systemd · Caddy · WireGuard · DNS · Bash · Python · 43 automated tests</li>
+        <li class="stack-line">Linux · Docker Compose · systemd · Caddy · WireGuard · DNS · Bash · Python</li>
       </ul>
         </div>
         <dl class="facts">
@@ -362,7 +376,7 @@
   <div class="wrap layer-head">
     <span class="layer-no">04</span>
     <h2 id="tools-h">Tools</h2>
-    <p>Small things built properly: four command-line tools and methods, each with its own tests and documentation.</p>
+    <p>Small things built properly: four tools and methods, each with its own tests and documentation.</p>
   </div>
   <div class="wrap bench">
     <div class="bench-term">
@@ -370,18 +384,20 @@
         <button role="tab" id="tab-guard" aria-controls="pane-guard" aria-selected="true">agent-guardrails</button>
         <button role="tab" id="tab-aih" aria-controls="pane-aih" aria-selected="false" tabindex="-1">aih</button>
         <button role="tab" id="tab-bwtidy" aria-controls="pane-bwtidy" aria-selected="false" tabindex="-1">bwtidy</button>
+        <button role="tab" id="tab-filmforge" aria-controls="pane-filmforge" aria-selected="false" tabindex="-1">filmforge</button>
       </div>
       <figure class="term term--tabs">
 <pre role="tabpanel" id="pane-guard" aria-labelledby="tab-guard"><span class="l"><span class="t-p">$</span> echo '{"hook_event_name":"PreToolUse",</span><span class="l">  "tool_name":"Bash","tool_input":{"command":</span><span class="l">  "rm -rf build &amp;&amp; chmod 777 ."}}' \</span><span class="l">  | sh .claude/hooks/advisory-guard.sh</span><span class="l">{"hookSpecificOutput":</span><span class="l"> {"hookEventName": "PreToolUse",</span><span class="l">  "additionalContext":</span><span class="l">  "<em>Advisory (non-blocking): this command looks</em></span><span class="l">  <em>like it involves recursive force-delete;</em></span><span class="l">  <em>world-writable permissions.</em> Proceeding, but</span><span class="l">  double-check the target/scope before it runs</span><span class="l">  again unattended."}}</span><span class="l"><span class="t-p">$</span> <span class="t-c"></span></span></pre>
 <pre role="tabpanel" id="pane-aih" aria-labelledby="tab-aih" hidden><span class="l"><span class="t-p">$</span> aih search "fts5 tokenizer" --talk -n 3</span><span class="l"><b>2025-10-30</b> <i>chatgpt-alex</i> · Accent-insensitive search in SQLite</span><span class="l">   The simplest way is an FTS5 table whose tokenizer removes diacritics…</span><span class="l"><b>2026-01-18</b> <i>claude-web</i> · Finding José when searching for jose</span><span class="l">   …Which FTS5 tokenizer should I use?</span><span class="l"><b>2026-02-11</b> <i>claude-code-laptop</i> · Add full-text search to the notes CLI</span><span class="l">   …An FTS5 index over `notes(title, body)` with the `unicode61</span><span class="l">   remove_diacritics 2` tokenizer, so accents fold.</span><span class="l"><span class="t-p">$</span> <span class="t-c"></span></span></pre>
 <pre role="tabpanel" id="pane-bwtidy" aria-labelledby="tab-bwtidy" hidden><span class="l"><span class="t-d t-rule">================================================================</span></span><span class="l">NOT TOUCHED IN 3+ YEARS  (1)</span><span class="l"><span class="t-d t-rule">================================================================</span></span><span class="l">Age alone is not a problem. Worth a look for dead accounts to delete.</span><span class="l">&nbsp;</span><span class="l"><span class="t-row"><span>   7.7 yrs  Old Forum</span><span>[No Folder]</span></span></span><span class="l">&nbsp;</span><span class="l"><b>13 item(s) flagged. Nothing was changed.</b></span><span class="l">Highest value first: reused passwords, then no-2FA on critical accounts.</span><span class="l"><span class="t-p">$</span> <span class="t-c"></span></span></pre>
+<pre role="tabpanel" id="pane-filmforge" aria-labelledby="tab-filmforge" hidden><span class="l"><span class="t-p">the-lantern-moth $</span> ledger.py prompts continuity.yaml --prompts prompts --style style-lock.yaml --shotlist shotlist.yaml</span><span class="l"><em>ERROR</em>   <i>s03</i>: moth's scale lock is missing ("its wingspan equals a child's open hand, never smaller than a palm and never larger than a face")</span><span class="l">prompts (6 checked): 1 error(s), 0 warning(s)</span><span class="l"><span class="t-p">the-lantern-moth $</span> <span class="t-c"></span></span></pre>
       </figure>
     </div>
     <ul class="rows">
-      <li><a href="https://github.com/gallowforge/agent-guardrails"><h3>agent-guardrails</h3><p>Reviewer and verifier agents that judge work they did not write, and a hook that warns a coding agent before a destructive command runs.</p><span>36 tests</span></a></li>
-      <li><a href="https://github.com/gallowforge/aih"><h3>aih</h3><p>Every AI conversation from every machine in one local full-text index, ingested hourly and searchable in milliseconds.</p><span>31 checks</span></a></li>
-      <li><a href="https://github.com/gallowforge/bwtidy"><h3>bwtidy</h3><p>Audits and tidies a password vault on the machine it lives on, with a plan you approve before anything changes.</p><span>12 tests</span></a></li>
-      <li><a href="https://github.com/gallowforge/filmforge"><h3>filmforge</h3><p>A tested production method for painted films made with AI models: the story is priced, the look is locked and every prompt is linted before it costs a credit.</p><span>40 tests</span></a></li>
+      <li><a href="https://github.com/gallowforge/agent-guardrails"><h3>agent-guardrails <svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></h3><p>The review and verification agents I run on every project, and a hook that warns a coding agent before a destructive command runs.</p><span>36 tests</span></a></li>
+      <li><a href="https://github.com/gallowforge/aih"><h3>aih <svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></h3><p>Every AI conversation from every machine in one local full-text index, ingested hourly and searchable in milliseconds.</p><span>31 tests</span></a></li>
+      <li><a href="https://github.com/gallowforge/bwtidy"><h3>bwtidy <svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></h3><p>Audits and tidies a password vault on the machine it lives on, with a plan you approve before anything changes.</p><span>12 tests</span></a></li>
+      <li><a href="https://github.com/gallowforge/filmforge"><h3>filmforge <svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></h3><p>A tested production method for painted films made with AI models: the story is priced, the look is locked and every prompt is linted before it costs a credit.</p><span>40 tests</span></a></li>
     </ul>
   </div>
 </section>
@@ -424,6 +440,6 @@
   </div>
 </footer>
 
-<script src="assets/main.js?v=7805001932" defer></script>
+<script src="assets/main.js?v=c2b029e635" defer></script>
 </body>
 </html>

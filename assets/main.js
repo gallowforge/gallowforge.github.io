@@ -97,38 +97,68 @@
 
   // The Vesper clip plays only while it is on screen.
   // It can always be paused, and it never starts by itself for a reader who asked for less motion.
-  document.querySelectorAll('video').forEach(function (v) {
-    var btn = v.parentNode.querySelector('[data-vid]');
-    // On a phone the window stands half out of view behind the phone capture, so it stays a still.
+  // There is one clip for each theme, and the one in sight is the one that plays.
+  document.querySelectorAll('.win-col').forEach(function (col) {
+    var vids = [].slice.call(col.querySelectorAll('video'));
+    var btn = col.querySelector('[data-vid]');
+    if (!vids.length) return;
+    var shown = function () {
+      for (var i = 0; i < vids.length; i++) if (vids[i].offsetWidth) return vids[i];
+      return vids[0];
+    };
+    // On a phone the window is not shown at all, so nothing plays.
     var held = calm || matchMedia('(max-width: 640px)').matches;
-    var play = function () { var p = v.play(); if (p && p.catch) p.catch(function () {}); };
+    var inSight = false;
+    var play = function () {
+      var v = shown();
+      vids.forEach(function (o) { if (o !== v) o.pause(); });
+      var p = v.play(); if (p && p.catch) p.catch(function () {});
+    };
     var mark = function () {
       if (!btn) return;
-      var on = !v.paused;
+      var on = !shown().paused;
       btn.classList.toggle('is-on', on);
       btn.setAttribute('aria-label', on ? 'Pause the clip' : 'Play the clip');
       btn.lastElementChild.textContent = on ? 'Pause' : 'Play';
     };
-    v.addEventListener('play', mark); v.addEventListener('pause', mark);
-    if (btn) btn.addEventListener('click', function () { if (v.paused) { held = false; play(); } else { held = true; v.pause(); } });
+    vids.forEach(function (v) { v.addEventListener('play', mark); v.addEventListener('pause', mark); });
+    if (btn) btn.addEventListener('click', function () { if (shown().paused) { held = false; play(); } else { held = true; shown().pause(); } });
     new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
-        if (en.isIntersecting) { if (!held) play(); }
-        else v.pause();
+        inSight = en.isIntersecting;
+        if (inSight) { if (!held) play(); }
+        else vids.forEach(function (v) { v.pause(); });
       });
-    }, { threshold: 0.35 }).observe(v);
+    }, { threshold: 0.35 }).observe(col);
+    // When the theme changes, the clip of the new theme takes over where the page stands.
+    new MutationObserver(function () {
+      vids.forEach(function (v) { v.pause(); });
+      if (inSight && !held) play(); else mark();
+    }).observe(root, { attributes: true, attributeFilter: ['data-theme'] });
   });
 
   // The bar says which layer you are in.
   var links = {};
   document.querySelectorAll('[data-spy]').forEach(function (a) { links[a.dataset.spy] = a; });
-  var spy = new IntersectionObserver(function (entries) {
-    entries.forEach(function (en) {
-      var a = links[en.target.id];
-      if (a) a.classList.toggle('is-on', en.isIntersecting);
+  // A layer is the one being read from the moment its heading has come up into the upper part
+  // of the window, until the next heading does, or until the last layer has gone by.
+  var layers = [].slice.call(document.querySelectorAll('[data-layer][id]'));
+  var spyQueued = false;
+  var spy = function () {
+    spyQueued = false;
+    var line = innerHeight * 0.42, now = '';
+    layers.forEach(function (s) {
+      var head = s.querySelector('.layer-head') || s;
+      if (head.getBoundingClientRect().top < line) now = s.id;
     });
-  }, { rootMargin: '-45% 0px -50% 0px' });
-  document.querySelectorAll('[data-layer][id]').forEach(function (s) { spy.observe(s); });
+    var last = layers[layers.length - 1];
+    if (last && last.getBoundingClientRect().bottom < line) now = '';
+    for (var id in links) links[id].classList.toggle('is-on', id === now);
+  };
+  var spySoon = function () { if (!spyQueued) { spyQueued = true; requestAnimationFrame(spy); } };
+  addEventListener('scroll', spySoon, { passive: true });
+  addEventListener('resize', spySoon);
+  spy();
 
   // The stack: it turns a little toward the pointer, and opens up as the page leaves it.
   var stack = document.getElementById('stack');

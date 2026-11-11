@@ -39,13 +39,13 @@
      They are dark in both themes; only what surrounds them changes. */
   --surface: #0b0e13;
   --ring: rgba(196, 210, 232, .17);
+  --ring-win: rgba(196, 210, 232, .2);          /* the outline of a product's window */
   --shadow-plane: 0 5cqw 10cqw -1cqw rgba(0, 0, 0, .8), 0 1cqw 3cqw rgba(0, 0, 0, .5);
+  --shadow-plane-phone: 0 2.6cqw 5cqw -1.2cqw rgba(0, 0, 0, .85), 0 .6cqw 1.8cqw rgba(0, 0, 0, .5);   /* a narrow sheet throws a narrow shadow */
   --shadow-win: 0 50px 130px -30px rgba(0, 0, 0, .85), 0 14px 40px rgba(0, 0, 0, .45);
   --shadow-phone: 0 36px 90px -10px rgba(0, 0, 0, .85), 0 10px 30px rgba(0, 0, 0, .5);
   --shadow-term: 0 40px 110px -30px rgba(0, 0, 0, .85);
-  --dim-2: .86;                             /* how far each deeper plane of the stack recedes */
-  --dim-3: .74;
-  --dim-4: .66;
+  --fade: .05;                              /* how much light each step back into the stack costs a sheet */
 
   /* Terminal colours: the same in both themes. */
   --term-bg: #090c10;
@@ -99,13 +99,13 @@
   --ink-max: #000;
 
   --ring: rgba(16, 24, 40, .22);
+  --ring-win: rgba(16, 24, 40, .26);
   --shadow-plane: 0 5cqw 10cqw -1cqw rgba(16, 24, 40, .5), 0 1cqw 3cqw rgba(16, 24, 40, .2);
+  --shadow-plane-phone: 0 2.4cqw 4.6cqw -1.4cqw rgba(16, 24, 40, .4), 0 .5cqw 1.5cqw rgba(16, 24, 40, .16);
   --shadow-win: 0 50px 130px -30px rgba(16, 24, 40, .5), 0 14px 40px rgba(16, 24, 40, .2);
-  --shadow-phone: 0 36px 90px -10px rgba(16, 24, 40, .5), 0 10px 30px rgba(16, 24, 40, .3);
+  --shadow-phone: 0 26px 56px -18px rgba(16, 24, 40, .34), 0 6px 18px rgba(16, 24, 40, .12);
   --shadow-term: 0 40px 110px -30px rgba(16, 24, 40, .5);
-  --dim-2: .95;
-  --dim-3: .9;
-  --dim-4: .86;
+  --fade: .022;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -170,7 +170,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .hero { position: relative; overflow: hidden; overflow: clip; padding-top: clamp(28px, 4vw, 56px); }
 .hero-in { display: grid; grid-template-columns: minmax(0, 44fr) minmax(0, 56fr); gap: clamp(20px, 2.4vw, 40px); align-items: center; }
 .hero-text { position: relative; z-index: 2; padding-block: clamp(24px, 5vw, 72px); }
-h1 { font-size: clamp(40px, 4.55vw, 70px); line-height: 1; letter-spacing: -.04em; font-weight: 620; color: var(--ink); text-wrap: balance; }
+h1 { font-size: clamp(40px, 4.55vw, 63px); line-height: 1; letter-spacing: -.04em; font-weight: 620; color: var(--ink); text-wrap: balance; }
 h1 span { color: var(--h1-2); }
 .hero-lede { margin-top: clamp(20px, 2.2vw, 30px); max-width: 44ch; font-size: clamp(16.5px, 1.25vw, 18.5px); line-height: 1.55; }
 .hero-cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: clamp(26px, 2.6vw, 38px); }
@@ -192,43 +192,59 @@ h1 span { color: var(--h1-2); }
 .live i::after { content: ""; position: absolute; inset: -4px; border-radius: 50%; border: 1px solid var(--ok); opacity: 0; animation: ping 3.2s var(--ease) infinite; }
 @keyframes ping { 0% { transform: scale(.5); opacity: .7; } 70%, 100% { transform: scale(1.5); opacity: 0; } }
 
-/* The stack: an exploded view of one system, drawn with the real things. */
-.scene { container-type: inline-size; position: relative; z-index: 1; margin-right: calc(-1 * clamp(0px, 7vw, 150px)); pointer-events: none; }
-.stage { position: relative; aspect-ratio: 100 / 90; perspective: 170cqw; perspective-origin: 30% 60%; }
+/* The stack: an exploded view of one system, drawn with the real things. Its four layers are the
+   four sections of the page, front to back, and every sheet in it is one project and leads to it. */
+.scene { container-type: inline-size; position: relative; z-index: 1; margin-right: calc(-1 * clamp(0px, 50vw - var(--wrap) / 2 - 24px, 400px)); }
+.stage { position: relative; aspect-ratio: 100 / 77; perspective: 170cqw; perspective-origin: 30% 62%; }
 .stack {
-  position: absolute; inset: 0; transform-style: preserve-3d;
+  --ux: 4.4; --uy: -9.3; --uz: -16.4;          /* one step back, in hundredths of the scene's width */
+  position: absolute; inset: 0; transform-style: preserve-3d; pointer-events: none;   /* its own empty plane would lie in front of the sheets */
   transform: rotateX(calc(7deg + var(--ry, 0deg))) rotateY(calc(-21deg + var(--rx, 0deg)));
   animation: drift 11s ease-in-out infinite;
 }
 @keyframes drift { 50% { translate: 0 -.7cqw; } }
 .plane {
-  --k: calc(1 + var(--s, 0) * .5);
-  position: absolute; left: var(--left, 10cqw); top: var(--top, 44cqw); width: var(--w, 69cqw); transform-style: preserve-3d;
-  transform: translate3d(calc(var(--x, 0) * 1cqw * var(--k)), calc(var(--y, 0) * 1cqw * var(--k)), calc(var(--z, 0) * 1cqw * var(--k)));
-  animation: plane-in 1.5s var(--ease) backwards; animation-delay: calc(var(--i, 0) * 110ms + 120ms);
+  --k: calc(1 + var(--s, 0) * .42);
+  --u: calc(var(--d, 0) * var(--k));
+  position: absolute; left: var(--left, 12cqw); top: var(--top, 41cqw); width: var(--w, 62cqw); display: block; transform-style: preserve-3d; pointer-events: auto;
+  transform: translate3d(calc(var(--u) * var(--ux) * 1cqw), calc(var(--u) * var(--uy) * 1cqw - var(--up, 0) * 1.3cqw), calc(var(--u) * var(--uz) * 1cqw));
+  transition: transform .45s var(--ease);
+  animation: plane-in 1.4s var(--ease) backwards; animation-delay: calc(var(--d, 0) * 70ms + 120ms);
+  -webkit-tap-highlight-color: transparent;
 }
-@keyframes plane-in { from { opacity: 0; transform: translate3d(calc(var(--x, 0) * .3cqw), calc(var(--y, 0) * .3cqw + 6cqw), calc(var(--z, 0) * .2cqw)); } }
-.p1 { --i: 1; }
-.p2 { --i: 2; --x: 8;  --y: -16.5; --z: -28; }
-.p3 { --i: 3; --x: 16; --y: -33;   --z: -56; }
-.p4 { --i: 4; --x: 24; --y: -49.5; --z: -84; }
-.p0 { --i: 0; --x: -7; --y: 7.5; --z: 22; width: 16.5cqw; }
+@keyframes plane-in { from { opacity: 0; transform: translate3d(calc(var(--d, 0) * var(--ux) * .3cqw), calc(var(--d, 0) * var(--uy) * .3cqw + 6cqw), calc(var(--d, 0) * var(--uz) * .2cqw)); } }
+.s-ballast { --d: 0; } .s-ethereal { --d: .56; } .s-holdfast { --d: 1.5; } .s-evalbench { --d: 2.06; } .s-seaward { --d: 3; } .s-vesper { --d: 3.56; } .s-homelab { --d: 4.12; } .s-guard { --d: 5.06; }
+.stack:has(.s-ballast:is(:hover, :focus-visible)) .n-ballast,
+.stack:has(.s-ethereal:is(:hover, :focus-visible)) .n-ethereal,
+.stack:has(.s-holdfast:is(:hover, :focus-visible)) .n-holdfast,
+.stack:has(.s-evalbench:is(:hover, :focus-visible)) .n-evalbench,
+.stack:has(.s-seaward:is(:hover, :focus-visible)) .n-seaward,
+.stack:has(.s-vesper:is(:hover, :focus-visible)) .n-vesper,
+.stack:has(.s-homelab:is(:hover, :focus-visible)) .n-homelab,
+.stack:has(.s-guard:is(:hover, :focus-visible)) .n-guard,
+.stack:has(.s-aih:is(:hover, :focus-visible)) .n-aih { color: var(--ink); }
+.plane:hover, .plane:focus-visible { --up: 1; }
+.plane:focus-visible { outline: none; }
+.plane:focus-visible .face { box-shadow: 0 0 0 2px var(--focus), var(--shadow-plane); }
+.plane:focus-visible .face--phone { box-shadow: 0 0 0 2px var(--focus), var(--shadow-plane-phone); }
+.p0 { --w: 15cqw; transform: translate3d(calc(-6.5cqw * var(--k)), calc(7cqw * var(--k) - var(--up, 0) * 1.3cqw), calc(21cqw * var(--k))); animation-delay: 60ms; }
 .face { position: relative; border-radius: 1.1cqw; overflow: hidden; background: var(--surface); box-shadow: 0 0 0 1px var(--ring), var(--shadow-plane); }
-.face--phone { border-radius: 2cqw; }
-.face img { display: block; width: 100%; height: auto; }
-/* the page at the back is taller than the others; it shows its top, cut to their shape */
-.p4 .face img { aspect-ratio: 1400 / 842; object-fit: cover; object-position: 50% 0; }
-.p2 .face img { filter: brightness(var(--dim-2)); }
-.p3 .face img { filter: brightness(var(--dim-3)); }
-.p4 .face img { filter: brightness(var(--dim-4)); }
-/* each layer is named at its corner, like a part in a drawing */
-.plane::before {
-  content: attr(data-layer); position: absolute; right: 100%; top: -.4cqw; margin-right: 4.4cqw;
-  font: 500 var(--lab, 1.3cqw)/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); white-space: nowrap;
+.face--phone { border-radius: 2cqw; box-shadow: 0 0 0 1px var(--ring), var(--shadow-plane-phone); }
+/* every sheet is cut to one shape, and shows the top of its page */
+.face img { display: block; width: 100%; height: auto; aspect-ratio: 1920 / 1096; object-fit: cover; object-position: 50% 0; filter: brightness(calc(1 - var(--d, 0) * var(--fade) + var(--up, 0) * var(--d, 0) * var(--fade))); transition: filter .45s var(--ease); }
+.face--phone img { aspect-ratio: 600 / 1290; filter: none; }
+.s-evalbench .face img { object-position: 50% 42%; }  /* its first line of words sits lower than the others' */
+.s-homelab .face img, .s-guard .face img { object-position: 0 9%; }
+/* each layer is named at the corner of its first sheet, like a part in a drawing, with what it holds */
+.tag {
+  position: absolute; right: 100%; top: -.5cqw; margin-right: 4.4cqw; display: grid; justify-items: end; gap: .7cqw;
+  font: 500 var(--lab, 1.22cqw)/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); white-space: nowrap;
 }
-.plane::after { content: ""; position: absolute; right: 100%; top: .2cqw; width: 3.2cqw; height: 1px; margin-right: .6cqw; background: var(--line-2); }
-.p0::before, .p0::after { content: none; }
-.plane .amb { position: absolute; left: -45%; top: -55%; width: 190%; height: 210%; max-width: none; transform: translateZ(-3cqw); opacity: .42; -webkit-mask-image: radial-gradient(closest-side, #000 18%, transparent 100%); mask-image: radial-gradient(closest-side, #000 18%, transparent 100%); }
+.tag b { font-weight: 500; color: var(--faint); margin-right: .9em; }
+.tag small { font: 450 1.02em/1 var(--sans); letter-spacing: 0; text-transform: none; color: var(--faint); }
+.tag small span { transition: color .25s; }
+.tag::after { content: ""; position: absolute; left: 100%; top: .62em; width: 3.2cqw; height: 1px; margin-left: .7cqw; background: var(--line-2); }
+.plane .amb { position: absolute; left: -45%; top: -55%; width: 190%; height: 210%; max-width: none; transform: translateZ(-3cqw); opacity: .42; pointer-events: none; -webkit-mask-image: radial-gradient(closest-side, #000 18%, transparent 100%); mask-image: radial-gradient(closest-side, #000 18%, transparent 100%); }
 
 .proof { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 clamp(24px, 4vw, 56px); margin-top: clamp(28px, 4vw, 56px); border-top: 1px solid var(--line); position: relative; z-index: 2; }
 .proof div { padding-top: 22px; }
@@ -242,45 +258,42 @@ h1 span { color: var(--h1-2); }
 .layer-no { font: 500 12.5px/1 var(--mono); letter-spacing: .1em; color: var(--muted); }
 .layer-no::after { content: " / 04"; color: var(--faint); }
 .layer-head h2 { font-size: clamp(19px, 1.7vw, 23px); line-height: 1.2; font-weight: 580; letter-spacing: -.012em; color: var(--ink); }
-.layer-head p { font-size: 15.5px; line-height: 1.5; color: var(--muted); }
+.layer-head p { font-size: 15.5px; line-height: 1.5; color: var(--muted); text-wrap: pretty; }
 
 .room { padding-top: clamp(56px, 7.4vw, 112px); overflow-x: clip; }
 .room + .room { padding-top: clamp(96px, 12vw, 176px); }
-.room-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 27ch); align-items: end; gap: 18px 48px; }
+.room-head { display: grid; grid-template-columns: minmax(0, 68fr) minmax(0, 29.4fr); align-items: end; gap: 18px 2.6%; }
 .room-head h3 { font-size: clamp(54px, 8.4vw, 128px); line-height: .88; letter-spacing: -.05em; font-weight: 640; color: var(--ink); }
 .room-kind { margin-top: clamp(14px, 1.6vw, 22px); font: 400 12px/1.4 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
-.room-line { font-size: clamp(18px, 1.65vw, 23px); line-height: 1.28; letter-spacing: -.012em; color: var(--ink); text-wrap: balance; padding-bottom: 2px; }
+.room-line { max-width: 27ch; font-size: clamp(18px, 1.65vw, 23px); line-height: 1.28; letter-spacing: -.012em; color: var(--ink); text-wrap: balance; padding-bottom: 2px; }
 
-.set { position: relative; margin-top: clamp(30px, 4.4vw, 64px); padding-bottom: 6.5%; }
+/* Every room shows its product the same way: the window on the left, under the name, and two phone
+   screens on the right, under the line about it. Nothing covers anything else. */
+.set { position: relative; display: grid; grid-template-columns: minmax(0, 68fr) minmax(0, 13.4fr) minmax(0, 13.4fr); column-gap: 2.6%; align-items: end; margin-top: clamp(30px, 4.4vw, 64px); }
 .set .amb { position: absolute; left: 50%; top: 46%; width: 150%; height: 150%; max-width: none; translate: -50% -50%; opacity: .5; pointer-events: none; -webkit-mask-image: radial-gradient(closest-side, #000 22%, transparent 100%); mask-image: radial-gradient(closest-side, #000 22%, transparent 100%); }
-.win { position: relative; z-index: 1; border-radius: clamp(7px, .9vw, 13px); overflow: hidden; background: var(--surface); box-shadow: 0 0 0 1px var(--ring), var(--shadow-win); }
+.set > .win, .win-col { grid-column: 1; grid-row: 1; position: relative; z-index: 1; min-width: 0; }
+/* A window shows the top of a longer page, so it has no bottom edge: it fades out before a row is cut. */
+.win { position: relative; border-radius: clamp(7px, .9vw, 13px) clamp(7px, .9vw, 13px) 0 0; overflow: hidden; background: var(--surface);
+  -webkit-mask-image: linear-gradient(#000 calc(100% - clamp(40px, 7.5vw, 104px)), transparent); mask-image: linear-gradient(#000 calc(100% - clamp(40px, 7.5vw, 104px)), transparent); }
+/* The fade would cut a ring drawn outside the frame, so the outline is drawn inside it and fades too. */
+.win::after { content: ""; position: absolute; inset: 0; border: 1px solid var(--ring-win); border-bottom: 0; border-radius: inherit; pointer-events: none; }
 .win img, .win video { display: block; width: 100%; height: auto; }
-.phone { position: absolute; z-index: 2; width: 17.4%; border-radius: clamp(13px, 2.1vw, 30px); overflow: hidden; background: var(--surface); box-shadow: 0 0 0 1px var(--ring), var(--shadow-phone); }
+.phone { grid-column: 2; grid-row: 1; position: relative; z-index: 2; min-width: 0; translate: 0 -11%; border-radius: clamp(13px, 1.9vw, 27px); overflow: hidden; background: var(--surface); box-shadow: 0 0 0 1px var(--ring), var(--shadow-phone); }
+.phone--b { grid-column: 3; translate: none; }
 .phone img { display: block; width: 100%; height: auto; }
-.phone--m { display: none; }
-.set--a .win { width: 87%; }
-.set--video .win { overflow: visible; }
-.set--video .win video { border-radius: inherit; }
-.vid-bar { position: absolute; left: 0; top: 100%; margin-top: 14px; display: flex; align-items: center; gap: 14px; font: 400 12px/1.4 var(--mono); color: var(--muted); }
+.vid-bar { margin-top: 2px; display: flex; align-items: center; gap: 14px; font: 400 12px/1.4 var(--mono); color: var(--muted); }
 .vid { display: inline-flex; align-items: center; gap: 7px; padding: 7px 11px 7px 9px; border-radius: 7px; box-shadow: inset 0 0 0 1px var(--line-2); font: 500 11.5px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--ink); transition: background .2s; }
 .vid:hover { background: var(--tint-2); }
 .vid .i { width: 12px; height: 12px; fill: currentColor; stroke: none; }
 .vid .vid-pause { display: none; fill: none; stroke: currentColor; stroke-width: 2; }
 .vid.is-on .vid-play { display: none; }
 .vid.is-on .vid-pause { display: inline; }
-.set--a .phone { right: 0; bottom: 0; }
-.set--b .win { width: 85%; margin-left: auto; }
-.set--b .phone { left: 0; bottom: 0; }
-.set--b .phone--2 { left: 19.4%; bottom: 5.5%; width: 15%; filter: brightness(.9); }
-.set--c .win { width: 100%; }
-.set--c .phone { right: 4.5%; bottom: 0; width: 16.2%; }
-.set--c { padding-bottom: 9%; }
 
 .room-foot { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 4fr) minmax(0, 3fr); gap: 36px clamp(32px, 4.4vw, 64px); margin-top: clamp(40px, 5vw, 72px); align-items: start; }
 .room-body { max-width: 54ch; font-size: clamp(16px, 1.2vw, 17.5px); line-height: 1.62; }
 .figs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 28px; }
 .figs dt { font-size: clamp(24px, 2.1vw, 30px); line-height: 1.05; font-weight: 540; letter-spacing: -.025em; color: var(--ink); font-variant-numeric: tabular-nums; }
-.figs dd { margin-top: 6px; font-size: 13.5px; line-height: 1.42; color: var(--muted); }
+.figs dd { margin-top: 6px; font-size: 13.5px; line-height: 1.42; color: var(--muted); text-wrap: pretty; }
 .links a { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 13px 0; border-bottom: 1px solid var(--line); color: var(--ink); font-size: 15px; font-weight: 520; transition: border-color .2s; }
 .links li:first-child a { border-top: 1px solid var(--line); }
 .links a .i { color: var(--muted); transition: transform .25s var(--ease), color .2s; }
@@ -290,6 +303,7 @@ h1 span { color: var(--h1-2); }
 .term .t-rule { display: block; margin-left: -3ch; text-indent: 0; overflow: hidden; white-space: nowrap; max-width: 64ch; }
 .term .t-row { display: flex; justify-content: space-between; gap: 2ch; margin-left: -3ch; text-indent: 0; max-width: 64ch; }
 .links--under { margin-top: clamp(24px, 2.6vw, 36px); }
+.figs--row { grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: clamp(26px, 3vw, 40px); }
 
 /* How I run agents */
 .method { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); gap: 24px clamp(32px, 4.4vw, 64px); margin-top: clamp(80px, 10vw, 144px); padding-top: 26px; border-top: 1px solid var(--line); }
@@ -329,7 +343,9 @@ h1 span { color: var(--h1-2); }
 .term--tabs pre { min-height: 21.5em; }
 .rows a { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px 24px; padding: 19px 0 20px; border-top: 1px solid var(--line); transition: border-color .2s; }
 .rows li:last-child a { border-bottom: 1px solid var(--line); }
-.rows h3 { font-size: 18px; line-height: 1.3; font-weight: 580; letter-spacing: -.012em; color: var(--ink); }
+.rows h3 { display: flex; align-items: center; gap: 9px; font-size: 18px; line-height: 1.3; font-weight: 580; letter-spacing: -.012em; color: var(--ink); }
+.rows h3 .i { color: var(--muted); transition: transform .25s var(--ease), color .2s; }
+.rows a:hover h3 .i { color: var(--ink); transform: translate(2px, -2px); }
 .rows p { grid-column: 1 / -1; max-width: 52ch; font-size: 15px; line-height: 1.55; }
 .rows span { grid-row: 1; grid-column: 2; align-self: center; font: 400 12px/1 var(--mono); color: var(--muted); white-space: nowrap; }
 .rows a:hover { border-top-color: var(--line-4); }
@@ -383,6 +399,9 @@ h1 span { color: var(--h1-2); }
 .js [data-rise] { opacity: 0; transform: translateY(26px); transition: opacity .9s var(--ease), transform 1.1s var(--ease); }
 .js [data-rise].is-in { opacity: 1; transform: none; }
 
+/* A product's picture in the other theme is in the page and stays out of sight. */
+:root:not([data-theme="light"]) .in-light, :root[data-theme="light"] .in-dark { display: none !important; }
+
 /* ---------- Narrower ---------- */
 @media (max-width: 1080px) {
   .brand { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 1px 11px; }
@@ -398,12 +417,13 @@ h1 span { color: var(--h1-2); }
   .hero-text { padding-block: 20px 0; }
   /* On one column the whole stack stays inside the page's margins, at rest and as it opens on scroll. */
   .scene { margin: 22px 0 0; }
-  .stage { aspect-ratio: 100 / 77; }
-  .stack { --left: 24.5cqw; --w: 63cqw; --lab: 2.9cqw; --top: 33.5cqw; }
+  .stage { aspect-ratio: 100 / 84; }
+  .stack { --left: 26cqw; --w: 62cqw; --lab: 2.7cqw; --top: 41cqw; --ux: 4.2; --uy: -17.2; --uz: -27; }
+  .tag { gap: .9cqw; }
   .plane { --k: calc(1 + var(--s, 0) * .16); }
-  .p2 { --x: 4.5; --y: -15.5; --z: -26; }
-  .p3 { --x: 9; --y: -31; --z: -52; }
-  .p4 { --x: 13.5; --y: -46.5; --z: -78; }
+  .plane.co { display: none; }
+  .s-holdfast { --d: 1; } .s-seaward { --d: 2; } .s-guard { --d: 3; }
+  .p0 { --w: 15.5cqw; transform: translate3d(calc(-5cqw * var(--k)), calc(10.5cqw * var(--k)), calc(21cqw * var(--k))); }
   .proof { margin-top: 44px; }
   .layer-head { grid-template-columns: auto minmax(0, 1fr); }
   .layer-head p { grid-column: 1 / -1; max-width: 52ch; margin-top: 4px; }
@@ -436,15 +456,15 @@ h1 span { color: var(--h1-2); }
   .hero-cta .btn { flex: 1; justify-content: space-between; }
 
   /* On a phone each product is shown as two of its own phone screens: a desktop window would be too small to read. */
-  .set, .set--c { display: flex; align-items: flex-start; gap: 4%; padding-bottom: 0; }
-  .set .win { display: none; }
-  .set .phone, .set--b .phone, .set--c .phone, .set--b .phone--2 { display: block; position: relative; inset: auto; flex: 1 1 0; width: auto; min-width: 0; border-radius: 20px; filter: none; }
+  .set { display: flex; align-items: flex-start; gap: 4%; }
+  .set > .win, .win-col { display: none; }
+  .set .phone { flex: 1 1 0; min-width: 0; translate: none; border-radius: 20px; }
   .set .phone--b { order: 1; margin-top: 11%; }
-  .vid-bar { display: none; }
   .layer { padding-top: 76px; }
 
   .room-foot { grid-template-columns: minmax(0, 1fr); gap: 30px; }
   .figs { gap: 20px 20px; }
+  .figs--row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .facts div { grid-template-columns: minmax(0, 1fr); }
   .facts dt { padding-top: 0; }
   .disciplines { grid-template-columns: minmax(0, 1fr); }
