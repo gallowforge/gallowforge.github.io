@@ -66,7 +66,7 @@
         <a class="btn" href="https://github.com/gallowforge" rel="me">GitHub <svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
         <a class="btn" href="assets/Ali-Husain-CV.pdf">CV <svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v8M4.5 7.5 8 11l3.5-3.5M3 13.5h10"/></svg></a>
       </div>
-      <a class="live" href="https://github.com/gallowforge/evalbench/releases/tag/v2.0.0"><i aria-hidden="true"></i><span>Latest release</span> Evalbench 2.0.0</a>
+      <a class="live" href="https://github.com/gallowforge/seaward/releases/tag/v0.1.0"><i aria-hidden="true"></i><span>Latest release</span> Seaward 0.1.0</a>
     </div>
 
     <div class="scene" aria-hidden="true">
@@ -84,8 +84,8 @@
 
   <div class="wrap">
     <dl class="proof">
-      <div><dt>10</dt><dd>public repositories, each one specified, tested, documented and released</dd></div>
-      <div><dt>3,291</dt><dd>automated tests across them, run on every change</dd></div>
+      <div><dt>11</dt><dd>public repositories, each one specified, tested, documented and released</dd></div>
+      <div><dt>4,255</dt><dd>automated tests across them, run on every change</dd></div>
       <div><dt>15</dt><dd>services in production on a platform I designed and operate</dd></div>
     </dl>
   </div>
@@ -254,8 +254,40 @@
   <div class="wrap layer-head">
     <span class="layer-no">03</span>
     <h2 id="infrastructure-h">Infrastructure</h2>
-    <p>A production platform in daily use, designed, secured and operated as code, and one calm screen that shows all of it.</p>
+    <p>A tool that shows what a server really lets in, a production platform in daily use, designed, secured and operated as code, and one calm screen that shows all of it.</p>
   </div>
+
+  <article class="room room--seaward" id="seaward" aria-labelledby="seaward-h">
+    <div class="wrap">
+      <header class="room-head">
+        <div>
+          <h3 id="seaward-h">Seaward</h3>
+          <p class="room-kind">Command-line tool · open source</p>
+        </div>
+        <p class="room-line">Which ports on a Linux server can really be reached from outside, and the rule that decides each one.</p>
+      </header>
+      <div class="set set--b" data-rise>
+        <img class="amb" src="assets/img/seaward-glow.webp" alt="" decoding="async">
+        <figure class="win"><img src="assets/img/seaward-d.webp" width="1920" height="1440" decoding="async" alt="Seaward's chart of a sample shop server: seven ports can be reached from outside and ufw allows only four of them. The three container ports are drawn as lanes that cross the firewall's shoreline."></figure>
+        <figure class="phone"><img src="assets/img/seaward-p.webp" width="600" height="1298" decoding="async" alt="Seaward on a phone: 7 ports can be reached from outside, ufw allows only 4 of them."></figure>
+        <figure class="phone phone--m phone--b"><img src="assets/img/seaward-p2.webp" width="600" height="1298" decoding="async" alt="The passage to port 5432 on a phone: one packet followed rule by rule to the rule that lets it through."></figure>
+      </div>
+      <div class="room-foot" data-rise>
+        <p class="room-body">A firewall's list is what was asked for; the rules the kernel runs are what the server got. Docker publishes a port with rules of its own, and a database answers the whole internet while ufw still reads deny. Seaward reads the rules that are really loaded, follows a packet through them the way the kernel does, and says for every port who can reach it and which rule decides. It only reads: it changes no rule and puts no packet on the network.</p>
+        <dl class="figs">
+          <div><dt>964</dt><dd>automated tests, run on every change</dd></div>
+          <div><dt>1,950</dt><dd>real packets sent through the Linux kernel to check it, with no disagreement</dd></div>
+          <div><dt>107</dt><dd>rulesets built inside a real kernel: 67 written, 40 random</dd></div>
+          <div><dt>0</dt><dd>Go dependencies: one static 4&nbsp;MB binary</dd></div>
+        </dl>
+        <ul class="links">
+          <li><a href="https://gallowforge.github.io/seaward/">Open the live demo <svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></a></li>
+          <li><a href="https://github.com/gallowforge/seaward">Source and quickstart <svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></a></li>
+          <li class="stack-line">Go standard library · netfilter · WebAssembly · TypeScript · Preact</li>
+        </ul>
+      </div>
+    </div>
+  </article>
 
   <article class="room room--vesper" id="vesper" aria-labelledby="vesper-h">
     <div class="wrap">
