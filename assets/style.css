@@ -216,6 +216,8 @@ h1 span { color: var(--h1-2); }
 .face { position: relative; border-radius: 1.1cqw; overflow: hidden; background: var(--surface); box-shadow: 0 0 0 1px var(--ring), var(--shadow-plane); }
 .face--phone { border-radius: 2cqw; }
 .face img { display: block; width: 100%; height: auto; }
+/* the page at the back is taller than the others; it shows its top, cut to their shape */
+.p4 .face img { aspect-ratio: 1400 / 842; object-fit: cover; object-position: 50% 0; }
 .p2 .face img { filter: brightness(var(--dim-2)); }
 .p3 .face img { filter: brightness(var(--dim-3)); }
 .p4 .face img { filter: brightness(var(--dim-4)); }
