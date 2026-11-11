@@ -1,0 +1,73 @@
+/* The structure that scales (preview): compact rows for a layer's other projects, and project pages.
+   Everything is drawn from the page's own tokens, so both themes follow. */
+
+/* ---------- a layer's other projects, as rows ---------- */
+.more { margin-top: clamp(64px, 8vw, 120px); }
+.more-h { padding-bottom: 14px; font: 500 12.5px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.plist { border-top: 1px solid var(--line); }
+.prow { display: grid; grid-template-columns: minmax(0, 208px) minmax(0, 3.1fr) minmax(0, 3.5fr) minmax(0, 3.4fr) 20px; align-items: center; gap: 14px clamp(20px, 3vw, 44px); padding: 22px 0; border-bottom: 1px solid var(--line); color: inherit; transition: border-color .2s; }
+.prow-pic { position: relative; aspect-ratio: 16 / 10; border-radius: 7px; overflow: hidden; background: var(--surface); box-shadow: 0 0 0 1px var(--ring); }
+.prow-pic img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 0 0; transition: transform .5s var(--ease); }
+.prow-id { min-width: 0; }
+.prow h3 { font-size: clamp(26px, 2.5vw, 36px); line-height: 1; letter-spacing: -.04em; font-weight: 640; color: var(--ink); }
+.prow .room-kind { margin-top: 10px; font-size: 11px; }
+.prow-line { max-width: 30ch; font-size: clamp(15.5px, 1.25vw, 17.5px); line-height: 1.36; letter-spacing: -.008em; color: var(--ink); text-wrap: balance; }
+.prow-figs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px clamp(16px, 2vw, 28px); }
+.prow-figs dt { font-size: clamp(20px, 1.7vw, 24px); line-height: 1.05; font-weight: 540; letter-spacing: -.025em; color: var(--ink); font-variant-numeric: tabular-nums; }
+.prow-figs dd { margin-top: 5px; font-size: 12.5px; line-height: 1.4; color: var(--muted); text-wrap: pretty; }
+.prow-go { justify-self: end; color: var(--muted); transition: transform .25s var(--ease), color .2s; }
+.prow-go .i { display: block; width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.prow:hover, .prow:focus-visible { border-bottom-color: var(--line-4); }
+.prow:hover .prow-go, .prow:focus-visible .prow-go { color: var(--ink); transform: translate(2px, -2px); }
+.prow:hover .prow-pic img { transform: scale(1.03); }
+.prow[aria-current="page"] { display: none; }
+
+@media (max-width: 860px) {
+  .prow { grid-template-columns: minmax(0, 116px) minmax(0, 1fr) 20px; gap: 14px 16px; padding: 20px 0; }
+  .prow-line { grid-column: 1 / -1; max-width: none; }
+  .prow-figs { grid-column: 1 / -1; }
+  .prow-go { grid-row: 1; grid-column: 3; }
+}
+
+/* ---------- a project's own page ---------- */
+.project { padding-top: calc(60px + env(safe-area-inset-top, 0px)); }
+.crumb { display: flex; align-items: baseline; gap: 10px; padding-top: clamp(28px, 4vw, 56px); font: 500 12.5px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.crumb a { color: var(--muted); transition: color .2s; }
+.crumb a:hover { color: var(--ink); }
+.crumb a span { color: var(--faint); }
+.crumb i { font-style: normal; color: var(--faint); }
+.crumb b { font-weight: 500; color: var(--ink); }
+.project .room { padding-top: clamp(28px, 3.6vw, 52px); }
+.project .room-head h1 { font-size: clamp(54px, 8.4vw, 128px); line-height: .88; letter-spacing: -.05em; font-weight: 640; color: var(--ink); }
+.pager { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: clamp(40px, 5vw, 72px); }
+.pager a { display: grid; gap: 8px; padding: 16px 0 0; border-top: 1px solid var(--line); font-size: clamp(17px, 1.5vw, 21px); font-weight: 580; letter-spacing: -.015em; color: var(--ink); transition: border-color .2s; }
+.pager a span { font: 500 11.5px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.pager a:hover { border-top-color: var(--line-4); }
+.pager a:nth-child(2) { text-align: center; }
+.pager a:last-child { text-align: right; }
+@media (max-width: 560px) {
+  .pager { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pager a:nth-child(2) { display: none; }
+}
+
+/* ---------- a project's case study ---------- */
+.case { margin-top: clamp(72px, 9vw, 136px); }
+.case-row { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); gap: 18px clamp(32px, 4.4vw, 64px); padding: 26px 0 clamp(44px, 5.4vw, 76px); border-top: 1px solid var(--line); }
+.case-row h2 { font-size: clamp(19px, 1.7vw, 23px); line-height: 1.2; font-weight: 580; letter-spacing: -.012em; color: var(--ink); }
+.case-b { max-width: 66ch; }
+.case-b p { font-size: clamp(16px, 1.2vw, 17.5px); line-height: 1.62; text-wrap: pretty; }
+.case-b p + p { margin-top: 1em; }
+.case-b h3 { margin-bottom: 10px; font-size: clamp(19px, 1.5vw, 22px); line-height: 1.25; font-weight: 580; letter-spacing: -.012em; color: var(--ink); text-wrap: balance; }
+.case-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px clamp(24px, 3vw, 44px); }
+.case-list h3 { margin-bottom: 6px; font-size: 17px; line-height: 1.3; font-weight: 580; letter-spacing: -.01em; color: var(--ink); }
+.case-list p { font-size: 15px; line-height: 1.58; text-wrap: pretty; }
+.case-proof { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px clamp(24px, 3vw, 44px); }
+.case-proof dt { font-size: clamp(24px, 2.1vw, 30px); line-height: 1.05; font-weight: 540; letter-spacing: -.025em; color: var(--ink); font-variant-numeric: tabular-nums; }
+.case-proof dd { margin-top: 8px; font-size: 15px; line-height: 1.55; text-wrap: pretty; }
+.case code { font: 400 .9em/1 var(--mono); letter-spacing: -.01em; color: var(--ink); overflow-wrap: anywhere; }
+.case-limits { max-width: 66ch; border-top: 1px solid var(--line); }
+.case-limits li { padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 15.5px; line-height: 1.55; }
+@media (max-width: 860px) {
+  .case-row { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .case-list, .case-proof { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+}

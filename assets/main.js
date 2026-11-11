@@ -156,9 +156,12 @@
     for (var id in links) links[id].classList.toggle('is-on', id === now);
   };
   var spySoon = function () { if (!spyQueued) { spyQueued = true; requestAnimationFrame(spy); } };
-  addEventListener('scroll', spySoon, { passive: true });
-  addEventListener('resize', spySoon);
-  spy();
+  // A project's own page has no layers; its bar keeps the layer it was built with.
+  if (layers.length) {
+    addEventListener('scroll', spySoon, { passive: true });
+    addEventListener('resize', spySoon);
+    spy();
+  }
 
   // The stack: it turns a little toward the pointer, and opens up as the page leaves it.
   var stack = document.getElementById('stack');
