@@ -394,9 +394,14 @@ h1 span { color: var(--h1-2); }
   .brand-role { white-space: normal; text-wrap: balance; }
   .hero-in { grid-template-columns: minmax(0, 1fr); gap: 0; }
   .hero-text { padding-block: 20px 0; }
-  .scene { margin: 22px calc(-1 * var(--gutter)) 0 0; }
-  .stage { aspect-ratio: 100 / 76; }
-  .stack { --left: 25cqw; --w: 70cqw; --lab: 2.2cqw; --top: 35cqw; }
+  /* On one column the whole stack stays inside the page's margins, at rest and as it opens on scroll. */
+  .scene { margin: 22px 0 0; }
+  .stage { aspect-ratio: 100 / 77; }
+  .stack { --left: 24.5cqw; --w: 63cqw; --lab: 2.9cqw; --top: 33.5cqw; }
+  .plane { --k: calc(1 + var(--s, 0) * .16); }
+  .p2 { --x: 4.5; --y: -15.5; --z: -26; }
+  .p3 { --x: 9; --y: -31; --z: -52; }
+  .p4 { --x: 13.5; --y: -46.5; --z: -78; }
   .proof { margin-top: 44px; }
   .layer-head { grid-template-columns: auto minmax(0, 1fr); }
   .layer-head p { grid-column: 1 / -1; max-width: 52ch; margin-top: 4px; }
