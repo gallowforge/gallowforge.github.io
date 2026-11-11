@@ -104,7 +104,21 @@
   --shadow-plane-phone: 0 2.4cqw 4.6cqw -1.4cqw rgba(16, 24, 40, .4), 0 .5cqw 1.5cqw rgba(16, 24, 40, .16);
   --shadow-win: 0 50px 130px -30px rgba(16, 24, 40, .5), 0 14px 40px rgba(16, 24, 40, .2);
   --shadow-phone: 0 26px 56px -18px rgba(16, 24, 40, .34), 0 6px 18px rgba(16, 24, 40, .12);
-  --shadow-term: 0 40px 110px -30px rgba(16, 24, 40, .5);
+  --shadow-term: 0 34px 80px -36px rgba(16, 24, 40, .3), 0 3px 12px rgba(16, 24, 40, .05);
+
+  /* A terminal on a light page is a light terminal: white paper, the page's own ink, and the two
+     colours a terminal needs, a green that passes and an amber that warns. */
+  --term-bg: #fdfdfe;
+  --term-text: #48515e;
+  --term-strong: #0b0e13;
+  --term-title: #0b0e13;
+  --term-prompt: #6f7987;
+  --term-rule: #c5cbd4;
+  --term-caret: #2a313c;
+  --term-ok: #12793d;
+  --term-warn: #8f5a00;
+  --term-select: #0b0e13;
+  --term-on-select: #f6f7f9;
   --fade: .022;
 }
 
