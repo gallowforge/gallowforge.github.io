@@ -439,7 +439,7 @@ h1 span { color: var(--h1-2); }
   .tag { gap: .9cqw; }
   .plane { --k: calc(1 + var(--s, 0) * .16); }
   .plane.co { display: none; }
-  .s-holdfast { --d: 1; } .s-seaward { --d: 2; } .s-guard { --d: 3; }
+  .s-holdfast { --d: 1; } .s-seaward { --d: 2.2; } .s-guard { --d: 3.22; }   /* Seaward sits a little higher, so the sheet in front does not cut through its headline */
   .p0 { --w: 15.5cqw; transform: translate3d(calc(-5cqw * var(--k)), calc(10.5cqw * var(--k)), calc(21cqw * var(--k))); }
   .proof { margin-top: 44px; }
   .layer-head { grid-template-columns: auto minmax(0, 1fr); }
