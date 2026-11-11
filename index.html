@@ -66,7 +66,7 @@
         <a class="btn" href="https://github.com/gallowforge" rel="me">GitHub <svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
         <a class="btn" href="assets/Ali-Husain-CV.pdf">CV <svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v8M4.5 7.5 8 11l3.5-3.5M3 13.5h10"/></svg></a>
       </div>
-      <a class="live" href="https://github.com/gallowforge/holdfast/releases/tag/v0.1.0"><i aria-hidden="true"></i><span>Latest release</span> Holdfast 0.1.0</a>
+      <a class="live" href="https://github.com/gallowforge/evalbench/releases/tag/v2.0.0"><i aria-hidden="true"></i><span>Latest release</span> Evalbench 2.0.0</a>
     </div>
 
     <div class="scene" aria-hidden="true">
@@ -85,7 +85,7 @@
   <div class="wrap">
     <dl class="proof">
       <div><dt>10</dt><dd>public repositories, each one specified, tested, documented and released</dd></div>
-      <div><dt>3,171</dt><dd>automated tests across them, run on every change</dd></div>
+      <div><dt>3,291</dt><dd>automated tests across them, run on every change</dd></div>
       <div><dt>15</dt><dd>services in production on a platform I designed and operate</dd></div>
     </dl>
   </div>
@@ -212,18 +212,18 @@
           <h3 id="evalbench-h">Evalbench</h3>
           <p class="room-kind">Self-hosted · open source</p>
         </div>
-        <p class="room-line">Evaluates language models on your own tasks, with blind human rating.</p>
+        <p class="room-line">Names the language model to use for your own job, and shows the proof.</p>
       </header>
       <div class="set set--c" data-rise>
         <img class="amb" src="assets/img/evalbench-glow.webp" alt="" decoding="async">
-        <figure class="win"><img src="assets/img/evalbench-d.webp" width="1920" height="1260" decoding="async" alt="Evalbench's scoreboard: Nimbus Pro leads the core battery, with checks passed and judges' ratings for four models."></figure>
-        <figure class="phone phone--b"><img src="assets/img/evalbench-p.webp" width="600" height="1298" decoding="async" alt="Blind rating on a phone: two answers side by side, with nothing that names either model."></figure>
-        <figure class="phone phone--m"><img src="assets/img/evalbench-p2.webp" width="600" height="1298" decoding="async" alt="Evalbench's overview on a phone: the leader of the core battery and the pass rate of each model."></figure>
+        <figure class="win"><img src="assets/img/evalbench-d.webp" width="1920" height="1260" decoding="async" alt="Evalbench's verdict page: Use Orion Mini. It gets 22 of 24 right for $0.12 per 1,000 answers, with five models plotted against the bar."></figure>
+        <figure class="phone phone--b"><img src="assets/img/evalbench-p.webp" width="600" height="1298" decoding="async" alt="Blind judging on a phone: an answer scored on the job's rubric, with nothing that names the model."></figure>
+        <figure class="phone phone--m"><img src="assets/img/evalbench-p2.webp" width="600" height="1298" decoding="async" alt="The verdict on a phone: Use Orion Mini, and the bar it had to clear."></figure>
       </div>
       <div class="room-foot" data-rise>
-        <p class="room-body">Write tasks and rubrics in YAML or in the browser, run them against local and API models, and grade every answer with automatic checks. People then rate pairs of answers blind. Ratings are fitted with a Bradley-Terry model and a bootstrap interval, and every run is frozen, so a regression shows the day it lands.</p>
+        <p class="room-body">Write down what a good answer is, run the models you are considering, and Evalbench names the one to use: the cheapest model that clears your bar, with every number behind the pick on the page. Answers are graded by automatic checks, up to Python tests in a sandbox with no network, and people can rate pairs of answers blind. Every run is frozen, so a regression shows the day it lands.</p>
         <dl class="figs">
-          <div><dt>171</dt><dd>automated tests, plus sandbox checks in CI</dd></div>
+          <div><dt>291</dt><dd>automated tests, plus sandbox checks in CI</dd></div>
           <div><dt>7</dt><dd>check types, up to sandboxed Python tests</dd></div>
           <div><dt>20</dt><dd>tasks in the core battery, graded automatically</dd></div>
           <div><dt>0</dt><dd>API keys stored; read from the environment</dd></div>
