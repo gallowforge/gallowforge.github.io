@@ -45,7 +45,7 @@
   --shadow-win: 0 50px 130px -30px rgba(0, 0, 0, .85), 0 14px 40px rgba(0, 0, 0, .45);
   --shadow-phone: 0 36px 90px -10px rgba(0, 0, 0, .85), 0 10px 30px rgba(0, 0, 0, .5);
   --shadow-term: 0 40px 110px -30px rgba(0, 0, 0, .85);
-  --fade: .05;                              /* how much light each step back into the stack costs a sheet */
+  --fade: .05; --pale: 0; --haze: 0;                              /* how much light each step back into the stack costs a sheet */
 
   /* Terminal colours: the same in both themes. */
   --term-bg: #090c10;
@@ -100,7 +100,9 @@
 
   --ring: rgba(16, 24, 40, .22);
   --ring-win: rgba(16, 24, 40, .26);
-  --shadow-plane: 0 5cqw 10cqw -1cqw rgba(16, 24, 40, .5), 0 1cqw 3cqw rgba(16, 24, 40, .2);
+  /* On a light page a deep shadow lands on the sheets behind and greys them, so each sheet throws
+     only a short one: enough to lift it off the next. */
+  --shadow-plane: 0 1.5cqw 2.6cqw -1.3cqw rgba(16, 24, 40, .26), 0 .25cqw .8cqw rgba(16, 24, 40, .07);
   --shadow-plane-phone: 0 2.4cqw 4.6cqw -1.4cqw rgba(16, 24, 40, .4), 0 .5cqw 1.5cqw rgba(16, 24, 40, .16);
   --shadow-win: 0 50px 130px -30px rgba(16, 24, 40, .5), 0 14px 40px rgba(16, 24, 40, .2);
   --shadow-phone: 0 26px 56px -18px rgba(16, 24, 40, .34), 0 6px 18px rgba(16, 24, 40, .12);
@@ -119,7 +121,7 @@
   --term-warn: #8f5a00;
   --term-select: #0b0e13;
   --term-on-select: #f6f7f9;
-  --fade: .022;
+  --fade: -.006; --pale: .085; --haze: .034;  /* in daylight a far sheet pales toward the page instead of darkening */
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -220,6 +222,7 @@ h1 span { color: var(--h1-2); }
 .plane {
   --k: calc(1 + var(--s, 0) * .42);
   --u: calc(var(--d, 0) * var(--k));
+  --far: calc(var(--d, 0) * (1 - var(--up, 0)));   /* how far back the sheet stands; a sheet under the pointer comes forward */
   position: absolute; left: var(--left, 12cqw); top: var(--top, 41cqw); width: var(--w, 62cqw); display: block; transform-style: preserve-3d; pointer-events: auto;
   transform: translate3d(calc(var(--u) * var(--ux) * 1cqw), calc(var(--u) * var(--uy) * 1cqw - var(--up, 0) * 1.3cqw), calc(var(--u) * var(--uz) * 1cqw));
   transition: transform .45s var(--ease);
@@ -245,7 +248,7 @@ h1 span { color: var(--h1-2); }
 .face { position: relative; border-radius: 1.1cqw; overflow: hidden; background: var(--surface); box-shadow: 0 0 0 1px var(--ring), var(--shadow-plane); }
 .face--phone { border-radius: 2cqw; box-shadow: 0 0 0 1px var(--ring), var(--shadow-plane-phone); }
 /* every sheet is cut to one shape, and shows the top of its page */
-.face img { display: block; width: 100%; height: auto; aspect-ratio: 1920 / 1096; object-fit: cover; object-position: 50% 0; filter: brightness(calc(1 - var(--d, 0) * var(--fade) + var(--up, 0) * var(--d, 0) * var(--fade))); transition: filter .45s var(--ease); }
+.face img { display: block; width: 100%; height: auto; aspect-ratio: 1920 / 1096; object-fit: cover; object-position: 50% 0; filter: brightness(calc(1 - var(--far) * var(--fade))) saturate(calc(1 - var(--far) * var(--pale))) contrast(calc(1 - var(--far) * var(--haze))); transition: filter .45s var(--ease); }
 .face--phone img { aspect-ratio: 600 / 1290; filter: none; }
 .s-evalbench .face img { object-position: 50% 42%; }  /* its first line of words sits lower than the others' */
 .s-homelab .face img, .s-guard .face img { object-position: 0 9%; }
