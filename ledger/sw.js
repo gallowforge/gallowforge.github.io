@@ -1,6 +1,6 @@
-// Ledger is now Ballast, at /ballast/. A phone or browser that installed the app at /ledger/
+// Ledger is now Ballast (its case study is at /work/ballast/). A phone or browser that installed the app at /ledger/
 // still runs its old service worker, which checks this address for updates. This version
-// takes over once, clears the old caches, removes itself and sends open pages to Ballast.
+// takes over once, clears the old caches, removes itself and sends open pages to the Ballast case study.
 // Data saved on the device is kept: it belongs to the site, not to this worker.
 self.addEventListener('install', () => self.skipWaiting());
 self.addEventListener('activate', (event) => {
@@ -12,7 +12,7 @@ self.addEventListener('activate', (event) => {
       await self.registration.unregister();
       const open = await self.clients.matchAll({ type: 'window' });
       await Promise.all(
-        open.map((c) => c.navigate(c.url.replace('/ledger/', '/ballast/')).catch(() => {})),
+        open.map((c) => c.navigate(new URL('/work/ballast/', c.url).href).catch(() => {})),
       );
     })(),
   );
