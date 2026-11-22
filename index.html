@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Ali Husain · Software engineer and product designer</title>
-<meta name="description" content="I build complete systems, from the interface to the infrastructure: offline-first apps, a memory that keeps coding agents honest, and a tool that shows what a server exposes.">
+<meta name="description" content="Software engineer and product designer. Native Apple apps, web products, AI systems and the infrastructure under them: specified, designed, built, tested and shipped end to end.">
 <meta name="author" content="Ali Husain">
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#07090c">
@@ -12,18 +12,17 @@
 <link rel="canonical" href="https://gallowforge.github.io/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Ali Husain · Software engineer and product designer">
-<meta property="og:description" content="I build complete systems, from the interface to the infrastructure: offline-first apps, a memory that keeps coding agents honest, and a tool that shows what a server exposes.">
+<meta property="og:description" content="Native Apple apps, web products, AI systems and the infrastructure under them: specified, designed, built, tested and shipped end to end.">
 <meta property="og:url" content="https://gallowforge.github.io/">
-<meta property="og:image" content="https://gallowforge.github.io/assets/og.png?v=7e9b40e201">
+<meta property="og:image" content="https://gallowforge.github.io/assets/og.png?v=cap1">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Ali Husain. I build complete systems, from the interface to the infrastructure.">
+<meta property="og:image:alt" content="Ali Husain, software engineer and product designer. I build complete systems, from the interface to the infrastructure.">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/style.css?v=203313a43e">
-<link rel="stylesheet" href="assets/next.css?v=bf7650bdfb">
-<noscript><style>.theme-toggle { display: none; }</style></noscript>
+<link rel="stylesheet" href="assets/style.css?v=cap1">
+<noscript><style>.theme-toggle { display: none; } [data-rise] { opacity: 1 !important; transform: none !important; }</style></noscript>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -41,10 +40,10 @@
     </button>
     <nav aria-label="Sections">
       <ul>
-        <li><a href="#interface" data-spy="interface">Interface</a></li>
-        <li><a href="#intelligence" data-spy="intelligence">Intelligence</a></li>
-        <li><a href="#infrastructure" data-spy="infrastructure">Infrastructure</a></li>
-        <li><a href="#tools" data-spy="tools">Tools</a></li>
+        <li><a href="#build" data-spy="build">What I build</a></li>
+        <li><a href="#method" data-spy="method">How I work</a></li>
+        <li><a href="#proof" data-spy="proof">Proof</a></li>
+        <li><a href="#toolkit" data-spy="toolkit">Toolkit</a></li>
         <li><a class="nav-cta" href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -53,373 +52,370 @@
 
 <main id="main">
 
-<!-- ============ HERO: the stack, from the interface to the infrastructure ============ -->
-<section class="hero" aria-labelledby="hero-h">
+<!-- ============ HERO ============ -->
+<section class="hero" id="top" aria-labelledby="hero-h">
   <div class="wrap hero-in">
     <div class="hero-text">
+      <p class="eyebrow"><i aria-hidden="true"></i>Open to remote work</p>
       <h1 id="hero-h">I build complete systems, <span>from the interface to the infrastructure.</span></h1>
-      <p class="hero-lede">Offline-first apps that need no account and no server. A memory for coding agents in which every fact carries a check that proves it. A tool that shows which ports on a server can really be reached from outside.</p>
+      <p class="hero-lede">Native Apple apps, web products, AI systems and the servers under them. I take a product from a blank page to a release on my own: the specification, the design, the code, the tests and the documentation, held to one standard all the way down.</p>
       <div class="hero-cta">
         <span class="mail">
           <a class="mail-a" href="mailto:ali@gallowforge.dev">ali@gallowforge.dev</a>
           <button class="mail-copy" type="button" data-copy="ali@gallowforge.dev" aria-label="Copy the email address">Copy</button>
         </span>
-        <a class="btn" href="https://github.com/gallowforge" rel="me">GitHub <svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
         <a class="btn" href="assets/Ali-Husain-CV.pdf">CV <svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v8M4.5 7.5 8 11l3.5-3.5M3 13.5h10"/></svg></a>
+        <a class="btn" href="https://github.com/gallowforge" rel="me">GitHub <svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
       </div>
-      <a class="live" href="work/vesper/"><i aria-hidden="true"></i><span>Latest release</span> Vesper 2.2.2</a>
     </div>
 
-    <nav class="scene" aria-label="The work, layer by layer">
+    <!-- The stack: the four layers of a complete system, drawn as plates. No product is pictured. -->
+    <div class="scene" aria-hidden="true">
       <div class="stage">
         <div class="stack" id="stack">
-          <a class="plane p0 s-ethereal" href="#ethereal" aria-label="Ethereal on a phone, in Interface"><div class="face face--phone"><img class="in-dark" loading="lazy" decoding="async" src="assets/img/ethereal-p.webp?v=ceb2b29b" width="600" height="1290" alt=""><img class="in-light" loading="lazy" decoding="async" src="assets/img/ethereal-p-light.webp?v=bf6f649c" width="600" height="1290" alt=""></div></a>
-          <a class="plane s-ballast" href="#ballast" aria-label="Ballast, in Interface"><img class="amb" src="assets/img/ballast-glow.webp?v=aa9dd01e" alt=""><span class="tag"><span><b>01</b>Interface</span><small><span class="n-ballast">Ballast</span> · <span class="n-ethereal">Ethereal</span></small></span><div class="face"><img class="in-dark" loading="lazy" decoding="async" src="assets/img/ballast-d.webp?v=ced12d8e" width="1920" height="1096" alt=""><img class="in-light" loading="lazy" decoding="async" src="assets/img/ballast-d-light.webp?v=9e148e52" width="1920" height="1096" alt=""></div></a>
-          <a class="plane s-ethereal co" href="#ethereal" aria-label="Ethereal, in Interface"><div class="face"><img class="in-dark" loading="lazy" decoding="async" src="assets/img/ethereal-d.webp?v=1019ef8c" width="1920" height="1290" alt=""><img class="in-light" loading="lazy" decoding="async" src="assets/img/ethereal-d-light.webp?v=d1efafaa" width="1920" height="1290" alt=""></div></a>
-          <a class="plane s-holdfast" href="#holdfast" aria-label="Holdfast, in Intelligence"><img class="amb" src="assets/img/holdfast-glow.webp?v=8fce7fa0" alt=""><span class="tag"><span><b>02</b>Intelligence</span><small><span class="n-holdfast">Holdfast</span> · <span class="n-evalbench">Evalbench</span></small></span><div class="face"><img class="in-dark" loading="lazy" decoding="async" src="assets/img/holdfast-d.webp?v=2b997683" width="1920" height="1260" alt=""><img class="in-light" loading="lazy" decoding="async" src="assets/img/holdfast-d-light.webp?v=cedd9eeb" width="1920" height="1260" alt=""></div></a>
-          <a class="plane s-evalbench co" href="#evalbench" aria-label="Evalbench, in Intelligence"><div class="face"><img class="in-dark" loading="lazy" decoding="async" src="assets/img/evalbench-d.webp?v=92c384b5" width="1920" height="1260" alt=""><img class="in-light" loading="lazy" decoding="async" src="assets/img/evalbench-d-light.webp?v=533d049a" width="1920" height="1260" alt=""></div></a>
-          <a class="plane s-seaward" href="#seaward" aria-label="Seaward, in Infrastructure"><img class="amb" src="assets/img/seaward-glow.webp?v=add169b4" alt=""><span class="tag"><span><b>03</b>Infrastructure</span><small><span class="n-seaward">Seaward</span> · <span class="n-vesper">Vesper</span> · <span class="n-homelab">Homelab</span></small></span><div class="face"><img class="in-dark" loading="lazy" decoding="async" src="assets/img/seaward-d.webp?v=182743c9" width="1920" height="1440" alt=""><img class="in-light" loading="lazy" decoding="async" src="assets/img/seaward-d-light.webp?v=18a490bc" width="1920" height="1440" alt=""></div></a>
-          <a class="plane s-vesper co" href="#vesper" aria-label="Vesper, in Infrastructure"><div class="face"><img class="in-dark" loading="lazy" decoding="async" src="assets/img/vesper-d.webp?v=477978fe" width="1920" height="1200" alt=""><img class="in-light" loading="lazy" decoding="async" src="assets/img/vesper-d-light.webp?v=fb8a474b" width="1920" height="1200" alt=""></div></a>
-          <a class="plane s-homelab co" href="#homelab" aria-label="Homelab, in Infrastructure"><div class="face"><img class="in-dark" loading="lazy" decoding="async" src="assets/img/term-restore.webp?v=e88fb991" width="1400" height="842" alt=""><img class="in-light" loading="lazy" decoding="async" src="assets/img/term-restore-light.webp?v=d2506bf5" width="1400" height="842" alt=""></div></a>
-          <a class="plane s-guard" href="#tools" aria-label="agent-guardrails, in Tools"><span class="tag"><span><b>04</b>Tools</span><small><span class="n-guard">agent-guardrails</span> · <span class="n-aih">aih</span> · <span class="n-bwtidy">bwtidy</span> · <span class="n-filmforge">filmforge</span></small></span><div class="face"><img class="in-dark" loading="lazy" decoding="async" src="assets/img/term-guard.webp?v=c4c593a4" width="1400" height="919" alt=""><img class="in-light" loading="lazy" decoding="async" src="assets/img/term-guard-light.webp?v=816e8286" width="1400" height="919" alt=""></div></a>
+          <div class="plate pl-1">
+            <span class="ptag"><b>01</b>Interface</span>
+            <svg class="pdraw" viewBox="0 0 400 260">
+              <!-- a TV, a laptop, a tablet and a phone, drawn as outlines -->
+              <rect class="d" x="24" y="40" width="166" height="98" rx="5"/><path class="d" d="M86 150h42M107 138v12"/>
+              <rect class="d" x="214" y="56" width="104" height="70" rx="4"/><path class="d" d="M202 132h128l-8 8H210z"/>
+              <rect class="d" x="60" y="164" width="72" height="78" rx="7"/>
+              <rect class="d" x="340" y="70" width="38" height="74" rx="8"/>
+              <path class="s" d="M38 58h48M38 70h80M38 82h64M228 70h40M228 80h60M74 180h30M74 190h44M350 86h18M350 96h12"/>
+              <rect class="a" x="38" y="100" width="58" height="24" rx="3"/><rect class="a2" x="228" y="96" width="34" height="18" rx="3"/>
+              <circle class="a" cx="359" cy="126" r="6"/>
+            </svg>
+          </div>
+          <div class="plate pl-2">
+            <span class="ptag"><b>02</b>Intelligence</span>
+            <svg class="pdraw" viewBox="0 0 400 260">
+              <!-- a comparison of models, each with its confidence interval, against a bar -->
+              <g transform="translate(20 18)">
+              <path class="g" d="M40 210h200M40 60v150"/>
+              <path class="d" d="M70 120v50M110 96v44M150 140v40M190 78v36"/>
+              <path class="d" d="M64 120h12M64 170h12M104 96h12M104 140h12M144 140h12M144 180h12M184 78h12M184 114h12"/>
+              <circle class="a2" cx="70" cy="145" r="5"/><circle class="a2" cx="110" cy="118" r="5"/><circle class="a2" cx="150" cy="160" r="5"/><circle class="a" cx="190" cy="96" r="6"/>
+              <path class="s" d="M40 104h200" stroke-dasharray="4 5"/>
+              </g>
+            </svg>
+          </div>
+          <div class="plate pl-3">
+            <span class="ptag"><b>03</b>Infrastructure</span>
+            <svg class="pdraw" viewBox="0 0 400 260">
+              <!-- fifteen services, each one up -->
+              <g transform="translate(-14 30)">
+              <g class="cells">
+                <rect x="40" y="56" width="52" height="34" rx="4"/><rect x="104" y="56" width="52" height="34" rx="4"/><rect x="168" y="56" width="52" height="34" rx="4"/><rect x="232" y="56" width="52" height="34" rx="4"/><rect x="296" y="56" width="52" height="34" rx="4"/>
+                <rect x="40" y="102" width="52" height="34" rx="4"/><rect x="104" y="102" width="52" height="34" rx="4"/><rect x="168" y="102" width="52" height="34" rx="4"/><rect x="232" y="102" width="52" height="34" rx="4"/><rect x="296" y="102" width="52" height="34" rx="4"/>
+                <rect x="40" y="148" width="52" height="34" rx="4"/><rect x="104" y="148" width="52" height="34" rx="4"/><rect x="168" y="148" width="52" height="34" rx="4"/><rect x="232" y="148" width="52" height="34" rx="4"/><rect x="296" y="148" width="52" height="34" rx="4"/>
+              </g>
+              <g class="ok">
+                <circle cx="54" cy="73" r="3.5"/><circle cx="118" cy="73" r="3.5"/><circle cx="182" cy="73" r="3.5"/><circle cx="246" cy="73" r="3.5"/><circle cx="310" cy="73" r="3.5"/>
+                <circle cx="54" cy="119" r="3.5"/><circle cx="118" cy="119" r="3.5"/><circle cx="182" cy="119" r="3.5"/><circle cx="246" cy="119" r="3.5"/><circle cx="310" cy="119" r="3.5"/>
+                <circle cx="54" cy="165" r="3.5"/><circle cx="118" cy="165" r="3.5"/><circle cx="182" cy="165" r="3.5"/><circle cx="246" cy="165" r="3.5"/><circle cx="310" cy="165" r="3.5"/>
+              </g>
+              <path class="s" d="M64 73h18M128 73h18M192 73h18M256 73h18M320 73h18M64 119h18M128 119h18M192 119h18M256 119h18M320 119h18M64 165h18M128 165h18M192 165h18M256 165h18M320 165h18"/>
+              </g>
+            </svg>
+          </div>
+          <div class="plate pl-4">
+            <span class="ptag"><b>04</b>Proof</span>
+            <svg class="pdraw" viewBox="0 0 400 260">
+              <!-- the ground everything stands on: tests and restores that pass -->
+              <g transform="translate(-12 34)">
+              <text class="t" x="40" y="74"><tspan class="tp">$</tspan> make verify</text>
+              <text class="t" x="40" y="102"><tspan class="tk">PASS</tspan> unit · e2e · fuzz</text>
+              <text class="t" x="40" y="128"><tspan class="tk">PASS</tspan> a11y · performance</text>
+              <text class="t" x="40" y="154"><tspan class="tk">PASS</tspan> restore drill</text>
+              <text class="t tb" x="40" y="188">5,000+ tests, 0 failed</text>
+              </g>
+            </svg>
+          </div>
         </div>
       </div>
-    </nav>
+    </div>
   </div>
 
   <div class="wrap">
-    <dl class="proof">
-      <div><dt>11</dt><dd>projects, each one specified, tested, documented and released</dd></div>
-      <div><dt>4,503</dt><dd>automated tests across them, run on every change</dd></div>
-      <div><dt>15</dt><dd>self-hosted services in production on a platform I designed and operate</dd></div>
+    <dl class="proof-row">
+      <div><dt>12</dt><dd>projects, each specified, tested and documented</dd></div>
+      <div><dt>5,000+</dt><dd>automated tests across them, run on every change</dd></div>
+      <div><dt>4</dt><dd>Apple platforms from one native codebase</dd></div>
+      <div><dt>15</dt><dd>self-hosted services in production, designed and run by me</dd></div>
     </dl>
   </div>
 </section>
 
-<!-- ============ 01 INTERFACE ============ -->
-<section class="layer" id="interface" data-layer aria-labelledby="interface-h">
-  <div class="wrap layer-head">
-    <span class="layer-no">01</span>
-    <h2 id="interface-h">Interface</h2>
-    <p>Products people use every day. Two installable apps that work offline, with no account and no server behind them.</p>
-  </div>
-
-  <article class="room room--ballast" id="ballast" aria-labelledby="ballast-h">
-    <div class="wrap">
-      <header class="room-head">
-        <div>
-          <h3 id="ballast-h">Ballast</h3>
-          <p class="room-kind">Web app</p>
-        </div>
-        <p class="room-line">Personal finance that turns savings into a salary that lasts.</p>
-      </header>
-      <div class="set" data-rise>
-        <img class="amb" src="assets/img/ballast-glow.webp?v=aa9dd01e" alt="" decoding="async">
-        <figure class="win"><img class="in-dark" loading="lazy" decoding="async" src="assets/img/ballast-d.webp?v=ced12d8e" width="1920" height="1096" alt="Ballast on a desktop: 55.83 USD is safe to spend today, and the road ahead shows 22 salaries left."><img class="in-light" loading="lazy" decoding="async" src="assets/img/ballast-d-light.webp?v=9e148e52" width="1920" height="1096" alt="Ballast on a desktop: 55.83 USD is safe to spend today, and the road ahead shows 22 salaries left."></figure>
-        <figure class="phone"><img class="in-dark" loading="lazy" decoding="async" src="assets/img/ballast-p.webp?v=43f23c62" width="600" height="1298" alt="Ballast on a phone, showing what is safe to spend today."><img class="in-light" loading="lazy" decoding="async" src="assets/img/ballast-p-light.webp?v=492a6c83" width="600" height="1298" alt="Ballast on a phone, showing what is safe to spend today."></figure>
-        <figure class="phone phone--b"><img class="in-dark" loading="lazy" decoding="async" src="assets/img/ballast-p2.webp?v=3866ca0a" width="600" height="1298" alt="Ballast's runway on a phone: the savings drawn as a road that ends in September 2028."><img class="in-light" loading="lazy" decoding="async" src="assets/img/ballast-p2-light.webp?v=98807885" width="600" height="1298" alt="Ballast's runway on a phone: the savings drawn as a road that ends in September 2028."></figure>
-      </div>
-      <div class="room-foot" data-rise>
-        <p class="room-body">Ballast says what is safe to spend today, draws how long the money lasts as a road that ends on a date, and reads bank statements on the device, checking every row against the running balance to the smallest unit.</p>
-        <dl class="figs">
-          <div><dt>599</dt><dd>automated tests, unit and end-to-end</dd></div>
-          <div><dt>40</dt><dd>currencies, in exact whole-number maths</dd></div>
-          <div><dt>100</dt><dd>Lighthouse score on desktop, in all four categories</dd></div>
-          <div><dt>0</dt><dd>accounts, servers or trackers</dd></div>
-        </dl>
-        <ul class="links">
-          <li><a href="work/ballast/">How it was built <svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></a></li>
-          <li class="stack-line">TypeScript · Astro · Preact · IndexedDB · pdf.js · Playwright</li>
-        </ul>
-      </div>
-    </div>
-  </article>
-
-  <article class="room room--ethereal" id="ethereal" aria-labelledby="ethereal-h">
-    <div class="wrap">
-      <header class="room-head">
-        <div>
-          <h3 id="ethereal-h">Ethereal</h3>
-          <p class="room-kind">Web app</p>
-        </div>
-        <p class="room-line">A calm coach for training, food and the shape of the day.</p>
-      </header>
-      <div class="set" data-rise>
-        <img class="amb" src="assets/img/ethereal-glow.webp?v=bee8cf75" alt="" decoding="async">
-        <figure class="win"><img class="in-dark" loading="lazy" decoding="async" src="assets/img/ethereal-d.webp?v=1019ef8c" width="1920" height="1290" alt="Ethereal on a desktop: the day as a timeline, with the next workout due in 23 minutes."><img class="in-light" loading="lazy" decoding="async" src="assets/img/ethereal-d-light.webp?v=d1efafaa" width="1920" height="1290" alt="Ethereal on a desktop: the day as a timeline, with the next workout due in 23 minutes."></figure>
-        <figure class="phone phone--b"><img class="in-dark" loading="lazy" decoding="async" src="assets/img/ethereal-p2.webp?v=b74aaead" width="600" height="1290" alt="Ethereal's guided workout player on a phone."><img class="in-light" loading="lazy" decoding="async" src="assets/img/ethereal-p2-light.webp?v=6a6df539" width="600" height="1290" alt="Ethereal's guided workout player on a phone."></figure>
-        <figure class="phone"><img class="in-dark" loading="lazy" decoding="async" src="assets/img/ethereal-p.webp?v=ceb2b29b" width="600" height="1290" alt="Ethereal's Today screen on a phone."><img class="in-light" loading="lazy" decoding="async" src="assets/img/ethereal-p-light.webp?v=bf6f649c" width="600" height="1290" alt="Ethereal's Today screen on a phone."></figure>
-      </div>
-      <div class="room-foot" data-rise>
-        <p class="room-body">An installable coach that plans the day, guides workouts and tracks nutrition, with no account and no ads; the plan and the diary stay in the browser. Designed, built and delivered end to end.</p>
-        <dl class="figs">
-          <div><dt>397</dt><dd>automated tests, 168 of them end to end</dd></div>
-          <div><dt>41</dt><dd>exercises, each one animated</dd></div>
-          <div><dt>1,474</dt><dd>foods, searchable offline</dd></div>
-          <div><dt>100</dt><dd>Lighthouse score on key pages, with an accessibility sweep against WCAG 2.1 AA</dd></div>
-        </dl>
-        <ul class="links">
-          <li><a href="work/ethereal/">How it was built <svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></a></li>
-          <li class="stack-line">TypeScript · Astro · PWA · Playwright · Lighthouse CI</li>
-        </ul>
-      </div>
-    </div>
-  </article>
-</section>
-
-<!-- ============ 02 INTELLIGENCE ============ -->
-<section class="layer" id="intelligence" data-layer aria-labelledby="intelligence-h">
-  <div class="wrap layer-head">
-    <span class="layer-no">02</span>
-    <h2 id="intelligence-h">Intelligence</h2>
-    <p>A memory that keeps coding agents honest, a workbench that names the right language model for a job, and a way of running agents the way a lead runs a team.</p>
-  </div>
-
-  <article class="room room--holdfast" id="holdfast" aria-labelledby="holdfast-h">
-    <div class="wrap">
-      <header class="room-head">
-        <div>
-          <h3 id="holdfast-h">Holdfast</h3>
-          <p class="room-kind">Command-line tool</p>
-        </div>
-        <p class="room-line">A memory for coding agents in which every fact carries its own proof.</p>
-      </header>
-      <div class="set" data-rise>
-        <img class="amb" src="assets/img/holdfast-glow.webp?v=8fce7fa0" alt="" decoding="async">
-        <figure class="win"><img class="in-dark" loading="lazy" decoding="async" src="assets/img/holdfast-d.webp?v=2b997683" width="1920" height="1260" alt="Holdfast's ledger after two changes to the machine: three facts are no longer true, each with the proof that failed, and the answer an agent is given beside the stale notes file."><img class="in-light" loading="lazy" decoding="async" src="assets/img/holdfast-d-light.webp?v=cedd9eeb" width="1920" height="1260" alt="Holdfast's ledger after two changes to the machine: three facts are no longer true, each with the proof that failed, and the answer an agent is given beside the stale notes file."></figure>
-        <figure class="phone"><img class="in-dark" loading="lazy" decoding="async" src="assets/img/holdfast-p.webp?v=63d13029" width="600" height="1298" alt="Holdfast's ledger on a phone: three broken facts, each struck through with the reason."><img class="in-light" loading="lazy" decoding="async" src="assets/img/holdfast-p-light.webp?v=94909b67" width="600" height="1298" alt="Holdfast's ledger on a phone: three broken facts, each struck through with the reason."></figure>
-        <figure class="phone phone--b"><img class="in-dark" loading="lazy" decoding="async" src="assets/img/holdfast-p2.webp?v=468bf28a" width="600" height="1298" alt="Recall on a phone: a notes file still says Go is pinned to 1.24, and Holdfast answers that the fact is broken."><img class="in-light" loading="lazy" decoding="async" src="assets/img/holdfast-p2-light.webp?v=10c350dc" width="600" height="1298" alt="Recall on a phone: a notes file still says Go is pinned to 1.24, and Holdfast answers that the fact is broken."></figure>
-      </div>
-      <div class="room-foot" data-rise>
-        <p class="room-body">An agent's notes go stale without a sound: the port moves, the version is bumped, the service goes away, and the note still reads as true. Holdfast stores each fact with a check that proves it and runs that check again before the agent is told anything. What no longer holds comes back as broken, with the reason. A fact whose check fails cannot be stored at all, and a check only touches what a person allowed.</p>
-        <dl class="figs">
-          <div><dt>1,651</dt><dd>automated tests, run on Linux and macOS</dd></div>
-          <div><dt>10</dt><dd>kinds of check, from a line in a file to a live endpoint</dd></div>
-          <div><dt>4</dt><dd>tools an agent calls: remember, recall, verify, retract</dd></div>
-          <div><dt>0</dt><dd>Go dependencies: one static 8&nbsp;MB binary</dd></div>
-        </dl>
-        <ul class="links">
-          <li><a href="work/holdfast/">How it was built <svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></a></li>
-          <li class="stack-line">Go standard library · Model Context Protocol · WebAssembly · TypeScript · Preact</li>
-        </ul>
-      </div>
-    </div>
-  </article>
-
-  <article class="room room--evalbench" id="evalbench" aria-labelledby="evalbench-h">
-    <div class="wrap">
-      <header class="room-head">
-        <div>
-          <h3 id="evalbench-h">Evalbench</h3>
-          <p class="room-kind">Self-hosted app</p>
-        </div>
-        <p class="room-line">Names the language model to use for your own job, and shows the proof.</p>
-      </header>
-      <div class="set" data-rise>
-        <img class="amb" src="assets/img/evalbench-glow.webp?v=0ce3ce37" alt="" decoding="async">
-        <figure class="win"><img class="in-dark" loading="lazy" decoding="async" src="assets/img/evalbench-d.webp?v=92c384b5" width="1920" height="1260" alt="Evalbench's verdict page: Use Orion Mini. It gets 22 of 24 right for $0.12 per 1,000 answers, with five models plotted against the bar."><img class="in-light" loading="lazy" decoding="async" src="assets/img/evalbench-d-light.webp?v=533d049a" width="1920" height="1260" alt="Evalbench's verdict page: Use Orion Mini. It gets 22 of 24 right for $0.12 per 1,000 answers, with five models plotted against the bar."></figure>
-        <figure class="phone phone--b"><img class="in-dark" loading="lazy" decoding="async" src="assets/img/evalbench-p.webp?v=609a479e" width="600" height="1298" alt="Blind judging on a phone: an answer scored on the job's rubric, with nothing that names the model."><img class="in-light" loading="lazy" decoding="async" src="assets/img/evalbench-p-light.webp?v=e08ce64c" width="600" height="1298" alt="Blind judging on a phone: an answer scored on the job's rubric, with nothing that names the model."></figure>
-        <figure class="phone"><img class="in-dark" loading="lazy" decoding="async" src="assets/img/evalbench-p2.webp?v=a2374d42" width="600" height="1298" alt="The verdict on a phone: Use Orion Mini, and the bar it had to clear."><img class="in-light" loading="lazy" decoding="async" src="assets/img/evalbench-p2-light.webp?v=1f6218af" width="600" height="1298" alt="The verdict on a phone: Use Orion Mini, and the bar it had to clear."></figure>
-      </div>
-      <div class="room-foot" data-rise>
-        <p class="room-body">Write down what a good answer is, run the models you are considering, and Evalbench names the one to use: the cheapest model that clears your bar, with every number behind the pick on the page. Answers are graded by automatic checks, up to Python tests in a sandbox with no network, and people can rate pairs of answers blind. Every run is frozen, so a regression shows the day it lands.</p>
-        <dl class="figs">
-          <div><dt>291</dt><dd>automated tests, plus sandbox checks in CI</dd></div>
-          <div><dt>7</dt><dd>check types, up to sandboxed Python tests</dd></div>
-          <div><dt>20</dt><dd>tasks in the core battery, graded automatically</dd></div>
-          <div><dt>0</dt><dd>API keys stored; read from the environment</dd></div>
-        </dl>
-        <ul class="links">
-          <li><a href="work/evalbench/">How it was built <svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></a></li>
-          <li class="stack-line">Python · FastAPI · SQLite · React · TypeScript · Docker</li>
-        </ul>
-      </div>
-    </div>
-  </article>
-
+<!-- ============ WHAT I BUILD ============ -->
+<section class="sect" id="build" aria-labelledby="build-h">
   <div class="wrap">
-    <div class="method" data-rise aria-labelledby="agents-h">
-      <h3 id="agents-h">How I run agents</h3>
-      <ol>
-        <li><span>i.</span><h4>Spec and limits</h4><p>What done looks like, what must not break, and the hard limits every agent works inside, all written down before any code is.</p></li>
-        <li><span>ii.</span><h4>Agents build</h4><p>Parallel agents do the implementation or the audit, each with a narrow brief. One build ran as nine coordinated agents; a platform audit as thirteen.</p></li>
-        <li><span>iii.</span><h4>I verify</h4><p>Reviewer and verifier agents judge work they did not write, and I check it again against the spec, on real screens, from the user's side.</p></li>
-      </ol>
-    </div>
+    <header class="sect-head">
+      <span class="sect-no">What I build</span>
+      <h2 id="build-h">Six kinds of work, <span>one standard.</span></h2>
+      <p>The layers of a product are usually split across a team. I work across all of them, so the interface, the logic and the machine it runs on are designed together.</p>
+    </header>
+
+    <ol class="caps">
+      <li class="cap" data-rise>
+        <div class="cap-id">
+          <span class="cap-no">01</span>
+          <svg class="cap-ic" viewBox="0 0 48 48" aria-hidden="true"><rect x="15" y="5" width="18" height="34" rx="4"/><path d="M21 10h6"/><path d="M6 43h36"/></svg>
+          <h3>Native Apple apps</h3>
+          <p class="cap-line">One SwiftUI codebase that feels at home on iPhone, iPad, Mac and Apple TV, built the way Apple builds its own apps.</p>
+        </div>
+        <div class="cap-body">
+          <ul class="cap-list">
+            <li>SwiftUI and SwiftData, with private sync through the user's own iCloud</li>
+            <li>Widgets, Live Activities, App Intents, Swift Charts and system notifications</li>
+            <li>A modular architecture of Swift packages, each with its own tests</li>
+            <li>UI, performance and release-check test suites; distribution through TestFlight</li>
+          </ul>
+          <dl class="cap-figs">
+            <div><dt>4</dt><dd>platforms, one codebase</dd></div>
+            <div><dt>12</dt><dd>Swift modules</dd></div>
+            <div><dt>~700</dt><dd>automated tests</dd></div>
+          </dl>
+        </div>
+      </li>
+
+      <li class="cap" data-rise>
+        <div class="cap-id">
+          <span class="cap-no">02</span>
+          <svg class="cap-ic" viewBox="0 0 48 48" aria-hidden="true"><rect x="4" y="8" width="40" height="30" rx="3"/><path d="M4 16h40"/><path d="M10 24h14M10 30h22"/></svg>
+          <h3>Web apps, services and tools</h3>
+          <p class="cap-line">Installable web apps that work offline, the services behind them, and command-line tools that ship as one file.</p>
+        </div>
+        <div class="cap-body">
+          <ul class="cap-list">
+            <li>Offline-first apps with no account and no server, data kept on the device</li>
+            <li>Services and CLIs in Go, Python and TypeScript; engines compiled to WebAssembly</li>
+            <li>Live interfaces streamed from the server; exact, whole-number money arithmetic</li>
+            <li>SQLite schema design with full-text search, triggers and write-ahead logging</li>
+          </ul>
+          <dl class="cap-figs">
+            <div><dt>100</dt><dd>Lighthouse score, all four categories</dd></div>
+            <div><dt>3</dt><dd>static Go binaries, zero third-party dependencies</dd></div>
+            <div><dt>40</dt><dd>currencies in exact arithmetic</dd></div>
+          </dl>
+        </div>
+      </li>
+
+      <li class="cap" data-rise>
+        <div class="cap-id">
+          <span class="cap-no">03</span>
+          <svg class="cap-ic" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="10" r="4"/><circle cx="10" cy="34" r="4"/><circle cx="38" cy="34" r="4"/><circle cx="24" cy="26" r="3"/><path d="M24 14v9M21.5 28 13 32M26.5 28 35 32"/></svg>
+          <h3>AI and LLM systems</h3>
+          <p class="cap-line">Agents that can be trusted with real work, and the evaluation that proves which model should do a job.</p>
+        </div>
+        <div class="cap-body">
+          <ul class="cap-list">
+            <li>Model evaluation: rubrics, automatic checks, sandboxed code tests with no network</li>
+            <li>Blind pairwise rating scored with Bradley-Terry ratings and confidence intervals</li>
+            <li>Agent memory, tool servers (MCP), hooks, skills and guardrails</li>
+            <li>Multi-agent workflows where independent reviewers judge work they did not write</li>
+          </ul>
+          <dl class="cap-figs">
+            <div><dt>400+</dt><dd>agent runs directed and verified</dd></div>
+            <div><dt>98</dt><dd>agents in the largest coordinated team</dd></div>
+            <div><dt>24/7</dt><dd>operations agent on call, under a written charter</dd></div>
+          </dl>
+        </div>
+      </li>
+
+      <li class="cap" data-rise>
+        <div class="cap-id">
+          <span class="cap-no">04</span>
+          <svg class="cap-ic" viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="6" width="36" height="10" rx="2"/><rect x="6" y="19" width="36" height="10" rx="2"/><rect x="6" y="32" width="36" height="10" rx="2"/><path d="M12 11h2M12 24h2M12 37h2"/></svg>
+          <h3>Infrastructure, security and reliability</h3>
+          <p class="cap-line">Platforms that stay up, are run as code, and can prove their backups, behind carrier-grade NAT with nothing exposed.</p>
+        </div>
+        <div class="cap-body">
+          <ul class="cap-list">
+            <li>Linux, containers, systemd, CI/CD and infrastructure as code with drift checks</li>
+            <li>DNS over HTTPS with DNSSEC, TLS at one reverse proxy, a mesh VPN with zero port forwards</li>
+            <li>Threat models, privilege separation, service sandboxing, secret scanning, firewall internals</li>
+            <li>Monitoring with a dead-man switch, self-healing watchdogs and written runbooks</li>
+          </ul>
+          <dl class="cap-figs">
+            <div><dt>9</dt><dd>backup sets, restored every week to prove them</dd></div>
+            <div><dt>77</dt><dd>alert conditions, 13 uptime probes</dd></div>
+            <div><dt>0</dt><dd>ports forwarded from the internet</dd></div>
+          </dl>
+        </div>
+      </li>
+
+      <li class="cap" data-rise>
+        <div class="cap-id">
+          <span class="cap-no">05</span>
+          <svg class="cap-ic" viewBox="0 0 48 48" aria-hidden="true"><path d="M8 40 30 18l6 6-22 22H8z" transform="translate(0 -4)"/><path d="M28 16l6-6 6 6-6 6"/></svg>
+          <h3>Product design and UX</h3>
+          <p class="cap-line">Interfaces designed for phone and desktop together, accessible by default and checked on real devices.</p>
+        </div>
+        <div class="cap-body">
+          <ul class="cap-list">
+            <li>A design system for each product, in light and dark, with data charts and motion</li>
+            <li>Platform-native design: system components first, nothing painted on</li>
+            <li>Accessibility swept against WCAG 2.1 AA; performance measured, not assumed</li>
+            <li>Information design: one clear answer on screen before any detail</li>
+          </ul>
+          <dl class="cap-figs">
+            <div><dt>AA</dt><dd>WCAG 2.1, swept on key pages</dd></div>
+            <div><dt>2</dt><dd>themes in every product, light and dark</dd></div>
+            <div><dt>0</dt><dd>trackers, cookies or ads</dd></div>
+          </dl>
+        </div>
+      </li>
+
+      <li class="cap" data-rise>
+        <div class="cap-id">
+          <span class="cap-no">06</span>
+          <svg class="cap-ic" viewBox="0 0 48 48" aria-hidden="true"><path d="M4 24h4l3-10 5 22 5-28 5 24 4-12 3 8h11"/></svg>
+          <h3>Video, audio and creative production</h3>
+          <p class="cap-line">Films made with AI image and video models and finished in code, with the engineering that keeps them consistent.</p>
+        </div>
+        <div class="cap-body">
+          <ul class="cap-list">
+            <li>A tested production method: the look is locked and every prompt is checked first</li>
+            <li>A beat tracker written from scratch; signal processing in NumPy</li>
+            <li>Broadcast loudness (EBU R128) and 4K mastering on the GPU with ffmpeg</li>
+            <li>Colour and audio calibration for a home theatre, tuned by measurement</li>
+          </ul>
+          <dl class="cap-figs">
+            <div><dt>4K</dt><dd>GPU mastering, every encode verified</dd></div>
+            <div><dt>R128</dt><dd>broadcast loudness</dd></div>
+            <div><dt>7</dt><dd>tested tools in the pipeline</dd></div>
+          </dl>
+        </div>
+      </li>
+    </ol>
   </div>
 </section>
 
-<!-- ============ 03 INFRASTRUCTURE ============ -->
-<section class="layer" id="infrastructure" data-layer aria-labelledby="infrastructure-h">
-  <div class="wrap layer-head">
-    <span class="layer-no">03</span>
-    <h2 id="infrastructure-h">Infrastructure</h2>
-    <p>A tool that shows what a server really lets in, one calm screen that shows a whole platform at work, and the platform itself: in daily use, designed, secured and operated as code.</p>
+<!-- ============ HOW I WORK ============ -->
+<section class="sect sect--alt" id="method" aria-labelledby="method-h">
+  <div class="wrap">
+    <header class="sect-head">
+      <span class="sect-no">How I work</span>
+      <h2 id="method-h">Specified before it is built, <span>tested before it ships, documented so it runs without me.</span></h2>
+    </header>
+
+    <ol class="flow" data-rise>
+      <li><span class="flow-no">1</span><h3>Specify</h3><p>What done looks like, what must not break, and the hard limits, written down before any code.</p></li>
+      <li><span class="flow-no">2</span><h3>Design</h3><p>The answer the screen must give first, then the system under it: data, failure modes, privacy.</p></li>
+      <li><span class="flow-no">3</span><h3>Build</h3><p>Small, reviewed steps. Agents work to my specification in parallel; I direct and integrate.</p></li>
+      <li><span class="flow-no">4</span><h3>Test</h3><p>Unit, end to end, fuzz and golden tests, then the real device, from the user's side.</p></li>
+      <li><span class="flow-no">5</span><h3>Ship</h3><p>Versioned, checksummed releases with the runbook and the documentation in the box.</p></li>
+    </ol>
+
+    <dl class="bar" data-rise>
+      <div>
+        <dt><svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 8.5 3 3 6-7"/></svg>Tested</dt>
+        <dd>A fix is not done until it is tested from the user's side. A backup is not done until it has been restored.</dd>
+      </div>
+      <div>
+        <dt><svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h6l2.5 2.5v8.5H4zM6 7h4.5M6 9.5h4.5"/></svg>Documented</dt>
+        <dd>Every system ships with a runbook someone else could follow, and every failure gets a written post-mortem.</dd>
+      </div>
+      <div>
+        <dt><svg class="i" viewBox="0 0 16 16" aria-hidden="true"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2"/></svg>Private by design</dt>
+        <dd>No accounts that are not needed, no trackers, data kept on the device or the user's own cloud, secrets never in code.</dd>
+      </div>
+    </dl>
   </div>
+</section>
 
-  <article class="room room--seaward" id="seaward" aria-labelledby="seaward-h">
-    <div class="wrap">
-      <header class="room-head">
-        <div>
-          <h3 id="seaward-h">Seaward</h3>
-          <p class="room-kind">Command-line tool</p>
-        </div>
-        <p class="room-line">Which ports on a Linux server can really be reached from outside, and the rule that decides each one.</p>
-      </header>
-      <div class="set" data-rise>
-        <img class="amb" src="assets/img/seaward-glow.webp?v=add169b4" alt="" decoding="async">
-        <figure class="win"><img class="in-dark" loading="lazy" decoding="async" src="assets/img/seaward-d.webp?v=182743c9" width="1920" height="1440" alt="Seaward's chart of a sample shop server: seven ports can be reached from outside and ufw allows only four of them. The three container ports are drawn as lanes that cross the firewall's shoreline."><img class="in-light" loading="lazy" decoding="async" src="assets/img/seaward-d-light.webp?v=18a490bc" width="1920" height="1440" alt="Seaward's chart of a sample shop server: seven ports can be reached from outside and ufw allows only four of them. The three container ports are drawn as lanes that cross the firewall's shoreline."></figure>
-        <figure class="phone"><img class="in-dark" loading="lazy" decoding="async" src="assets/img/seaward-p.webp?v=d9106410" width="600" height="1298" alt="Seaward on a phone: 7 ports can be reached from outside, ufw allows only 4 of them."><img class="in-light" loading="lazy" decoding="async" src="assets/img/seaward-p-light.webp?v=fd90267c" width="600" height="1298" alt="Seaward on a phone: 7 ports can be reached from outside, ufw allows only 4 of them."></figure>
-        <figure class="phone phone--b"><img class="in-dark" loading="lazy" decoding="async" src="assets/img/seaward-p2.webp?v=c301c604" width="600" height="1298" alt="The passage to port 5432 on a phone: one packet followed rule by rule to the rule that lets it through."><img class="in-light" loading="lazy" decoding="async" src="assets/img/seaward-p2-light.webp?v=e23ea2a9" width="600" height="1298" alt="The passage to port 5432 on a phone: one packet followed rule by rule to the rule that lets it through."></figure>
-      </div>
-      <div class="room-foot" data-rise>
-        <p class="room-body">A firewall's list is what was asked for; the rules the kernel runs are what the server got. Docker publishes a port with rules of its own, and a database answers the whole internet while ufw still reads deny. Seaward reads the rules that are really loaded, follows a packet through them the way the kernel does, and says for every port who can reach it and which rule decides. It only reads: it changes no rule and puts no packet on the network.</p>
-        <dl class="figs">
-          <div><dt>1,212</dt><dd>automated tests, run on every change</dd></div>
-          <div><dt>2,111</dt><dd>real packets sent through the Linux kernel to check it, with no disagreement</dd></div>
-          <div><dt>121</dt><dd>rulesets built inside a real kernel: 81 written, 40 random</dd></div>
-          <div><dt>0</dt><dd>Go dependencies: one static 4&nbsp;MB binary</dd></div>
-        </dl>
-        <ul class="links">
-          <li><a href="work/seaward/">How it was built <svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></a></li>
-          <li class="stack-line">Go standard library · netfilter · WebAssembly · TypeScript · Preact</li>
-        </ul>
-      </div>
-    </div>
-  </article>
+<!-- ============ PROOF WITHOUT EXPOSURE ============ -->
+<section class="sect" id="proof" aria-labelledby="proof-h">
+  <div class="wrap">
+    <header class="sect-head">
+      <span class="sect-no">Proof</span>
+      <h2 id="proof-h">The products stay private. <span>The evidence does not.</span></h2>
+      <p>The work itself is kept private. These are the measurements behind it, counted from the projects themselves.</p>
+    </header>
 
-  <article class="room room--vesper" id="vesper" aria-labelledby="vesper-h">
-    <div class="wrap">
-      <header class="room-head">
-        <div>
-          <h3 id="vesper-h">Vesper</h3>
-          <p class="room-kind">Self-hosted app</p>
-        </div>
-        <p class="room-line">A read-only operations dashboard that answers one question: does anything need you?</p>
-      </header>
-      <div class="set set--video" data-rise>
-        <img class="amb" src="assets/img/vesper-glow.webp?v=f0727fa6" alt="" decoding="async">
-        <div class="win-col">
-          <figure class="win">
-            <video class="in-dark" muted loop playsinline preload="none" poster="assets/img/vesper-live-poster.webp?v=01320f9a" width="1440" height="810" aria-label="Vesper live: the answer turns from “Nothing needs you” to “Home Assistant is down” and one lane of the ribbon turns red.">
-              <source src="assets/img/vesper-live.mp4?v=387dc35e" type="video/mp4">
-            </video><video class="in-light" muted loop playsinline preload="none" poster="assets/img/vesper-live-poster-light.webp?v=793a7b9e" width="1440" height="810" aria-label="Vesper live: the answer turns from “Nothing needs you” to “Home Assistant is down” and one lane of the ribbon turns red.">
-              <source src="assets/img/vesper-live-light.mp4?v=3ca5af24" type="video/mp4">
-            </video>
-          </figure>
-          <p class="vid-bar"><button class="vid" type="button" data-vid aria-label="Play the clip"><svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path class="vid-play" d="M5.5 3.5v9l7-4.500z"/><path class="vid-pause" d="M5.500 3.500v9M10.500 3.500v9"/></svg><span>Play</span></button> 14 seconds of the dashboard on demo data: one service goes down.</p>
-        </div>
-        <figure class="phone phone--b"><img class="in-dark" loading="lazy" decoding="async" src="assets/img/vesper-p.webp?v=3e234f0d" width="600" height="1298" alt="Vesper on a phone when something needs attention: one file differs from the repository."><img class="in-light" loading="lazy" decoding="async" src="assets/img/vesper-p-light.webp?v=89219ca9" width="600" height="1298" alt="Vesper on a phone when something needs attention: one file differs from the repository."></figure>
-        <figure class="phone"><img class="in-dark" loading="lazy" decoding="async" src="assets/img/vesper-p2.webp?v=24101469" width="600" height="1298" alt="Vesper on a phone: nothing needs you, 12 of 12 services up."><img class="in-light" loading="lazy" decoding="async" src="assets/img/vesper-p2-light.webp?v=ecda1a06" width="600" height="1298" alt="Vesper on a phone: nothing needs you, 12 of 12 services up."></figure>
-      </div>
-      <div class="room-foot" data-rise>
-        <p class="room-body">One Go binary reads what the platform's scripts already record and says it in one sentence. The ribbon is the fleet drawn as light, one lane for each service, so an outage can be seen turning. When Vesper cannot confirm something it says so instead of showing an all-clear, and it is read-only by construction.</p>
-        <dl class="figs">
-          <div><dt>7.4 MB</dt><dd>one binary, with the interface inside</dd></div>
-          <div><dt>27 MB</dt><dd>of memory on a Raspberry Pi&nbsp;5</dd></div>
-          <div><dt>191</dt><dd>automated tests, 34 of them end to end under real systemd</dd></div>
-          <div><dt>0</dt><dd>Go dependencies beyond the standard library</dd></div>
-        </dl>
-        <ul class="links">
-          <li><a href="work/vesper/">How it was built <svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></a></li>
-          <li class="stack-line">Go standard library · TypeScript · Preact · Server-Sent Events · systemd sandboxing</li>
-        </ul>
-      </div>
-    </div>
-  </article>
+    <dl class="ledger" data-rise>
+      <div><dt>5,000+</dt><dd>automated tests, run on every change</dd></div>
+      <div><dt>36</dt><dd>versioned, checksummed releases</dd></div>
+      <div><dt>21</dt><dd>CI workflows with accessibility and performance gates</dd></div>
+      <div><dt>12</dt><dd>fuzz targets</dd></div>
+      <div><dt>2,111</dt><dd>differential checks against a real Linux kernel, with no disagreement</dd></div>
+      <div><dt>450</dt><dd>commits of infrastructure as code, and about 4,000 lines of runbooks</dd></div>
+      <div><dt>21</dt><dd>systemd timers, and no cron</dd></div>
+      <div><dt>7</dt><dd>machines on one private mesh network</dd></div>
+    </dl>
 
-  <article class="room room--homelab" id="homelab" aria-labelledby="homelab-h">
-    <div class="wrap">
-      <header class="room-head">
-        <div>
-          <h3 id="homelab-h">Homelab</h3>
-          <p class="room-kind">Platform</p>
-        </div>
-        <p class="room-line">Fifteen services on one small machine, run as code, with backups that are proven every week.</p>
+    <aside class="walk" data-rise>
+      <p><b>Want to see the work itself?</b> I walk through products, code and test results privately, on a call.</p>
+      <a class="btn btn--ink" href="mailto:ali@gallowforge.dev?subject=Walkthrough">Ask for a walkthrough <svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
+    </aside>
+  </div>
+</section>
+
+<!-- ============ TOOLKIT ============ -->
+<section class="sect sect--alt" id="toolkit" aria-labelledby="toolkit-h">
+  <div class="wrap">
+    <header class="sect-head">
+      <span class="sect-no">Toolkit</span>
+      <h2 id="toolkit-h">The right tool, <span>not the familiar one.</span></h2>
+    </header>
+    <dl class="kit" data-rise>
+      <div><dt>Languages</dt><dd>Swift · Go · Python · TypeScript and JavaScript · Bash · SQL · C · C++ · HTML and CSS · Standard ML · Prolog · R · x86-64 and MIPS assembly</dd></div>
+      <div><dt>Apple</dt><dd>SwiftUI · SwiftData · CloudKit · WidgetKit · ActivityKit · App Intents · Swift Charts · TipKit · XCTest and Swift Testing · Xcode · TestFlight</dd></div>
+      <div><dt>Web</dt><dd>Astro · Preact · React · Tailwind CSS · Vite · IndexedDB · Server-Sent Events · WebAssembly · Canvas and WebGL</dd></div>
+      <div><dt>Back end and data</dt><dd>Go standard library · FastAPI and Pydantic · SQLite with full-text search · JSON APIs and JSON Schema</dd></div>
+      <div><dt>Quality</dt><dd>Vitest · Playwright · axe · Lighthouse CI · Go fuzzing and the race detector · pytest · ShellCheck · gitleaks</dd></div>
+      <div><dt>Infrastructure</dt><dd>Linux (Debian, Arch, Ubuntu) · Docker and Compose · systemd · Caddy · WireGuard mesh VPN · GitHub Actions · Raspberry Pi</dd></div>
+      <div><dt>AI</dt><dd>Coding agents with hooks, skills and subagents · MCP tool servers · model APIs and local inference · image, video, voice and music models</dd></div>
+      <div><dt>Media</dt><dd>ffmpeg · GPU encoding · EBU R128 loudness · NumPy signal processing · colour and audio calibration</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- ============ BACKGROUND + ENGAGEMENTS ============ -->
+<section class="sect" id="background" aria-labelledby="bg-h">
+  <div class="wrap two">
+    <div class="col">
+      <header class="sect-head sect-head--tight">
+        <span class="sect-no">Background</span>
+        <h2 id="bg-h">Computer Science and Engineering</h2>
       </header>
-      <div class="split" data-rise>
-        <div class="split-main">
-        <figure class="term" aria-label="The weekly restore drill, run by hand">
-<pre><span class="l"><span class="t-p">pi@raspberrypi:~/docker$</span> sudo _host/backup-restore-test.sh</span><span class="l"><b>PASS</b> <i>adguard</i>: AdGuardHome.yaml present with http/dns sections</span><span class="l"><b>PASS</b> <i>couchdb</i>: 8 .couch files (live 8), docker.ini present</span><span class="l"><b>PASS</b> <i>kuma</i>: integrity_check ok, monitor=13 (live now 13)</span><span class="l"><b>PASS</b> <i>vaultwarden</i>: integrity_check ok, ciphers=412 (live now 412)</span><span class="l"><b>PASS</b> <i>dockge</i>: integrity_check ok, user=1 (live now 1)</span><span class="l"><b>PASS</b> <i>syncthing</i>: key.pem + parseable cert.pem + config.xml</span><span class="l"><b>PASS</b> <i>homeassistant</i>: tar opens, backup.json, link count 2</span><span class="l"><b>PASS</b> <i>platform</i>: bundle clones (146 files, 0 commits behind)</span><span class="l"><b>PASS</b> <i>secrets</i>: 6 files, all identical to live (contents not shown)</span><span class="l">restore test: <b>9 passed, 0 failed</b></span><span class="l"><span class="t-p">pi@raspberrypi:~/docker$</span> <span class="t-c"></span></span></pre>
-        </figure>
-        <dl class="figs figs--row">
-          <div><dt>15</dt><dd>services, on one small machine</dd></div>
-          <div><dt>43</dt><dd>automated tests, run on every change</dd></div>
-          <div><dt>9</dt><dd>backup sets, restored every week to prove them</dd></div>
-          <div><dt>0</dt><dd>ports forwarded from the internet</dd></div>
-        </dl>
-      <ul class="links links--under">
-          <li><a href="work/homelab/">How it was built <svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></a></li>
-        <li class="stack-line">Linux · Docker Compose · systemd · Caddy · WireGuard · DNS · Bash · Python</li>
+      <p class="col-lede">Grounded in the whole discipline, from logic gates to distributed systems, and sharpened by continuous self-study and by shipping real things.</p>
+      <ul class="found" data-rise>
+        <li><b>Programming</b> C and C++ with object-oriented design, functional programming in Standard ML, logic programming in Prolog</li>
+        <li><b>Algorithms</b> Data structures, dynamic programming, graph algorithms, network flow, NP-completeness</li>
+        <li><b>Systems</b> Assembly, digital logic, pipelining, caches, virtual memory, processes, threads and file systems</li>
+        <li><b>Networks</b> TCP/IP, routing and NAT, congestion control, network security, distributed systems</li>
+        <li><b>Data</b> The relational model, SQL, transactions, concurrency control and recovery</li>
+        <li><b>Theory and maths</b> Automata, computability, complexity, linear algebra, probability and statistics</li>
+        <li><b>Security and AI</b> Cryptography, access control, web security, search, reasoning and learning</li>
+        <li><b>Open source</b> Found and fixed a long-standing bug in a self-hosted app that its maintainers had missed</li>
       </ul>
-        </div>
-        <dl class="facts">
-          <div><dt>Network</dt><dd>Remote access behind carrier-grade NAT with zero port forwards: a 7-node mesh VPN, split-horizon DNS and one audited public endpoint.</dd></div>
-          <div><dt>Backup and recovery</dt><dd>Every set written and verified nightly, copies on three machines, a restore drill every week and a written bare-metal rebuild plan.</dd></div>
-          <div><dt>Observability</dt><dd>77 alert conditions, 13 uptime probes every 60 seconds, self-healing watchdogs and an external dead-man switch.</dd></div>
-          <div><dt>As code</dt><dd>450 commits, 21 systemd timers and no cron, a tool that proves the live machine still matches git, and about 4,000 lines of runbooks.</dd></div>
-          <div><dt>Operations</dt><dd>An always-on AI operations agent is on call: it wakes on alerts, works inside a written charter, and logs every change.</dd></div>
-        </dl>
-      </div>
     </div>
-  </article>
-</section>
-
-<!-- ============ 04 TOOLS ============ -->
-<section class="layer" id="tools" data-layer aria-labelledby="tools-h">
-  <div class="wrap layer-head">
-    <span class="layer-no">04</span>
-    <h2 id="tools-h">Tools</h2>
-    <p>Small things built properly: four tools and methods, each with its own tests and documentation.</p>
-  </div>
-  <div class="wrap bench">
-    <div class="bench-term">
-      <div class="tabs" role="tablist" aria-label="Tools">
-        <button role="tab" id="tab-guard" aria-controls="pane-guard" aria-selected="true">agent-guardrails</button>
-        <button role="tab" id="tab-aih" aria-controls="pane-aih" aria-selected="false" tabindex="-1">aih</button>
-        <button role="tab" id="tab-bwtidy" aria-controls="pane-bwtidy" aria-selected="false" tabindex="-1">bwtidy</button>
-        <button role="tab" id="tab-filmforge" aria-controls="pane-filmforge" aria-selected="false" tabindex="-1">filmforge</button>
-      </div>
-      <figure class="term term--tabs">
-<pre role="tabpanel" id="pane-guard" aria-labelledby="tab-guard"><span class="l"><span class="t-p">$</span> echo '{"hook_event_name":"PreToolUse",</span><span class="l">  "tool_name":"Bash","tool_input":{"command":</span><span class="l">  "rm -rf build &amp;&amp; chmod 777 ."}}' \</span><span class="l">  | sh .claude/hooks/advisory-guard.sh</span><span class="l">{"hookSpecificOutput":</span><span class="l"> {"hookEventName": "PreToolUse",</span><span class="l">  "additionalContext":</span><span class="l">  "<em>Advisory (non-blocking): this command looks</em></span><span class="l">  <em>like it involves recursive force-delete;</em></span><span class="l">  <em>world-writable permissions.</em> Proceeding, but</span><span class="l">  double-check the target/scope before it runs</span><span class="l">  again unattended."}}</span><span class="l"><span class="t-p">$</span> <span class="t-c"></span></span></pre>
-<pre role="tabpanel" id="pane-aih" aria-labelledby="tab-aih" hidden><span class="l"><span class="t-p">$</span> aih search "fts5 tokenizer" --talk -n 3</span><span class="l"><b>2025-10-30</b> <i>chatgpt-alex</i> · Accent-insensitive search in SQLite</span><span class="l">   The simplest way is an FTS5 table whose tokenizer removes diacritics…</span><span class="l"><b>2026-01-18</b> <i>claude-web</i> · Finding José when searching for jose</span><span class="l">   …Which FTS5 tokenizer should I use?</span><span class="l"><b>2026-02-11</b> <i>claude-code-laptop</i> · Add full-text search to the notes CLI</span><span class="l">   …An FTS5 index over `notes(title, body)` with the `unicode61</span><span class="l">   remove_diacritics 2` tokenizer, so accents fold.</span><span class="l"><span class="t-p">$</span> <span class="t-c"></span></span></pre>
-<pre role="tabpanel" id="pane-bwtidy" aria-labelledby="tab-bwtidy" hidden><span class="l"><span class="t-d t-rule">================================================================</span></span><span class="l">NOT TOUCHED IN 3+ YEARS  (1)</span><span class="l"><span class="t-d t-rule">================================================================</span></span><span class="l">Age alone is not a problem. Worth a look for dead accounts to delete.</span><span class="l">&nbsp;</span><span class="l"><span class="t-row"><span>   7.7 yrs  Old Forum</span><span>[No Folder]</span></span></span><span class="l">&nbsp;</span><span class="l"><b>13 item(s) flagged. Nothing was changed.</b></span><span class="l">Highest value first: reused passwords, then no-2FA on critical accounts.</span><span class="l"><span class="t-p">$</span> <span class="t-c"></span></span></pre>
-<pre role="tabpanel" id="pane-filmforge" aria-labelledby="tab-filmforge" hidden><span class="l"><span class="t-p">the-lantern-moth $</span> ledger.py prompts continuity.yaml --prompts prompts --style style-lock.yaml --shotlist shotlist.yaml</span><span class="l"><em>ERROR</em>   <i>s03</i>: moth's scale lock is missing ("its wingspan equals a child's open hand, never smaller than a palm and never larger than a face")</span><span class="l">prompts (6 checked): 1 error(s), 0 warning(s)</span><span class="l"><span class="t-p">the-lantern-moth $</span> <span class="t-c"></span></span></pre>
-      </figure>
+    <div class="col" id="engage">
+      <header class="sect-head sect-head--tight">
+        <span class="sect-no">Engagements</span>
+        <h2>What you can hand me</h2>
+      </header>
+      <ul class="hand" data-rise>
+        <li><h3>A product, from a blank page</h3><p>Specification, design, build and release, with the tests and the documentation.</p></li>
+        <li><h3>A native app for Apple platforms</h3><p>iPhone first, or all four at once, designed to feel like part of the system.</p></li>
+        <li><h3>AI evaluation and training work</h3><p>Rubrics, grading, model comparison and careful written judgement.</p></li>
+        <li><h3>Infrastructure you can rely on</h3><p>Self-hosting, hardening, HTTPS, monitoring and backups that are proven by restoring them.</p></li>
+        <li><h3>An honest audit</h3><p>A system you already run, checked for what is exposed, fragile or untested, with a plan.</p></li>
+      </ul>
     </div>
-    <ul class="rows">
-      <li><div class="row"><h3>agent-guardrails</h3><p>The review and verification agents I run on every project, and a hook that warns a coding agent before a destructive command runs.</p><span>36 tests</span></div></li>
-      <li><div class="row"><h3>aih</h3><p>Every AI conversation from every machine in one local full-text index, ingested hourly and searchable in milliseconds.</p><span>31 tests</span></div></li>
-      <li><div class="row"><h3>bwtidy</h3><p>Audits and tidies a password vault on the machine it lives on, with a plan you approve before anything changes.</p><span>12 tests</span></div></li>
-      <li><div class="row"><h3>filmforge</h3><p>A tested production method for painted films made with AI models: the story is priced, the look is locked and every prompt is linted before it costs a credit.</p><span>40 tests</span></div></li>
-    </ul>
-  </div>
-</section>
-
-<!-- ============ THE WAY I WORK ============ -->
-<section class="standard" aria-labelledby="standard-h">
-  <div class="wrap">
-    <h2 id="standard-h">Specified before it is built, tested before it ships, documented so it runs without me.</h2>
-    <dl class="disciplines" data-rise>
-      <div><dt>Software and web products</dt><dd>Python, TypeScript, Go, Bash, SQL and C/C++: offline-first apps, services and command-line tools, with the documentation that ships with them.</dd></div>
-      <div><dt>AI and LLM engineering</dt><dd>Agents and multi-agent workflows, model evaluation with automatic checks and blind human rating, prompt systems, guardrails, retrieval and search.</dd></div>
-      <div><dt>Cloud, DevOps and SRE</dt><dd>Linux, containers, systemd, CI/CD, infrastructure as code, scheduled automation, monitoring and incident response.</dd></div>
-      <div><dt>Networking and security</dt><dd>DNS, TLS, mesh VPN, firewalls, service sandboxing, intrusion prevention, encryption and secrets handling.</dd></div>
-      <div><dt>Backup and disaster recovery</dt><dd>Verified backups, copies on three machines, automated restore drills and rebuild runbooks.</dd></div>
-      <div><dt>Product design</dt><dd>Interfaces designed for phone and desktop together, accessible by default, measured with real devices and automated audits.</dd></div>
-    </dl>
   </div>
 </section>
 
 <!-- ============ CONTACT ============ -->
 <section class="contact" id="contact" aria-labelledby="contact-h">
   <div class="wrap">
-    <h2 id="contact-h">Open to remote work.</h2>
+    <h2 id="contact-h">Open to remote work. <span>Let’s build the thing properly.</span></h2>
     <p class="contact-mail"><a href="mailto:ali@gallowforge.dev">ali@gallowforge.dev</a><button class="mail-copy" type="button" data-copy="ali@gallowforge.dev" aria-label="Copy the email address">Copy</button></p>
     <ul class="contact-links">
-      <li><a href="https://github.com/gallowforge" rel="me">GitHub <svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></a></li>
-      <li><a href="assets/Ali-Husain-CV.pdf">CV, three pages <svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v8M4.5 7.5 8 11l3.5-3.5M3 13.5h10"/></svg></a></li>
+      <li><a href="assets/Ali-Husain-CV.pdf">CV, designed <svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v8M4.5 7.5 8 11l3.5-3.5M3 13.5h10"/></svg></a></li>
       <li><a href="assets/Ali-Husain-CV-plain.pdf">CV, plain text <svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v8M4.5 7.5 8 11l3.5-3.5M3 13.5h10"/></svg></a></li>
+      <li><a href="https://github.com/gallowforge" rel="me">GitHub <svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></a></li>
       <li class="where">Remote, on UTC+3: the full European working day overlaps.</li>
     </ul>
   </div>
@@ -430,10 +426,10 @@
 <footer class="foot">
   <div class="wrap foot-in">
     <span>Ali Husain</span>
-    <span>No trackers, no cookies. <a href="https://github.com/gallowforge/gallowforge.github.io">This page's source</a></span>
+    <span>No trackers, no cookies. Written by hand.</span>
   </div>
 </footer>
 
-<script src="assets/main.js?v=a54a3019a9" defer></script>
+<script src="assets/main.js?v=cap1" defer></script>
 </body>
 </html>
