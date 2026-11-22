@@ -71,3 +71,7 @@
   .case-row { grid-template-columns: minmax(0, 1fr); gap: 16px; }
   .case-list, .case-proof { grid-template-columns: minmax(0, 1fr); gap: 24px; }
 }
+
+/* A small tool listed without a link (its repository is no longer public): the same row as `.rows a`. */
+.rows .row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px 24px; padding: 19px 0 20px; border-top: 1px solid var(--line); }
+.rows li:last-child .row { border-bottom: 1px solid var(--line); }
