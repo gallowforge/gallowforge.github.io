@@ -27,11 +27,9 @@
     try { localStorage.setItem(KEY, next); } catch (e) {}
   });
 
-  // Old anchors from the project-by-project page land on the nearest section.
-  var moved = { '#interface': '#build', '#intelligence': '#build', '#infrastructure': '#build', '#tools': '#toolkit', '#work': '#build' };
-  if (/^#(ballast|ethereal|holdfast|evalbench|seaward|vesper|homelab|ledger|cockpit)$/.test(location.hash)) moved[location.hash] = '#build';
-  if (moved[location.hash]) {
-    var to = moved[location.hash];
+  // An old anchor that no longer exists on this page lands on the work section.
+  if (location.hash.length > 1 && !document.getElementById(location.hash.slice(1))) {
+    var to = location.hash === '#tools' ? '#toolkit' : '#build';
     try { history.replaceState(null, '', to); } catch (e) {}
     var target = document.querySelector(to);
     if (target) target.scrollIntoView();

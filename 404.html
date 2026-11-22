@@ -9,8 +9,8 @@
 <meta name="theme-color" content="#07090c">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <script>
-  // Addresses of the old project pages and demos go to the home page.
-  if (/^\/(work|ledger|ballast|ethereal|holdfast|evalbench|seaward|vesper|homelab|filmforge|cockpit)(\/|$)/i.test(location.pathname)) location.replace('/');
+  // Old addresses (project pages and demos that are no longer published) go to the home page.
+  if (location.pathname !== '/404.html') location.replace('/');
   // The page keeps the theme chosen on the portfolio.
   try { if (localStorage.getItem('portfolio:theme') === 'light') { document.documentElement.setAttribute('data-theme', 'light'); document.querySelector('meta[name="color-scheme"]').content = 'light'; document.querySelector('meta[name="theme-color"]').content = '#f6f7f9'; } } catch (e) {}
 </script>

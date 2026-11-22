@@ -205,12 +205,12 @@ h2 { color: var(--ink); font-size: clamp(30px, 4vw, 52px); line-height: 1.04; le
 .bar dt .i { width: 18px; height: 18px; color: var(--ok); }
 .bar dd { margin-top: 10px; font-size: 14.5px; line-height: 1.55; }
 
-/* Proof: a ledger of measurements. */
-.ledger { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--line-2); border-left: 1px solid var(--line); }
-.ledger > div { padding: 26px 24px 28px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); transition: background .3s; }
-.ledger > div:hover { background: var(--tint); }
-.ledger dt { color: var(--ink); font-size: clamp(32px, 3.4vw, 46px); font-weight: 600; letter-spacing: -.045em; line-height: 1; font-variant-numeric: tabular-nums; }
-.ledger dd { margin-top: 12px; font-size: 14.5px; line-height: 1.45; color: var(--muted); }
+/* Proof: a grid of measurements. */
+.measures { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--line-2); border-left: 1px solid var(--line); }
+.measures > div { padding: 26px 24px 28px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); transition: background .3s; }
+.measures > div:hover { background: var(--tint); }
+.measures dt { color: var(--ink); font-size: clamp(32px, 3.4vw, 46px); font-weight: 600; letter-spacing: -.045em; line-height: 1; font-variant-numeric: tabular-nums; }
+.measures dd { margin-top: 12px; font-size: 14.5px; line-height: 1.45; color: var(--muted); }
 .walk { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 24px; margin-top: 28px; padding: 22px 24px; border: 1px solid var(--line-2); border-radius: 16px;
   background: radial-gradient(120% 180% at 100% 0%, rgba(var(--glow), .07), transparent 60%); }
 .walk p { font-size: 16px; color: var(--body); }
@@ -276,7 +276,7 @@ h2 { color: var(--ink); font-size: clamp(30px, 4vw, 52px); line-height: 1.04; le
   .flow p { margin-top: 4px; }
   .bar { grid-template-columns: 1fr; }
   .bar > div + div { border-left: 0; border-top: 1px solid var(--line); }
-  .ledger { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .measures { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .kit { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .two { grid-template-columns: 1fr; }
 }
@@ -301,8 +301,8 @@ h2 { color: var(--ink); font-size: clamp(30px, 4vw, 52px); line-height: 1.04; le
   .cap-figs { gap: 12px; }
   .cap-figs dt { font-size: 21px; }
   .cap-figs dd { font-size: 12.5px; }
-  .ledger > div { padding: 20px 16px 22px; }
-  .ledger dd { font-size: 13.5px; }
+  .measures > div { padding: 20px 16px 22px; }
+  .measures dd { font-size: 13.5px; }
   .kit { grid-template-columns: 1fr; }
   .found li { grid-template-columns: 1fr; gap: 3px; }
   .walk { padding: 20px; }
